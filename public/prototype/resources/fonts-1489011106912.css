@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url("../fonts/Raleway-Regular.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Raleway-Regular.woff") format("woff"), 
+       url("../fonts/Raleway-Regular.ttf")  format("truetype"),
+       url("../fonts/Raleway-Regular.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: "HomemadeApple-Regular";
+  src: url("../fonts/HomemadeApple-Regular.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/HomemadeApple-Regular.woff") format("woff"), 
+       url("../fonts/HomemadeApple-Regular.ttf")  format("truetype"),
+       url("../fonts/HomemadeApple-Regular.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url("../fonts/Raleway-Bold.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Raleway-Bold.woff") format("woff"), 
+       url("../fonts/Raleway-Bold.ttf")  format("truetype"),
+       url("../fonts/Raleway-Bold.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Roboto-Regular.woff") format("woff"), 
+       url("../fonts/Roboto-Regular.ttf")  format("truetype"),
+       url("../fonts/Roboto-Regular.svg#svgFontName") format("svg");
+}
