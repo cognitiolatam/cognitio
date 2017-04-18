@@ -5,6 +5,7 @@ var pg = require('pg');
 var db = require('./js/db');
 var controllers = require('./js/controllers');
 var async = require('async');
+
 /*Enable or disable Log entries*/
 var log = true;
 //var log = false;
