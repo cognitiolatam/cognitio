@@ -1,28 +1,31 @@
+/*-------Initial Setup----*/
 var express = require('express');
 var app = express();
+var pg = require('pg');
+var db = require('./js/db');
+var controllers = require('./js/controllers');
+var async = require('async');
+/*Enable or disable Log entries*/
+var log = true;
+//var log = false;
 
+
+
+/*--------------------AppServer setup-----------------------------------------------------*/
 app.set('port', (process.env.PORT || 5000));
-
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + '/public')); /*---static root---*/
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
+  if(log) console.log("Log ENABLED."); else console.log("Log DISABLED.");
 });
 
+/*--------------------Setting up------------------------------------------------------*/
+db._setupDB(pg, log);
+controllers._setupControllers(db, async, log);
 
-// Pages get
+/*--------------------API----------------------------------------------------------------*/
+
 app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-app.get('/to', function(request, response) {
-  response.render('pages/to');
-});
-
-app.get('/from', function(request, response) {
-  response.render('pages/from');
+	//auth here
+	response.redirect('/index.html');
 });
