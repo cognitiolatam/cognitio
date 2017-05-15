@@ -28,6 +28,19 @@ body{
 	border-top: 1px solid #999;
 }
 
+/***Clases pisadas metronic***/
+.page-header{
+	height: 65px!important;
+}
+
+.page-header .page-header-top {
+    height: 65px!important;
+}
+
+.page-header .page-header-top .page-logo{
+	 height: 65px!important;
+}
+
 /********-----------********/
 
 /**Menu**/
@@ -234,6 +247,13 @@ body{
 
 #apps .download{
 	margin-top: 80px
+}
+
+/**Lista de profesores**/
+#profesores-result,#profesor-result{
+	padding-top: 80px;
+	padding-bottom: 80px;
+	background-color: #f5f5f5;
 }
 
 /**Footer**/
