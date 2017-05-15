@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="menu-transparent">
     <nav class="navbar navbar-default navbar-fixed-top" id="menu">
       <div class="container">
         <div class="navbar-header">
@@ -32,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png"></a>
+          <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png" class="logo-img"><img src="images/logo-b.png" class="logo-b-img"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -49,6 +49,8 @@
               </ul>
             </li> -->
             <li><a href="#">Registrate</a></li>
+            <li><a href="#">Destacados</a></li>
+            <li><a href="#">Descarga</a></li>
             <li><a href="#">Cognitio</a></li>
           </ul>
         </div>
@@ -317,6 +319,18 @@
               }
           });
           modal_add_content.addClass("modal-add");
+      });
+
+      $( window ).scroll(function() {
+          var height = $(window).scrollTop();
+
+          if(height  > 80) {
+              $("body").removeClass( "menu-transparent" );
+              $(".logo-b-img").hide();
+          }else{
+              $("body").addClass( "menu-transparent" );
+              $(".logo-b-img").show();
+          }
       });
      
     });
