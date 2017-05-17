@@ -1,7 +1,7 @@
 /*--------------------Initial Setup----------------------------------------*/
 /*-------------------------------------------------------------------------*/
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const app = express();
 const db = require('./js/db');
 const pg = require('pg');
@@ -17,8 +17,8 @@ const testData = true;
 /*-------------------------------------------------------------------------*/
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public')); /*---static root---*/
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   if(log) console.log('Log ENABLED.'); else console.log('Log DISABLED.');

@@ -123,6 +123,14 @@ var self = {
 	_createTestData: function(conn) {		
 		const forc = true; //IMPORTANT: CHANGE TO FALSE BEFORE GOING INTO PROD.
 		conn.sync({force: forc}).then(function () {
+            self.Professor.create({
+                userid: 1,
+                cuil: 20123456789,
+                individualPrice:100,
+                groupPrice: 200
+            }).then(function (professor) {
+                if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
+            });
 			if(log) console.log('\x1b[32m', "[DB] MODELS: Tables dropped and recreated.",'\x1b[0m');
         });
 	}

@@ -77,7 +77,7 @@
                       <label>Materia</label><br>
                       <input type="email" class="form-control">
                     </div>
-                    <input type="submit" class="btn btn-default" id="buscar" onclick="location.href='profesores.html';" value="Buscar">
+                    <input type="" class="btn btn-default" id="buscar" onclick="_getAllProfessors(); " value="Buscar">
                   </form>
                 </div>
               </div>
@@ -92,7 +92,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
               <div id="owl-demo" class="owl-carousel owl-theme">
-                <div class="item mat">
+                <div id="professorsList" class="item mat">
                   <a href="profesor.html">
                     <div class="datos-img"><img src="http://lorempixel.com/100/100/" alt="..." class="img-circle"></div>
                     <div class="datos-nombre">Maria de las Mercedes</div>
@@ -290,10 +290,17 @@
     <!--Owl Carousel -->
     <script src="js/owl.carousel.js"></script>
 
+    <!-- Models -->
+    <script src="js/models/professors.js"></script>
+
     <!--Bootbox-->
     <script src="assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
+        var Models = window.cognitio = {
+            "professors":{}
+        };
+
       $(document).ready(function() {
      
       $("#owl-demo").owlCarousel({
