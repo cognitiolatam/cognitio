@@ -9,11 +9,13 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
+"dependencies": {
+    "async": "2.3.0",
+    "body-parser": "^1.17.1",
     "ejs": "2.4.1",
     "express": "4.13.3",
-	"pg": "6.x",
-	"async": "2.3.0"
+    "pg": "6.x",
+    "sequelize": "^3.30.4"
   },
   "repository": {
     "type": "git",
