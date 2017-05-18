@@ -33,10 +33,6 @@ controllers._setupControllers(db, async, log);
 
 
 
-
-
-
-
 /*-------------------------------------------------------------------------*/
 /*--------------------API--------------------------------------------------*/
 /*-------------------------------------------------------------------------*/
@@ -63,26 +59,31 @@ app.get('/', function(request, response) {
 app.route('/users')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Users list request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log('[REQUEST] Called /users GET (All).');
-		controllers.User._getAllUsers(response);
+		if(log) console.log('[REQUEST] /users GET (All).');
+		controllers.User._getAll(response);
 	})
 	.post(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /users POST. New FB ID: ", request.body.fbID);
-		controllers.User._createUser(request.body, response);
+		if(log) console.log("[REQUEST] /users POST. New ID: ", request.body.id);
+		controllers.User._create(request.body, response);
 	});
 
 // /Users/:id
 //	GET:	Retrieves information about an specific users. Parameters: ?FBID=;
 //	PUT:	Update information of an specific user.
+//	DELETE: Delete user.
 app.route('/users/:id')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. User ID request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /users/:id GET. ID: " + request.params.id);
-		controllers.User._getByFBID(request.params.id, response);
+		if(log) console.log("[REQUEST] /users/:id GET. ID: " + request.params.id);
+		controllers.User._getByID(request.params.id, response);
 	})
 	.put(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /users/:id PUT. Params: " + request.body.fbID);
+		if(log) console.log("[REQUEST] /users/:id PUT. ID: " + request.params.id);
 		controllers.User._updateByID(request.body, response);
+	})
+	.delete(function(request, response, next) {
+		if(log) console.log("[REQUEST] /users/:id DELETE. ID: " + request.params.id);
+		controllers.User._deleteByID(request.body, response);
 	});
 
 	
@@ -95,12 +96,12 @@ app.route('/users/:id')
 app.route('/professors')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Professors list request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log('[REQUEST] Called /professors GET (All).');
-		controllers.Professor._getAllProfessors(response);
+		if(log) console.log('[REQUEST] /professors GET (All).');
+		controllers.Professor._getAll(response);
 	})
 	.post(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /professors POST. New user ID: ", request.body.userid);
-		controllers.Professor._createProfessor(request.body, response);
+		if(log) console.log("[REQUEST] /professors POST. User ID: ", request.body.userid);
+		controllers.Professor._create(request.body, response);
 	});
 
 // /Professors/:id
@@ -109,11 +110,11 @@ app.route('/professors')
 app.route('/professors/:id')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Professor ID request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /professors/:id GET. ID: " + request.params.id);
+		if(log) console.log("[REQUEST] /professors/:id GET. ID: " + request.params.id);
 		controllers.Professor._getByID(request.params.id, response);
 	})
 	.put(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /professors/:id PUT. ID: " + request.body.professorid);
+		if(log) console.log("[REQUEST] /professors/:id PUT. ID: " + request.body.professorid);
 		controllers.Professor._updateByID(request.body, response);
 	});	
 
@@ -122,7 +123,7 @@ app.route('/professors/:id')
 app.route('/professors/:id/classes')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons created by a professor request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /professor/:id/lessons GET. ID: " + request.params.id);
+		if(log) console.log("[REQUEST] /professor/:id/lessons GET. ID: " + request.params.id);
 		controllers.User._getAllLessonsByProfessor(request.params.id, response);
 	});
 
@@ -136,11 +137,11 @@ app.route('/professors/:id/classes')
 app.route('/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /lessons GET. Query: " + request.params.q);
+		if(log) console.log("[REQUEST] /lessons GET. Query: " + request.params.q);
 		controllers.Lesson._getAllLessons(response);
 	})
 	.post(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /lessons POST. Professor ID: " + request.body.professorid);
+		if(log) console.log("[REQUEST] /lessons POST. Professor ID: " + request.body.professorid);
 		controllers.Lesson._createLesson(request.body, response);
 	});
 
@@ -150,11 +151,11 @@ app.route('/lessons')
 app.route('/lessons/:id')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lesson ID request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /lessons/:id GET. ID: " + request.params.id);
+		if(log) console.log("[REQUEST] /lessons/:id GET. ID: " + request.params.id);
 		controllers.Lesson._getByID(request.params.id, response);
 	})
 	.put(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /lessons/:id PUT. ID: " + request.body.lessonid);
+		if(log) console.log("[REQUEST] /lessons/:id PUT. ID: " + request.body.lessonid);
 		controllers.Lesson._updateByID(request.body, response);
 	});	
 
@@ -163,7 +164,7 @@ app.route('/lessons/:id')
 app.route('/lessons/:id/students')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /lessons/:id/students GET.");
+		if(log) console.log("[REQUEST] /lessons/:id/students GET.");
 		controllers.Lesson._getAllStudentsByLesson(request.params.id, response);
 	})
 	
@@ -176,11 +177,11 @@ app.route('/lessons/:id/students')
 app.route('/students')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Students list request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /students GET. Query: " + request.params.q);
+		if(log) console.log("[REQUEST] /students GET. Query: " + request.params.q);
 		controllers.Student._getAllStudents(response);
 	})
 	.post(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /students POST. Students (User) ID: " + request.body.userid);
+		if(log) console.log("[REQUEST] /students POST. Students (User) ID: " + request.body.userid);
 		controllers.Student._createStudent(request.body, response);
 	});
 
@@ -190,11 +191,11 @@ app.route('/students')
 app.route('/students/:id')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Students ID request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /students/:id GET. ID: " + request.params.id);
+		if(log) console.log("[REQUEST] /students/:id GET. ID: " + request.params.id);
 		controllers.Student._getByID(request.params.id, response);
 	})
 	.put(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /students/:id PUT. ID: " + request.body.studentid);
+		if(log) console.log("[REQUEST] /students/:id PUT. ID: " + request.body.studentid);
 		controllers.Student._updateByID(request.body, response);
 	});	
 
@@ -203,7 +204,7 @@ app.route('/students/:id')
 app.route('/students/:id/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons of an student request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] Called /students/:id/lessons GET. ID: " + request.params.id);
+		if(log) console.log("[REQUEST] /students/:id/lessons GET. ID: " + request.params.id);
 		controllers.Student._getAllLessonsByStudent(request.params.id, response);
 	});
 	
