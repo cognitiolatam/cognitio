@@ -83,7 +83,7 @@ app.route('/users/:id')
 	})
 	.delete(function(request, response, next) {
 		if(log) console.log("[REQUEST] /users/:id DELETE. ID: " + request.params.id);
-		controllers.User._deleteByID(request.body, response);
+		controllers.User._deleteByID(request.params.id, response);
 	});
 
 	
@@ -120,11 +120,11 @@ app.route('/professors/:id')
 
 // /Professors/:id/lessons
 //	GET:	Retrieves all the lessons created by an specific professor. Parameters: ?professorid=;
-app.route('/professors/:id/classes')
+app.route('/professors/:id/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons created by a professor request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log("[REQUEST] /professor/:id/lessons GET. ID: " + request.params.id);
-		controllers.User._getAllLessonsByProfessor(request.params.id, response);
+		controllers.Professor._getAllLessonsByID(request.params.id, response);
 	});
 
 	
@@ -138,11 +138,11 @@ app.route('/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log("[REQUEST] /lessons GET. Query: " + request.params.q);
-		controllers.Lesson._getAllLessons(response);
+		controllers.Lesson._getAll(response);
 	})
 	.post(function(request, response, next) {
 		if(log) console.log("[REQUEST] /lessons POST. Professor ID: " + request.body.professorid);
-		controllers.Lesson._createLesson(request.body, response);
+		controllers.Lesson._create(request.body, response);
 	});
 
 // /Lessons/:id
@@ -165,8 +165,8 @@ app.route('/lessons/:id/students')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log("[REQUEST] /lessons/:id/students GET.");
-		controllers.Lesson._getAllStudentsByLesson(request.params.id, response);
-	})
+		controllers.Lesson._getAllStudentsByID(request.params.id, response);
+	});
 	
 	
 /*--------------------STUDENTS---------------------------------------------*/
@@ -178,11 +178,11 @@ app.route('/students')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Students list request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log("[REQUEST] /students GET. Query: " + request.params.q);
-		controllers.Student._getAllStudents(response);
+		controllers.Student._getAll(response);
 	})
 	.post(function(request, response, next) {
 		if(log) console.log("[REQUEST] /students POST. Students (User) ID: " + request.body.userid);
-		controllers.Student._createStudent(request.body, response);
+		controllers.Student._create(request.body, response);
 	});
 
 // /Students/:id
@@ -205,7 +205,7 @@ app.route('/students/:id/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons of an student request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log("[REQUEST] /students/:id/lessons GET. ID: " + request.params.id);
-		controllers.Student._getAllLessonsByStudent(request.params.id, response);
+		controllers.Student._getAllLessonsByID(request.params.id, response);
 	});
 	
 	
@@ -213,7 +213,71 @@ app.route('/students/:id/lessons')
 /*-------------------------------------------------------------------------*/
 /*--------------------NOTIFICATIONS----------------------------------------*/	
 /*-------------------------------------------------------------------------*/
+// /Notifications
+//	GET:	List and searches all notifications. Parameters: ?q= (query, free-text search)
+//	POST:	Create a new notification and saves it.
+app.route('/notifications')
+    .all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Notification request.'); next();})
+    .get(function(request, response, next) {
+        if(log) console.log('[REQUEST] /notifications GET (All).');
+        controllers.Notification._getAll(response);
+    })
+    .post(function(request, response, next) {
+        if(log) console.log("[REQUEST] /notifications POST. New ID: ", request.body.id);
+        controllers.Notification._create(request.body, response);
+    });
+
+// /Notifications/:id
+//	GET:	Retrieves information about an specific notification.
+//	PUT:	Update information of an specific notification.
+//	DELETE: Delete notification.
+app.route('/notifications/:id')
+    .all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Notification ID request.'); next();})
+    .get(function(request, response, next) {
+        if(log) console.log("[REQUEST] /notifications/:id GET. ID: " + request.params.id);
+        controllers.Notification._getByID(request.params.id, response);
+    })
+    .put(function(request, response, next) {
+        if(log) console.log("[REQUEST] /notifications/:id PUT. ID: " + request.params.id);
+        controllers.Notification._updateByID(request.body, response);
+    })
+    .delete(function(request, response, next) {
+        if(log) console.log("[REQUEST] /notifications/:id DELETE. ID: " + request.params.id);
+        controllers.Notification._deleteByID(request.params.id, response);
+    });
 
 /*-------------------------------------------------------------------------*/
 /*--------------------REVIEWS----------------------------------------------*/
 /*-------------------------------------------------------------------------*/
+// /Reviews
+//	GET:	List and searches all reviews.
+//	POST:	Create a new review and saves it.
+app.route('/reviews')
+    .all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Reviews list request.'); next();})
+    .get(function(request, response, next) {
+        if(log) console.log('[REQUEST] /reviews GET (All).');
+        controllers.Review._getAll(response);
+    })
+    .post(function(request, response, next) {
+        if(log) console.log("[REQUEST] /reviews POST. New ID: ", request.body.id);
+        controllers.Review._create(request.body, response);
+    });
+
+// /Reviews/:id
+//	GET:	Retrieves information about an specific review.
+//	PUT:	Update information of an specific review.
+//	DELETE: Delete review.
+app.route('/reviews/:id')
+    .all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Review ID request.'); next();})
+    .get(function(request, response, next) {
+        if(log) console.log("[REQUEST] /reviews/:id GET. ID: " + request.params.id);
+        controllers.Review._getByID(request.params.id, response);
+    })
+    .put(function(request, response, next) {
+        if(log) console.log("[REQUEST] /reviews/:id PUT. ID: " + request.params.id);
+        controllers.Review._updateByID(request.body, response);
+    })
+    .delete(function(request, response, next) {
+        if(log) console.log("[REQUEST] /reviews/:id DELETE. ID: " + request.params.id);
+        controllers.Review._deleteByID(request.params.id, response);
+    });
