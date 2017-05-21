@@ -1,6 +1,3 @@
-/**
- * Created by xyclonuser on 19/05/17.
- */
 $(document).ready(function() {
 
     $("#owl-demo").owlCarousel({
@@ -39,5 +36,20 @@ $(document).ready(function() {
             $(".logo-b-img").show();
         }
     });
+
+    $('#settings-content').hide();
+    $('#calendar-content').show();
+
+    $('#calendario').click(function(e){
+        e.preventDefault();
+        $('#settings-content').hide();
+        $('#calendar-content').show();
+    })
+
+    $('#settings').click(function(e){
+        e.preventDefault();
+        $('#settings-content').show();
+        $('#calendar-content').hide();
+    })
 
 });

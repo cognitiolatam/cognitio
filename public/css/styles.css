@@ -76,7 +76,7 @@ body{
 	overflow: hidden;
 	height: 95vh;
 	/*background:-webkit-gradient(linear, 100% 0%, 0% 4%, from(#767bfe), to(#f172de));*/
-	background: url(../../img/bg-pattern.png),-webkit-gradient(linear, 100% 0%, 0% 4%, from(#767bfe), to(#f172de));
+	background: -webkit-gradient(linear, 100% 0%, 0% 4%, from(#767bfe), to(#f172de));
 }
 
 /*#header .bg-header{
