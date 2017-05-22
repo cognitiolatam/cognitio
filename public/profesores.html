@@ -10,9 +10,6 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!--Owl Carousel -->
-    <link href="css/owl.carousel.css" rel="stylesheet">
-
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,37 +20,39 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top" id="menu">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png"></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Ingresar</a></li>
-            <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li> -->
-            <li><a href="#">Registrate</a></li>
-            <li><a href="#">Cognitio</a></li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-default navbar-fixed-top" id="menu">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png" class="logo-img"></a>
       </div>
-    </nav>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" id="modal-ingresar">Ingresar</a></li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li> -->
+          <li><a href="#">Registrate</a></li>
+          <li><a href="#">Destacados</a></li>
+          <li><a href="#">Descarga</a></li>
+          <li><a href="#">Cognitio</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
     <section id="profesores-result">
       <div class="container">
@@ -146,74 +145,17 @@
       </div>
     </section>
 
-    <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2 text-center">
-            <ul class="text-left">
-              <li>
-                <strong>Menu</strong>
-              </li>
-              <li>
-                <a href="#">Nosotros</a>
-              </li>
-              <li>
-                <a href="#">Contacto</a>
-              </li>
-              <li>
-                <a href="#">Cognitio</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-2 text-center">
-            <ul class="text-left">
-              <li>
-                <strong>Seguinos en</strong>
-              </li>
-              <li>
-                <a href="#">Facebook</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Email</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-2 text-center">
-            <ul class="text-left">
-              <li>
-                <strong>Bajate App</strong>
-              </li>
-              <li>
-                <a href="#">Android</a>
-              </li>
-              <li>
-                <a href="#">App Store</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-6 text-right">
-            <div>
-              <img src="images/logo-md.png">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 line-t legales">
-            Cognitio. Derechos Reservados 2017
-          </div>
-        </div>
-      </div>
-    </footer>
+    <div id="footer-include"></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!--Owl Carousel -->
-    <script src="js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#menu-include').load('includes/menu.html');
+            $('#footer-include').load('includes/footer.html');
+        });
+    </script>
   </body>
 </html>

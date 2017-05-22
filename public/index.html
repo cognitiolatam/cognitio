@@ -7,43 +7,17 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     <title>Cognitio</title>
-  
-    <div id="header-links"></div>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Owl Carousel -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/styles.css" rel="stylesheet">
   </head>
   <body class="menu-transparent">
-    <nav class="navbar navbar-default navbar-fixed-top" id="menu">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png" class="logo-img"><img src="images/logo-b.png" class="logo-b-img"></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" id="modal-ingresar">Ingresar</a></li>
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li> -->
-                <li><a href="#">Registrate</a></li>
-                <li><a href="#">Destacados</a></li>
-                <li><a href="#">Descarga</a></li>
-                <li><a href="#">Cognitio</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    <div id="menu-include"></div>
     <header id="header">
       <div class="startaround">
         <div class="startback"></div>
@@ -207,7 +181,7 @@
       </div>
     </section>
     <div id="footer-include"></div>
-    <!--<div id="footer-links"></div>-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
@@ -229,8 +203,6 @@
         };
 
       $(document).ready(function() {
-        $('#header-links').load('includes/header-links.html');
-        /*$('#footer-links').load('includes/footer-links.html');*/
         $('#menu-include').load('includes/menu.html');
         $('#footer-include').load('includes/footer.html');
     });

@@ -8,23 +8,6 @@ $(document).ready(function() {
         ]
     });
 
-    $( '#modal-ingresar' ).on( 'click', function(e) {
-        e.preventDefault();
-        var modal_add_content = bootbox.dialog({
-            message: "<form><div class='form-group'><label>Email</label><input type='email' class='form-control'></div><div class='form-group'><label>Password</label><input type='password' class='form-control'></div></form>",
-            buttons: {
-                ok: {
-                    label: 'Ingresar',
-                    className: 'btn-enviar',
-                    callback: function(e) {
-                        window.location="admin-profesor.html";
-                    }
-                }
-            }
-        });
-        modal_add_content.addClass("modal-add");
-    });
-
     $( window ).scroll(function() {
         var height = $(window).scrollTop();
 

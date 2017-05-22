@@ -10,10 +10,12 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!--Owl Carousel -->
-    <link href="css/owl.carousel.css" rel="stylesheet">
-
     <link href="css/styles.css" rel="stylesheet">
+
+    <link href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,37 +25,39 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top" id="menu">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png"></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Ingresar</a></li>
-            <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li> -->
-            <li><a href="#">Registrate</a></li>
-            <li><a href="#">Cognitio</a></li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-default navbar-fixed-top" id="menu">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html" style="padding: 6px 15px"><img src="images/logo.png" class="logo-img"></a>
       </div>
-    </nav>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" id="modal-ingresar">Ingresar</a></li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li> -->
+          <li><a href="#">Registrate</a></li>
+          <li><a href="#">Destacados</a></li>
+          <li><a href="#">Descarga</a></li>
+          <li><a href="#">Cognitio</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
     <section id="profesor-result">
       <div class="container">
@@ -87,84 +91,83 @@
             <div class="col-md-4 text-left">
                <div style="background-color: #fff;padding: 15px">
                 <div><h3>$250</h3></div>
-                <div>
-                  <button type="submit" class="btn btn-default">Reservar</button>
+                <div style="margin-bottom: 30px">
+                  <button type="submit" class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false">Reservar</button>
                 </div>
+               <div class="collapse" id="collapseExample">
+                 <div>
+                   <span class="help-block"> Elige una fecha </span>
+                   <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                 </div>
+                 <div>
+                   <span class="help-block"> Elige un horario </span>
+                   <select class="form-control">
+                     <option>11:00hs a 12.30hs</option>
+                     <option>11:00hs a 12.30hs</option>
+                     <option>11:00hs a 12.30hs</option>
+                     <option>11:00hs a 12.30hs</option>
+                   </select>
+                 </div>
+                 <div style="margin-top: 30px">
+                   <button type="submit" class="btn btn-default" id="btn-confirmar">Confirmar</button>
+                 </div>
+               </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2 text-center">
-            <ul class="text-left">
-              <li>
-                <strong>Menu</strong>
-              </li>
-              <li>
-                <a href="#">Nosotros</a>
-              </li>
-              <li>
-                <a href="#">Contacto</a>
-              </li>
-              <li>
-                <a href="#">Cognitio</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-2 text-center">
-            <ul class="text-left">
-              <li>
-                <strong>Seguinos en</strong>
-              </li>
-              <li>
-                <a href="#">Facebook</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Email</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-2 text-center">
-            <ul class="text-left">
-              <li>
-                <strong>Bajate App</strong>
-              </li>
-              <li>
-                <a href="#">Android</a>
-              </li>
-              <li>
-                <a href="#">App Store</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-6 text-right">
-            <div>
-              <img src="images/logo-md.png">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 line-t legales">
-            Cognitio. Derechos Reservados 2017
-          </div>
-        </div>
-      </div>
-    </footer>
+    <div id="footer-include"></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!--Owl Carousel -->
-    <script src="js/owl.carousel.js"></script>
+  <!--Bootbox-->
+  <script src="assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+  <script src="assets/global/plugins/moment.min.js" type="text/javascript"></script>
+
+  <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
+
+  <script src="assets/global/plugins/moment.min.js" type="text/javascript"></script>
+  <script src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+  <script src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+  <script src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+  <script src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+  <script src="assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#menu-include').load('includes/menu.html');
+            $('#footer-include').load('includes/footer.html');
+
+            $( '#btn-confirmar' ).on( 'click', function(e) {
+                e.preventDefault();
+                var modal_add_content = bootbox.dialog({
+                    message: "<div>Deseas reservar la clase para la fecha 22/05 de 11:00hs a 12.30hs?<br> Te llegara un email cuando se confirme la clase</div>",
+                    buttons: {
+                        ok: {
+                            label: 'Aceptar',
+                            className: 'btn-enviar',
+                            callback: function(e) {
+
+                            }
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-enviar',
+                            callback: function(e) {
+
+                            }
+                        }
+                    }
+                });
+                modal_add_content.addClass("modal-add");
+            });
+        });
+    </script>
+
   </body>
 </html>
