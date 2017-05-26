@@ -39,7 +39,9 @@ $(document).ready(function() {
         navigationText: [
             "<span class='glyphicon glyphicon-chevron-left'></span>",
             "<span class='glyphicon glyphicon-chevron-right'></span>"
-        ]
+        ],
+        itemsTablet:[992,3],
+        autoPlay: true
     });
 
     function adminContent(){
