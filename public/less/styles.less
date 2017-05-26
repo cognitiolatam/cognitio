@@ -48,7 +48,7 @@ body{
 		margin-top: 0px;
 	}
 	.navbar-brand{
-		padding: 5px;
+		padding: 5px 15px;
 		margin-top: -5px;
 		@media (min-width: 768px){
 			padding: 0;
@@ -73,8 +73,10 @@ body{
 	color: #ffffff;
 	.center{
 		margin-top: 0px;
+		width: 100%;
 		@media (min-width: 768px){
 			margin-top: -50px;
+			width: auto;
 		}
 	}
 	h1{
@@ -173,8 +175,10 @@ body{
 				vertical-align: top;
 				margin-right: 0px;
 				text-align: center;
+				width: 100%;
 				@media (min-width: 768px){
 					margin-right: 30px;
+					width: auto;
 				}
 				&:not{
 					&:first-child{
@@ -253,6 +257,12 @@ body{
 		ul{
 			li{
 				margin-bottom: 15px;
+				img{
+					height: 45px;
+					@media (min-width: 768px){
+						height: auto;
+					}
+				}
 			}
 		}
 	}
