@@ -30,10 +30,26 @@ body{
 	border-top: 1px solid #dcdcdc;
 }
 
+.line-b{
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.mbottom-0{
+	margin-bottom: 0px;
+}
+
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus,.btn.active, .btn:active {
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: 0px;
     box-shadow: none;
+}
+
+a,a:hover,a:focus{
+	color: #333333;
+}
+
+.highlight{
+	color: @basecolor;
 }
 
 *:focus{
@@ -49,6 +65,29 @@ body{
 		border: 0px;
 		&:hover,&:focus{
 			background: transparent;
+		}
+	}
+	.search-menu{
+		text-align: center;
+		margin: 0;
+		border: 0px;
+		.form-group{
+			width: 100%;
+		}
+		.form-control{
+			width: 100%;
+			border: 0px;
+		}
+		.inner-addon {
+			position: relative;
+		}
+		.right-addon .glyphicon {
+			right: 0px;
+		}
+		.inner-addon .glyphicon {
+			position: absolute;
+			padding: 10px;
+			pointer-events: none;
 		}
 	}
 	.ingresa-xs{
@@ -281,7 +320,7 @@ body{
 		margin-bottom: 30px;
 		color:#ffffff;
 		@media (min-width: 768px){
-			font-size: 40px;
+			font-size: 35px;
 			margin-bottom: 50px;
 		}
 	}
@@ -315,6 +354,79 @@ body{
 		}
 		@media (min-width: 1200px){
 			left: 0px;
+		}
+	}
+}
+
+/**FAQS**/
+#faqs{
+	.panel{
+		margin-bottom: 20px;
+		box-shadow: none;
+		.panel-title{
+			font-size:20px;
+			a{
+				&:hover{
+					text-decoration: none;
+				}
+			}
+			&:not(.collapsed){
+				.icn {
+					&:after {
+						content: "\e260";
+						display: inline-block;
+					}
+				}
+			}
+			.collapsed{
+				.icn{
+					&:after{
+						content: "\e259";
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+	.sub-collapse{
+		margin-left: 20px;
+	}
+}
+
+/*Profesores**/
+#profesores-result{
+	margin-top: 80px;
+	margin-bottom: 80px;
+	.line-b{
+		margin-bottom: 20px;
+	}
+	.filters{
+		margin-bottom: 30px;
+	}
+	.view{
+		margin-left: 2px;
+		margin-right: 2px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.filter-sort{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		.form-control{
+			border:0px;
+			height: auto;
+			box-shadow: none;
+		}
+	}
+	#professorsList{
+		text-align: center;
+		@media (min-width: 768px){
+			text-align: right;
+		}
+		li{
+			min-width: 220px;
+			text-align: center;
+			margin: 0 auto;
 		}
 	}
 }

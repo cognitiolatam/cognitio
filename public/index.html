@@ -24,7 +24,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title>Cognitio</title>
+    <title>Aprentio</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,7 +38,29 @@
     <link href="css/fonts.css" rel="stylesheet">
   </head>
   <body>
-    <div id="menu-include"></div>
+  <nav class="navbar navbar-default navbar-fixed-top" id="menu">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="ingresa-xs visible-xs pull-right"><a href="#" class="modal-ingresar">Ingresa</a></div>
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="menu-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="modal-ingresar">Registrate</a></li>
+          <li><a href="#">Ingresa</a></li>
+          <!--<li><a href="#apps">Descarga</a></li>-->
+          <li><a href="faqs.html"><img src="images/icn-faq.png"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <header id="header">
       <div class="container">
         <div class="row">
@@ -223,8 +245,17 @@
         };
 
       $(document).ready(function() {
-        $('#menu-include').load('includes/menu.html');
         $('#footer-include').load('includes/footer.html');
+
+          $("#owl-demo").owlCarousel({
+              navigation: true,
+              navigationText: [
+                  "<span class='glyphicon glyphicon-chevron-left'></span>",
+                  "<span class='glyphicon glyphicon-chevron-right'></span>"
+              ],
+              itemsTablet:[992,3],
+              autoPlay: true
+          });
     });
     </script>
   </body>
