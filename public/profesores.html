@@ -41,12 +41,12 @@
       <div class="container">
         <div class="row line-b">
           <div class="col-md-6">
-            <div><h4>Resultados para:<span class="highlight">Profesores de Matematica</span></h4></div>
+            <div><h4>Resultados para:&nbsp;<span class="highlight">Profesores de Matematica</span></h4></div>
           </div>
           <div class="col-md-6">
             <ul class="list-inline text-right mbottom-0">
-              <li class="view"><a href=""><span class="glyphicon glyphicon-list"></span></a></li>
-              <li class="view"><a href=""><span class="glyphicon glyphicon-th-large"></span></a></li>
+              <li class="view"><a href="" class="view-detail"><span class="glyphicon glyphicon-list"></span></a></li>
+              <li class="view"><a href="" class="view-block"><span class="glyphicon glyphicon-th-large"></span></a></li>
               <li class="filter-sort">
                 <select class="form-control">
                   <option selected>Ordenar por</option>
@@ -84,18 +84,30 @@
           </div>
           <div class="col-md-10 col-sm-10">
               <ul id="professorsList" class="list-inline">
-                <li>
+                <li class="prof">
                   <a href="profesor.html">
-                    <div class="thumbnail">
-                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle">
+                    <div class="thumbnail clearfix">
+                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
                       <div class="caption">
-                        <h3>Profesor XXX</h3>
-                        <p>$250</p>
+                        <h3 class="nombre">Ivana Marina Leikin</h3>
+                        <div class="ub-pr">
+                          <div class="ubicacion">Haedo</div>
+                          <div class="precio">$250</div>
+                        </div>
+                        <div class="datos-estrellas">
+                          <ul class="list-inline">
+                            <li><span class="glyphicon glyphicon-certificate" style="color: #b7ba6e"></span></li>
+                            <li><span class="glyphicon glyphicon-certificate" style="color: #b7ba6e"></span></li>
+                            <li><span class="glyphicon glyphicon-certificate" style="color: #b7ba6e"></span></li>
+                            <li><span class="glyphicon glyphicon-certificate" style="color: #b7ba6e"></span></li>
+                            <li><span class="glyphicon glyphicon-certificate"></span></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </a>
                 </li>
-                <li>
+                <li class="prof">
                   <a href="#">
                     <div class="thumbnail">
                       <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle">
@@ -106,7 +118,7 @@
                     </div>
                   </a>
                 </li>
-                <li>
+                <li class="prof">
                   <a href="#">
                     <div class="thumbnail">
                       <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle">

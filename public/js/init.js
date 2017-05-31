@@ -4,6 +4,7 @@ $(document).ready(function() {
     headerSize();
     adminContent();
     smoothScroll();
+    changeViewProfesor();
 
     $(window).resize(function() {
         headerSize();
@@ -87,6 +88,20 @@ $(document).ready(function() {
                 }
             }
         });
+    }
+
+    function changeViewProfesor(){
+        $('.view-detail').click(function(e){
+            e.preventDefault();
+            $('#professorsList').addClass('detail-view');
+            $('#professorsList').removeClass('block-view');
+        })
+
+        $('.view-block').click(function(e){
+            e.preventDefault();
+            $('#professorsList').addClass('block-view');
+            $('#professorsList').removeClass('detail-view');
+        })
     }
 
     function adminContent(){

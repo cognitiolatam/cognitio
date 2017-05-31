@@ -56,6 +56,10 @@ a,a:hover,a:focus{
 	outline: 0;
 }
 
+ul{
+	list-style-type: none;
+}
+
 #menu{
 	padding-top: 15px;
 	color: #333333;
@@ -63,6 +67,7 @@ a,a:hover,a:focus{
 	.navbar-toggle{
 		margin-top: 0px;
 		border: 0px;
+		margin-right: 0px;
 		&:hover,&:focus{
 			background: transparent;
 		}
@@ -102,10 +107,10 @@ a,a:hover,a:focus{
 		}
 	}
 	.navbar-brand{
-		padding: 5px 15px;
+		padding: 0;
 		margin-top: -5px;
 		@media (min-width: 768px){
-			padding: 0;
+			padding: 5px 15px;
 		}
 	}
 	#menu-collapse{
@@ -402,6 +407,9 @@ a,a:hover,a:focus{
 	}
 	.filters{
 		margin-bottom: 30px;
+		a{
+			color: @basecolor;
+		}
 	}
 	.view{
 		margin-left: 2px;
@@ -423,10 +431,54 @@ a,a:hover,a:focus{
 		@media (min-width: 768px){
 			text-align: right;
 		}
-		li{
+		.prof{
 			min-width: 220px;
-			text-align: center;
+			text-align: left;
 			margin: 0 auto;
+			a{
+				&:hover{
+					text-decoration: none;
+				}
+			}
+		}
+		&.detail-view{
+			.prof{
+				display: block;
+				text-align: left;
+				.img{
+					margin: 0;
+					float: left;
+				}
+				.thumbnail{
+					padding: 20px;
+				}
+				.caption{
+					margin-left: 120px;
+				}
+				.ub-pr{
+					float: right;
+					clear: both;
+					margin-top: -60px;
+				}
+				.nombre,.datos-estrellas{
+					float: left;
+				}
+				.datos-estrellas{
+					margin-top: -30px;
+				}
+			}
+		}
+		&.block-view{
+			.prof{
+				display: inline-block;
+				text-align: center;
+				.img{
+					margin: 0 auto;
+				}
+				.thumbnail{
+					padding: 4px;
+				}
+			}
 		}
 	}
 }
