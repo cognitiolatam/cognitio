@@ -53,6 +53,11 @@ a,a:hover,a:focus{
 	color: @basecolor;
 }
 
+.underline{
+	border-bottom: 4px solid @basecolor;
+	padding-bottom: 5px;
+}
+
 *:focus{
 	outline: 0;
 }
@@ -65,12 +70,33 @@ ul{
 	border: 4px solid @basecolor;
 }
 
+.separator{
+	background-color: @basecolor;
+	color: #fff;
+	font-size: 24px;
+	padding: 24px 0px;
+	font-weight: 400;
+}
+
+.btn-aprentio{
+	background-color: @basecolor;
+	padding: 10px 30px;
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	border-radius: 0px;
+	&:hover,&:focus{
+		color: #fff;
+	}
+}
+
 .datos-estrellas{
 	li{
 		padding-right:0px;
 		padding-left:0px;
 	}
 	.glyphicon-star{
+		font-size: 16px;
 		&.full{
 			color: #fbd00a;
 		}
@@ -548,15 +574,26 @@ h1{
 			text-align: left;
 		}
 		.prof{
-			min-width: 220px;
+			min-width: 145px;
 			text-align: left;
-			margin: 0 7px auto 7px;
-			font-size: 15px;
+			margin: 0px 0px 20px 0px;
+			font-size: 13px;
+			vertical-align: top;
+			max-height: 322px;
+			@media (min-width: 768px){
+				min-width: 220px;
+				font-size: 15px;
+				margin: 0 7px 20px 7px;
+				max-height: 365px;
+			}
 			.nombre{
 				color: #343434;
-				font-size: 15px;
+				font-size: 13px;
 				margin-bottom: 20px;
 				margin-top: 20px;
+				@media (min-width: 768px){
+					font-size: 15px;
+				}
 			}
 			.materia{
 				color: @basecolor;
@@ -593,21 +630,46 @@ h1{
 					float: left;
 				}
 				.thumbnail{
-					padding: 4px;
+					padding: 15px;
 				}
 				.caption{
 					margin-left: 120px;
 				}
+				.nombre{
+					margin-bottom: 5px;
+				}
+				.ubicacion{
+					margin-bottom: 5px;
+					display: none;
+					@media (min-width: 768px){
+						display: block;
+					}
+				}
+				.datos-estrellas{
+					display: none;
+					@media (min-width: 768px){
+						display: block;
+					}
+				}
+				.precio{
+					margin-bottom: 0px;
+				}
+				.precio-d{
+					display:block;
+					@media (min-width: 768px){
+						display:none;
+					}
+				}
+				.precio-u{
+					display:none;
+					@media (min-width: 768px){
+						display:block;
+					}
+				}
 				.ub-pr{
 					float: right;
 					clear: both;
-					margin-top: -60px;
-				}
-				.nombre,.datos-estrellas{
-					float: left;
-				}
-				.datos-estrellas{
-					margin-top: -30px;
+					margin-top: -90px;
 				}
 			}
 		}
@@ -619,7 +681,22 @@ h1{
 					margin: 0 auto;
 				}
 				.thumbnail{
-					padding: 18px 24px;
+					padding: 5px;
+					@media (min-width: 768px){
+						padding: 18px 24px;
+					}
+					.precio-d{
+						display:none;
+						@media (min-width: 768px){
+							display:none;
+						}
+					}
+					.precio-u{
+						display:block;
+						@media (min-width: 768px){
+							display:block;
+						}
+					}
 				}
 			}
 		}
@@ -633,10 +710,74 @@ h1{
 	.profesor-details{
 		background-color: #fff;
 		padding: 20px;
+		ul{
+			li{
+				vertical-align: middle;
+			}
+		}
+		.nombre{
+			font-size: 22px;
+		}
+		.materia{
+			font-size: 22px;
+		}
+		.estrellas-content{
+			float: right;
+			margin-top: 30px;
+			.datos-estrellas{
+				.glyphicon-star{
+					font-size: 22px;
+				}
+			}
+		}
+		.detail{
+			margin-top: 60px;
+			font-size: 14px;
+			color: #333333;
+			li{
+				width: 33%;
+			}
+			.precio{
+				font-size: 20px;
+				color: @basecolor;
+				font-weight: 700;
+			}
+		}
+		.info{
+			margin-top: 25px;
+			h4{
+				font-size: 16px;
+				display: inline-block;
+				margin-top: 35px;
+			}
+			.info-text{
+				font-size: 13px;
+			}
+			.materias-list{
+				padding-left: 20px;
+				span{
+					color: @basecolor;
+					font-size: 18px;
+				}
+			}
+		}
 	}
 	.profesor-book{
 		background-color: #fff;
 		padding: 20px;
+		h3{
+			font-weight: 700;
+			font-size: 50px;
+			color: @basecolor;
+			text-align: center;
+		}
+		.boton{
+			margin-top: 30px;
+			margin-bottom: 40px;
+			.btn-aprentio{
+				width: 265px;
+			}
+		}
 	}
 }
 
