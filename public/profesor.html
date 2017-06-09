@@ -122,31 +122,13 @@
                <div class="profesor-book">
                 <div><h3>$250</h3></div>
                 <div class="text-center boton">
-                  <button type="submit" class="btn btn-aprentio" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false">Reservar</button>
+                  <button type="submit" class="btn btn-aprentio" id="btn-reservar">Reservar</button>
                 </div>
                 <div class="metodos-pago">
                   <p>Metodos de pago</p>
                   <p>En efectivo en puntos de pago</p>
                   <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae interdum ligula. Mauris nisi mi, venenatis pellentesque sapien non, suscipit laoreet risus.</small>
                 </div>
-               <div class="collapse" id="collapseExample">
-                 <div>
-                   <span class="help-block"> Elige una fecha </span>
-                   <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
-                 </div>
-                 <div>
-                   <span class="help-block"> Elige un horario </span>
-                   <select class="form-control">
-                     <option>11:00hs a 12.30hs</option>
-                     <option>11:00hs a 12.30hs</option>
-                     <option>11:00hs a 12.30hs</option>
-                     <option>11:00hs a 12.30hs</option>
-                   </select>
-                 </div>
-                 <div style="margin-top: 30px">
-                   <button type="submit" class="btn btn-default" id="btn-confirmar">Confirmar</button>
-                 </div>
-               </div>
               </div>
             </div>
           </div>
@@ -182,29 +164,57 @@
             $('#menu-include').load('includes/menu.html');
             $('#footer-include').load('includes/footer.html');
 
-            $( '#btn-confirmar' ).on( 'click', function(e) {
+            $( '#btn-reservar' ).on( 'click', function(e) {
                 e.preventDefault();
-                var modal_add_content = bootbox.dialog({
-                    message: "<div>Deseas reservar la clase para la fecha 22/05 de 11:00hs a 12.30hs?<br> Te llegara un email cuando se confirme la clase</div>",
+                var modal_reserva = bootbox.dialog({
+                    title: "",
+                    onEscape: true,
+                    message:
+                    '<div class="content">' +
+                    '<ul class="list-inline nav-justified text-center">' +
+                    '<li class="line-btn-reserva"><span class="highlight">1.</span> Reserva</li>' +
+                    '<li class="line-btn-confirma"><span class="highlight">2.</span> Confirma</li>' +
+                    '</ul><form>' +
+                    '<div class="form-group">' +
+                    '<label>Precio</label>' +
+                    '<select class="form-control">' +
+                    '<option>1</option>' +
+                    '<option>2</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label>Elige un horario</label>' +
+                    '<input type="text" class="form-control"  id="datetimepicker1"/>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label>Precio</label>' +
+                    '<select class="form-control">' +
+                    '<option>1</option>' +
+                    '<option>2</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '</form>' +
+                    '</div>',
                     buttons: {
                         ok: {
-                            label: 'Aceptar',
-                            className: 'btn-enviar',
+                            label: 'Siguiente',
+                            className: 'btn-aprentio',
                             callback: function(e) {
 
                             }
                         },
                         cancel: {
-                            label: 'Cancelar',
-                            className: 'btn-enviar',
-                            callback: function(e) {
-
-                            }
+                            show: true
                         }
                     }
                 });
-                modal_add_content.addClass("modal-add");
+                modal_reserva.addClass("modal-aprentio modal-reserva");
             });
+
+            $(document).on("shown.bs.modal", function() {
+                $("#datetimepicker1").datepicker()
+            });
+
         });
     </script>
 

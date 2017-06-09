@@ -809,6 +809,53 @@ h1{
 	}
 }
 
+.modal-aprentio{
+	&.modal-reserva{
+		.modal-dialog {
+			width: 400px;
+		}
+		.modal-body{
+			padding: 0px;
+			.close{
+				margin-top: -25px!important;
+				margin-right: 10px;
+				display: block;
+			}
+		}
+		ul{
+			margin-left: 0px;
+		}
+		.content{
+			margin-top: 30px;
+		}
+		.line-btn-reserva{
+			border-bottom: 3px solid @basecolor;
+		}
+		.line-btn-confirma{
+			border-bottom: 3px solid #ccc;
+		}
+		.btn-aprentio{
+			padding: 5px 45px;
+			font-size: 17px;
+		}
+		form{
+			padding: 15px;
+			max-width: 300px;
+			margin: 20px auto;
+			.form-group{
+				margin-bottom: 15px;
+				.form-control{
+					//border-bottom: 1px solid #ccc;
+					//border-top: 0px;
+					//border-right: 0px;
+					//border-left: 0px;
+					box-shadow: none;
+					//border-radius: 0px!important;
+				}
+			}
+		}
+	}
+}
 /**Owl Carousel**/
 #owl-demo .item{
   display: block;
