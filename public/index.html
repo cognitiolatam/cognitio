@@ -36,8 +36,13 @@
 
     <!--Fonts -->
     <link href="css/fonts.css" rel="stylesheet">
+    <style>
+      #preloader {position:fixed;top:0;left:0;right:0;bottom:0;background-color:#fff;z-index:999999;}
+      #status {width:207px;height:207px;position:absolute;left:50%;top:50%;background-image:url(images/loading.gif);background-repeat:no-repeat;background-position:center top;margin:-105px 0 0 -105px;}
+    </style>
   </head>
   <body>
+  <div id="preloader"><div id="status"></div></div>
   <nav class="navbar navbar-default navbar-fixed-top" id="menu">
     <div class="container">
       <div class="navbar-header">
@@ -93,115 +98,117 @@
         <div class="row">
           <div class="col-md-12 text-center">
               <h1>Profesores Destacados</h1>
+            <div id="professorsList">
               <div id="owl-demo" class="owl-carousel owl-theme">
-                <div id="professorsList" class="item mat">
-                  <div class="prof">
-                    <a href="profesor.html">
-                    <div class="thumbnail clearfix">
-                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
-                      <div class="caption">
-                        <h3 class="nombre">Ivana Marina Leikin</h3>
-                        <div class="materia">Matematicas</div>
-                        <div class="datos-estrellas">
-                          <ul class="list-inline">
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                          </ul>
+                  <div class="item mat">
+                    <div class="prof">
+                      <a href="profesor.html">
+                      <div class="thumbnail clearfix">
+                        <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
+                        <div class="caption">
+                          <h3 class="nombre">Ivana Marina Leikin</h3>
+                          <div class="materia">Matematicas</div>
+                          <div class="datos-estrellas">
+                            <ul class="list-inline">
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
+                    </a>
                     </div>
-                  </a>
                   </div>
-                </div>
-                <div id="professorsList" class="item mat">
-                  <div class="prof">
-                    <a href="profesor.html">
-                    <div class="thumbnail clearfix">
-                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
-                      <div class="caption">
-                        <h3 class="nombre">Ivana Marina Leikin</h3>
-                        <div class="materia">Matematicas</div>
-                        <div class="datos-estrellas">
-                          <ul class="list-inline">
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                          </ul>
+                  <div class="item mat">
+                    <div class="prof">
+                      <a href="profesor.html">
+                      <div class="thumbnail clearfix">
+                        <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
+                        <div class="caption">
+                          <h3 class="nombre">Ivana Marina Leikin</h3>
+                          <div class="materia">Matematicas</div>
+                          <div class="datos-estrellas">
+                            <ul class="list-inline">
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
+                    </a>
                     </div>
-                  </a>
                   </div>
-                </div>
-                <div id="professorsList" class="item mat">
-                  <div class="prof">
-                    <a href="profesor.html">
-                    <div class="thumbnail clearfix">
-                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
-                      <div class="caption">
-                        <h3 class="nombre">Ivana Marina Leikin</h3>
-                        <div class="materia">Matematicas</div>
-                        <div class="datos-estrellas">
-                          <ul class="list-inline">
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                          </ul>
+                  <div class="item mat">
+                    <div class="prof">
+                      <a href="profesor.html">
+                      <div class="thumbnail clearfix">
+                        <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
+                        <div class="caption">
+                          <h3 class="nombre">Ivana Marina Leikin</h3>
+                          <div class="materia">Matematicas</div>
+                          <div class="datos-estrellas">
+                            <ul class="list-inline">
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
+                    </a>
                     </div>
-                  </a>
                   </div>
-                </div>
-                <div id="professorsList" class="item mat">
-                  <div class="prof">
-                    <a href="profesor.html">
-                    <div class="thumbnail clearfix">
-                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
-                      <div class="caption">
-                        <h3 class="nombre">Ivana Marina Leikin</h3>
-                        <div class="materia">Matematicas</div>
-                        <div class="datos-estrellas">
-                          <ul class="list-inline">
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                          </ul>
+                  <div class="item mat">
+                    <div class="prof">
+                      <a href="profesor.html">
+                      <div class="thumbnail clearfix">
+                        <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
+                        <div class="caption">
+                          <h3 class="nombre">Ivana Marina Leikin</h3>
+                          <div class="materia">Matematicas</div>
+                          <div class="datos-estrellas">
+                            <ul class="list-inline">
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
+                    </a>
                     </div>
-                  </a>
                   </div>
-                </div>
-                <div id="professorsList" class="item mat">
-                  <div class="prof">
-                    <a href="profesor.html">
-                    <div class="thumbnail clearfix">
-                      <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
-                      <div class="caption">
-                        <h3 class="nombre">Ivana Marina Leikin</h3>
-                        <div class="materia">Matematicas</div>
-                        <div class="datos-estrellas">
-                          <ul class="list-inline">
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star full"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                            <li><span class="glyphicon glyphicon-star"></span></li>
-                          </ul>
+                  <div class="item mat">
+                    <div class="prof">
+                      <a href="profesor.html">
+                      <div class="thumbnail clearfix">
+                        <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
+                        <div class="caption">
+                          <h3 class="nombre">Ivana Marina Leikin</h3>
+                          <div class="materia">Matematicas</div>
+                          <div class="datos-estrellas">
+                            <ul class="list-inline">
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star full"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                              <li><span class="glyphicon glyphicon-star"></span></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
+                    </a>
                     </div>
-                  </a>
                   </div>
                 </div>
               </div>

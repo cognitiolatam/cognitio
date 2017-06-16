@@ -10,6 +10,11 @@ $(document).ready(function() {
         headerSize();
       });
 
+    $(window).bind("load", function () {
+        $("#status").fadeOut();
+        $("#preloader").delay(450).fadeOut("slow");
+    })
+
     function headerSize(){
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();

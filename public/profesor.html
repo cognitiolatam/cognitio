@@ -83,6 +83,9 @@
                    <div>$250 (particular)</div>
                  </li>
                </ul>
+              <div class="text-center boton visible-xs">
+                <button type="submit" class="btn btn-aprentio btn-reservar">Reservar</button>
+              </div>
                <div class="info">
                  <div>
                    <h4 class="underline">Información Académica</h4>
@@ -118,11 +121,11 @@
                </div>
               </div>
             </div>
-            <div class="col-md-4 text-left">
+            <div class="col-md-4 text-left hidden-xs">
                <div class="profesor-book">
                 <div><h3>$250</h3></div>
                 <div class="text-center boton">
-                  <button type="submit" class="btn btn-aprentio" id="btn-reservar">Reservar</button>
+                  <button type="submit" class="btn btn-aprentio btn-reservar">Reservar</button>
                 </div>
                 <div class="metodos-pago">
                   <p>Metodos de pago</p>
@@ -164,17 +167,20 @@
             $('#menu-include').load('includes/menu.html');
             $('#footer-include').load('includes/footer.html');
 
-            $( '#btn-reservar' ).on( 'click', function(e) {
+            $( '.btn-reservar' ).on( 'click', function(e) {
                 e.preventDefault();
                 var modal_reserva = bootbox.dialog({
                     title: "",
                     onEscape: true,
                     message:
                     '<div class="content">' +
-                    '<ul class="list-inline nav-justified text-center">' +
-                    '<li class="line-btn-reserva"><span class="highlight">1.</span> Reserva</li>' +
-                    '<li class="line-btn-confirma"><span class="highlight">2.</span> Confirma</li>' +
-                    '</ul><form>' +
+                    '<ul class="nav nav-tabs nav-justified opts" role="tablist">' +
+                    '<li class="active part1"><a href="#part1" aria-controls="home" role="tab" data-toggle="tab"><span class="highlight">1.</span> Reserva</a></li>' +
+                    '<li class="disabled part2"><a href="#part2" aria-controls="home" role="tab" data-toggle=""><span class="highlight">2.</span> Confirma</a></li>' +
+                    '</ul>' +
+                    '<div class="tab-content">' +
+                    '<div role="tabpanel" class="tab-pane active" id="part1">' +
+                    '<form>' +
                     '<div class="form-group">' +
                     '<label>Precio</label>' +
                     '<select class="form-control">' +
@@ -193,26 +199,39 @@
                     '<option>2</option>' +
                     '</select>' +
                     '</div>' +
+                    '<div style="margin-top: 10px;margin-bottom: 15px;text-align: center">' +
+                    '<button type="submit" class="btn btn-aprentio" id="btn-sig">SIGUIENTE</button>' +
+                    '</div>' +
                     '</form>' +
+                    '</div>' +
+                    '<div role="tabpanel" class="tab-pane" id="part2" disabled>' +
+                    '<form>' +
+                    '<div class="form-group" style="padding: 20px 0px">' +
+                    '<label style="font-weight: 400">Desea confirmar esta clase en el dia xx/xx y horario xxx?</label>' +
+                    '</div>' +
+                    '<div style="margin-top: 10px;margin-bottom: 15px;text-align: center">' +
+                    '<button type="submit" class="btn btn-aprentio" id="btn-confirm">CONFIRMAR</button>' +
+                    '</div>' +
+                    '</form>' +
+                    '</div>' +
+                    '</div>' +
                     '</div>',
-                    buttons: {
-                        ok: {
-                            label: 'Siguiente',
-                            className: 'btn-aprentio',
-                            callback: function(e) {
-
-                            }
-                        },
-                        cancel: {
-                            show: true
-                        }
-                    }
+                    buttons: false
                 });
                 modal_reserva.addClass("modal-aprentio modal-reserva");
             });
 
             $(document).on("shown.bs.modal", function() {
                 $("#datetimepicker1").datepicker()
+
+                $('#btn-sig').click(function(e){
+                    e.preventDefault()
+                    $('#part2').show();
+                    $('#part1').hide();
+                    $('.part2').addClass('active');
+                    $('.part1').removeClass('active');
+                    $('#part1').removeClass('active');
+                })
             });
 
         });

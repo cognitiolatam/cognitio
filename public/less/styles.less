@@ -1,12 +1,19 @@
 @basefont: 'roboto', sans-serif;
 @secondfont: 'roboto_slab', sans-serif;
-@basecolor: #8963fe;
+@basecolor: #a751fe;
 @path: '../images';
 
 body{
 	padding-top: 70px;
 	font-family: @basefont;
 	font-weight: 400;
+}
+
+body.admin{
+	padding-top: 0px;
+	.navbar{
+		margin-bottom: 0px;
+	}
 }
 
 .center{
@@ -45,8 +52,16 @@ body{
     box-shadow: none;
 }
 
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+	background-color: transparent;
+}
+
 a,a:hover,a:focus{
 	color: #333333;
+}
+
+.nav>li>a:focus, .nav>li>a:hover{
+	background-color: rgba(243,232,255,.5);
 }
 
 .highlight{
@@ -67,15 +82,19 @@ ul{
 }
 
 .img{
-	border: 4px solid @basecolor;
+	border: 2px solid @basecolor;
 }
 
 .separator{
 	background-color: @basecolor;
 	color: #fff;
-	font-size: 24px;
-	padding: 24px 0px;
+	font-size: 20px;
+	padding: 15px 0px;
 	font-weight: 400;
+	@media (min-width: 768px){
+		font-size: 24px;
+		padding: 24px 0px;
+	}
 }
 
 .btn-aprentio{
@@ -117,7 +136,7 @@ h1{
 	height: 70px;
 	color: #333333;
 	font-size: 14px;
-	background-color: #ebedee;
+	background-color: #fff;
 	.navbar-toggle{
 		margin-top: 0px;
 		border: 0px;
@@ -141,7 +160,7 @@ h1{
 		}
 		.form-control{
 			width: 100%;
-			border: 0px;
+			//border: 0px;
 			height: 41px;
 		}
 		.inner-addon {
@@ -169,11 +188,11 @@ h1{
 		padding: 0;
 		margin-top: -5px;
 		@media (min-width: 768px){
-			padding: 5px 15px;
+			padding: 1px 15px;
 		}
 	}
 	.menu-xs{
-		background-color: #ebedee;
+		background-color: #fff;
 		margin-right: -15px;
 		margin-left: -15px;
 		@media (min-width: 768px){
@@ -181,14 +200,18 @@ h1{
 			margin-left: 0px;
 		}
 	}
+	.avatar{
+		margin-top: -5px;
+	}
 	#menu-collapse{
-		margin-top: 6px;
 		li{
 			a{
 				padding-top: 5px;
 				padding-bottom: 5px;
 				@media (min-width: 768px){
-					.line-r;
+					&:not(.last){
+						.line-r;
+					}
 				}
 			}
 		}
@@ -710,6 +733,10 @@ h1{
 	.profesor-details{
 		background-color: #fff;
 		padding: 20px;
+		text-align: center;
+		@media (min-width: 768px){
+			text-align: left;
+		}
 		ul{
 			li{
 				vertical-align: middle;
@@ -722,8 +749,11 @@ h1{
 			font-size: 22px;
 		}
 		.estrellas-content{
-			float: right;
+			float: none;
 			margin-top: 30px;
+			@media (min-width: 768px){
+				float: right;
+			}
 			.datos-estrellas{
 				.glyphicon-star{
 					font-size: 22px;
@@ -731,11 +761,18 @@ h1{
 			}
 		}
 		.detail{
-			margin-top: 60px;
+			margin-top: 30px;
 			font-size: 14px;
 			color: #333333;
+			@media (min-width: 768px){
+				margin-top: 60px;
+			}
 			li{
-				width: 33%;
+				width: 100%;
+				margin-bottom: 15px;
+				@media (min-width: 768px){
+					width: 33%;
+				}
 			}
 			.precio{
 				font-size: 20px;
@@ -762,6 +799,16 @@ h1{
 			}
 		}
 	}
+	.boton{
+		margin-top: 30px;
+		margin-bottom: 40px;
+		.btn-aprentio{
+			width: 250px;
+			@media (min-width: 768px){
+				width: 265px;
+			}
+		}
+	}
 	.profesor-book{
 		background-color: #fff;
 		padding: 20px;
@@ -770,13 +817,6 @@ h1{
 			font-size: 50px;
 			color: @basecolor;
 			text-align: center;
-		}
-		.boton{
-			margin-top: 30px;
-			margin-bottom: 40px;
-			.btn-aprentio{
-				width: 265px;
-			}
 		}
 	}
 }
@@ -812,50 +852,113 @@ h1{
 .modal-aprentio{
 	&.modal-reserva{
 		.modal-dialog {
-			width: 400px;
+			width: auto;
+			@media (min-width: 768px){
+				width: 400px;
+			}
 		}
 		.modal-body{
-			padding: 0px;
+			padding: 15px;
+			@media (min-width: 768px){
+				padding: 0px;
+			}
 			.close{
-				margin-top: -25px!important;
-				margin-right: 10px;
+				margin-top: -17px !important;
+				margin-right: 0px;
 				display: block;
+				@media (min-width: 768px){
+					margin-top: -25px!important;
+					margin-right: 10px;
+				}
 			}
 		}
 		ul{
 			margin-left: 0px;
 		}
 		.content{
-			margin-top: 30px;
+			margin-top: 0px;
+			@media (min-width: 768px){
+				margin-top: 30px;
+			}
 		}
-		.line-btn-reserva{
-			border-bottom: 3px solid @basecolor;
-		}
-		.line-btn-confirma{
-			border-bottom: 3px solid #ccc;
+		.opts{
+			li{
+				&.active{
+					border-bottom: 3px solid @basecolor;
+				}
+				&:not(.active){
+					border-bottom: 3px solid #ccc;
+				}
+			}
 		}
 		.btn-aprentio{
 			padding: 5px 45px;
 			font-size: 17px;
 		}
+		.btn-cancel{
+			display: none!important;
+		}
+		.modal-footer{
+			text-align: center;
+		}
+		.nav-tabs.nav-justified>li>a{
+			border: 0px;
+		}
 		form{
-			padding: 15px;
+			padding: 0px;
 			max-width: 300px;
 			margin: 20px auto;
 			.form-group{
 				margin-bottom: 15px;
 				.form-control{
-					//border-bottom: 1px solid #ccc;
-					//border-top: 0px;
-					//border-right: 0px;
-					//border-left: 0px;
 					box-shadow: none;
-					//border-radius: 0px!important;
 				}
 			}
 		}
 	}
 }
+
+.page-header{
+	height: 75px;
+}
+#admin{
+	background-color: #f9f9f9;
+	padding-top: 20px;
+	.portlet{
+		background-color: #fff;
+		margin-top: 0;
+		margin-bottom: 25px;
+		padding: 0;
+		border-radius: 4px;
+		padding: 30px 0 0;
+		.profile-usertitle {
+			text-align: center;
+			margin-top: 20px;
+			.profile-usertitle-name {
+				color: #5a7391;
+				font-size: 20px;
+				font-weight: 600;
+				margin-bottom: 7px;
+			}
+			.profile-usertitle-job {
+				text-transform: uppercase;
+				color: #5b9bd1;
+				font-size: 13px;
+				font-weight: 800;
+				margin-bottom: 7px;
+			}
+			.profile-usermenu {
+				margin-top: 30px;
+				padding-bottom: 20px;
+				ul li {
+					border-bottom: 1px solid #f0f4f7;
+				}
+			}
+		}
+	}
+}
+
+
 /**Owl Carousel**/
 #owl-demo .item{
   display: block;
