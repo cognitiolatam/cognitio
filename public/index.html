@@ -58,7 +58,8 @@
 
       <div class="collapse navbar-collapse" id="menu-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" class="modal-ingresar">Registrate</a></li>
+            <li><a id="fbbutton" href="#"><div id="loginFB" class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" scope="public_profile,email" onlogin="facebookInit();"></div></a></li>
+            <li><a href="#" class="modal-ingresar">Registrate</a></li>
           <li><a href="#">Ingresa</a></li>
           <!--<li><a href="#apps">Descarga</a></li>-->
           <li><a href="faqs.html"><img src="images/icn-faq.png"></a></li>
@@ -318,7 +319,7 @@
     <script type="text/javascript">
       var Models = window.cognitio = {
             "professors":{}
-        };
+      };
 
       $(document).ready(function() {
         $('#footer-include').load('includes/footer.html');
@@ -332,7 +333,46 @@
               itemsDesktop:[1199,3],
               autoPlay: false
           });
-    });
+      });
+
+      window.fbAsyncInit = function() {
+          FB.init({
+              appId      : '877049032448024',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v2.8'
+          });
+          FB.AppEvents.logPageView();
+          if (typeof facebookInit == 'function') {
+              facebookInit();
+          }
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      function facebookInit() {
+          FB.getLoginStatus(function(response) {
+              console.log(response);
+              statusChangeCallback(response);
+          });
+      }
+
+      function statusChangeCallback(response) {
+          // Full documentation on FB.getLoginStatus().
+          if (response.status === 'connected') {
+             console.log('Connected to FB.');
+          } else if (response.status === 'not_authorized') {
+              console.log("Logged in into FB, but not into Aprentio.");
+          } else {
+              console.log("Not logged in into FB.");
+          }
+      }
     </script>
   </body>
 </html>
