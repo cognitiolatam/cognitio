@@ -91,6 +91,7 @@ ul{
 	font-size: 20px;
 	padding: 15px 0px;
 	font-weight: 400;
+	font-family: @secondfont;
 	@media (min-width: 768px){
 		font-size: 24px;
 		padding: 24px 0px;
@@ -153,7 +154,7 @@ h1{
 	}
 	.search-menu{
 		text-align: center;
-		margin: 0;
+		margin: -3px 0px;
 		border: 0px;
 		.form-group{
 			width: 100%;
@@ -277,46 +278,70 @@ h1{
 }
 
 #destacados-home{
-	background-color: @basecolor;
+	background-color: #fff;
 	padding-top: 40px;
-	padding-bottom: 90px;
+	padding-bottom: 40px;
+	position: relative;
 	@media (min-width: 768px){
 		padding-top: 60px;
 		padding-bottom: 60px;
 	}
 	h1{
 		margin-bottom: 50px;
-		color: #ffffff;
+		color: @basecolor;
 		@media (min-width: 768px){
-			margin-bottom: 90px;
+			margin-bottom: 60px;
 		}
 	}
 	.prof{
 		font-size: 18px;
-		text-align: left;
-		max-width: 225px;
+		max-width: 185px;
 		margin: 0 auto;
+		position: relative;
+		.overlay {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: .5s ease;
+			background-color: rgba(0,0,0,.6);
+			-webkit-border-radius:50%;
+			-moz-border-radius:50%;
+			border-radius:50%;
+			width: 184px;
+		}
+		&:hover .overlay {
+			height: 100%;
+			opacity: 1;
+			width: 184px;
+		}
+		.caption {
+			white-space: nowrap;
+			color: white;
+			font-size: 20px;
+			position: absolute;
+			overflow: hidden;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+		}
 		.nombre{
-			color: #343434;
+			color: #fff;
 			font-size: 18px;
 			margin-bottom: 15px;
 			margin-top: 20px;
 		}
 		.materia{
-			color: @basecolor;
+			font-size: 16px;
+			color: #fff;
 			margin-bottom: 20px;
 			font-weight: 700;
 			text-transform: uppercase;
-		}
-		.ubicacion{
-			color: #343434;
-			margin-bottom: 10px;
-		}
-		.precio{
-			color: @basecolor;
-			font-weight: 700;
-			font-size: 20px;
-			margin-bottom: 20px;
 		}
 		a{
 			&:hover{
@@ -335,42 +360,40 @@ h1{
 		border: 0px;
 		margin-right: 15px;
 		margin-left: 15px;
+		margin-bottom: 40px;
 	}
 }
 
 #como-funciona{
-	margin-top:40px;
-	margin-bottom: 70px;
+	padding-top:40px;
+	padding-bottom: 70px;
 	position: relative;
-	min-height: auto;
+	min-height: 100%;
 	text-align: center;
+	background-color: @basecolor;
 	@media (min-width: 768px){
-		margin-top:60px;
-		margin-bottom: 90px;
+		padding-top:50px;
+		padding-bottom: 80px;
 	}
 	@media (min-width: 992px){
 		text-align: left;
-		min-height: 550px;
+		//min-height: 550px;
 	}
 	h1{
-		margin-bottom: 50px;
+		margin-bottom: 10px;
 		text-align: center;
-		span{
-			color: @basecolor;
-		}
+		color: #fff;
+		//span{
+		//	color: @basecolor;
+		//}
 		@media (min-width: 768px){
-			margin-bottom: 80px;
+			margin-bottom: 20px;
 		}
 	}
 	.funcionamiento{
 		font-size: 17px;
-		margin-left:30px;
 		@media (min-width: 992px){
-			margin-left:70px;
-			margin-top:40px;
-		}
-		@media (min-width: 1200px){
-			margin-left:30px;
+			padding-top:40px;
 		}
 		ul{
 			li{
@@ -378,9 +401,11 @@ h1{
 				margin-right: 0px;
 				text-align: center;
 				width: 100%;
+				color: #fff;
+				margin-bottom: 20px;
 				@media (min-width: 768px){
 					margin-right: 30px;
-					width: auto;
+					width: 30%;
 				}
 				&:not{
 					&:first-child{
@@ -393,7 +418,8 @@ h1{
 			}
 		}
 		.num{
-			color: @basecolor;
+			//color: @basecolor;
+			color: rgba(255,255,255,.9);
 			font-size: 100px;
 			opacity: .2;
 			font-weight: 700;
@@ -419,17 +445,14 @@ h1{
 	padding-bottom: 80px;
 	text-align: center;
 	@media (min-width: 768px){
-		padding-top: 70px;
-		padding-bottom: 250px;
+		padding-top: 60px;
+		padding-bottom: 200px;
 		text-align: left;
 	}
 	h1{
 		margin-bottom: 50px;
 		span{
 			color: @basecolor;
-		}
-		@media (min-width: 768px){
-			margin-bottom: 140px;
 		}
 	}
 	.nosotros{
@@ -449,11 +472,7 @@ h1{
 #apps{
 	padding-top: 40px;
 	padding-bottom: 70px;
-	background: #fa77d9; /* Old browsers */
-	background: -moz-linear-gradient(left, #fa77d9 19%, #58a0fe 100%, #2989d8 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, #fa77d9 19%,#58a0fe 100%,#2989d8 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, #fa77d9 19%,#58a0fe 100%,#2989d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa77d9', endColorstr='#2989d8',GradientType=1 ); /* IE6-9 */
+	background-color: #8523e7;
 	position: relative;
 	text-align: center;
 	@media (min-width: 768px){
@@ -462,6 +481,15 @@ h1{
 	}
 	@media (min-width: 992px){
 		text-align: left;
+	}
+	.layer{
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		right: 0;
+		top: 0;
+		background-image: url('@{path}/layer.png');
+		background-repeat: repeat;
 	}
 	h1{
 		font-size: 25px;
@@ -508,29 +536,41 @@ h1{
 
 /**FAQS**/
 #faqs{
+	padding-top: 80px;
+	padding-bottom: 80px;
+	background-color: #f9f9f9;
+	h1{
+		color: @basecolor;
+		margin-bottom: 80px;
+	}
 	.panel{
 		margin-bottom: 20px;
 		box-shadow: none;
+		background-color: #f9f9f9;
+		border-bottom: 1px solid #ccc;
 		.panel-title{
 			font-size:20px;
 			a{
+				color: #777;
 				&:hover{
 					text-decoration: none;
 				}
-			}
-			&:not(.collapsed){
-				.icn {
-					&:after {
-						content: "\e260";
-						display: inline-block;
+				&[aria-expanded="true"]{
+					.icn {
+						&:after {
+							content: "\e260";
+							display: inline-block;
+							color: @basecolor;
+						}
 					}
 				}
-			}
-			.collapsed{
-				.icn{
-					&:after{
-						content: "\e259";
-						display: inline-block;
+				&[aria-expanded="false"]{
+					.icn{
+						&:after{
+							content: "\e259";
+							display: inline-block;
+							color: @basecolor;
+						}
 					}
 				}
 			}
@@ -821,11 +861,71 @@ h1{
 	}
 }
 
+#login-register{
+	background-color: #f9f9f9;
+	.up{
+		background-color: @basecolor;
+		min-height: 100%;
+		padding-bottom: 50px;
+		position: relative;
+		@media (min-width: 768px){
+			min-height: 300px;
+			margin-bottom: 300px;
+			padding-bottom: 0px;
+		}
+	}
+	.form-content{
+		position: relative;
+		bottom: auto;
+		width:100%;
+		@media (min-width: 768px){
+			position: absolute;
+			bottom: -150px;
+		}
+		.form-body{
+			width: auto;
+			margin: 25px auto 0;
+			@media (min-width: 768px){
+				max-width: 456px;
+			}
+		}
+		form{
+			padding: 30px 20px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			@media (min-width: 768px){
+				padding: 40px 50px;
+			}
+			.form-control{
+				width: 100%;
+				border-top: 0px;
+				border-right: 0px;
+				border-left: 0px;
+				border-radius: 0px;
+				box-shadow: none;
+			}
+			.btn-aprentio{
+				font-size: 15px;
+				margin-top: 20px;
+			}
+		}
+		.forget-account{
+			margin-top: 10px;
+		}
+		.btn-sociales{
+			margin-top: 20px;
+		}
+	}
+}
+
 #footer{
 	padding-top: 40px;
 	padding-bottom: 20px;
 	color: #999;
 	font-size: 13px;
+	border-top:1px solid #ccc;
 	@media (min-width: 768px){
 		padding-top: 80px;
 	}
@@ -930,7 +1030,10 @@ h1{
 		margin-bottom: 25px;
 		padding: 0;
 		border-radius: 4px;
-		padding: 30px 0 0;
+		padding: 30px 0;
+		.profile-userpic{
+			padding: 0px 15px;
+		}
 		.profile-usertitle {
 			text-align: center;
 			margin-top: 20px;
@@ -947,11 +1050,75 @@ h1{
 				font-weight: 800;
 				margin-bottom: 7px;
 			}
-			.profile-usermenu {
-				margin-top: 30px;
-				padding-bottom: 20px;
-				ul li {
+		}
+		.profile-usermenu {
+			margin-top: 30px;
+			.active{
+				background-color: rgba(243, 232, 255, 0.5);
+			}
+			ul {
+				li {
 					border-bottom: 1px solid #f0f4f7;
+					font-family: @basefont;
+				}
+			}
+		}
+		&.portlet-fit{
+			padding: 30px 15px;
+			h3{
+				border-bottom: 2px solid @basecolor;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+		}
+		.btn-circle{
+			border-color: @basecolor;
+			color: @basecolor;
+			font-size:13px;
+			margin-right: 5px;
+			border-radius: 25px;
+			&.active{
+				background-color: @basecolor;
+				color: #fff;
+			}
+		}
+		#classes{
+			.classes{
+				border-bottom: 20px;
+				h4{
+					border-bottom: 1px solid #ccc;
+					padding-bottom: 10px;
+					margin-bottom: 20px;
+				}
+				h5{
+					margin-bottom: 20px;
+					margin-top: 30px;
+				}
+				.hour{
+					color: @basecolor;
+					margin-right: 15px;
+				}.class{
+					margin-bottom: 15px;
+				}
+			}
+		}
+		#notifications{
+			.notification{
+				border-left: 2px solid @basecolor;
+				margin-bottom: 10px;
+				padding: 15px;
+				background-color: #f9f9f9;
+			}
+		}
+		&#profile{
+			.config-opts{
+				li{
+					&.active{
+						border-bottom: 2px solid @basecolor;
+						a{
+							border: 0px;
+						}
+					}
 				}
 			}
 		}
@@ -985,5 +1152,5 @@ h1{
 }
 
 .owl-theme .owl-controls .owl-page.active span {
-    background-color: #FFF;
+    background-color: @basecolor;
 }

@@ -35,34 +35,52 @@
     <link href="css/fonts.css" rel="stylesheet">
 </head>
 <body>
-<div id="menu-include"></div>
-
+<div id="menu-content"></div>
+<div class="separator">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                Preguntas Frecuentes
+            </div>
+        </div>
+    </div>
+</div>
 <section id="faqs">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Preguntas Fecuentes</h1>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel">
-                        <div class="panel-heading" role="tab" id="headingOne">
+                        <div class="panel-heading" role="tab">
                             <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#p1" aria-expanded="false" aria-controls="collapseOne">
                                     Pregunta 1
                                     <span class="glyphicon icn pull-right"></span>
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="p1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <div class="sub-collapse">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOneb" aria-expanded="true" aria-controls="collapseOne">
-                                        Pregunta 1b
-                                    </a>
-                                    <div id="collapseOneb" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                            sa
-                                        </div>
-                                    </div>
+                                    Pregunta 1b
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-heading" role="tab">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#p2" aria-expanded="false" aria-controls="collapseOne">
+                                    Pregunta 1
+                                    <span class="glyphicon icn pull-right"></span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="p2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="sub-collapse">
+                                    Pregunta 1b
                                 </div>
                             </div>
                         </div>
@@ -72,30 +90,23 @@
         </div>
     </div>
 </section>
+<div id="footer-content"></div>
 
-<div id="footer-include"></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/less.js" type="text/javascript"></script>
+
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 
-<!--Bootbox-->
-<script src="assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+<!--Bootbox -->
+<script src="js/bootbox.min.js"></script>
 
 <!-- Init functions -->
 <script src="js/init.js" type="text/javascript"></script>
-
-<!-- Models -->
-<script src="js/models/professors.js"></script>
 <script type="text/javascript">
-    var Models = window.cognitio = {
-        "professors":{}
-    };
-
     $(document).ready(function() {
-        $('#menu-include').load('includes/menu.html');
-        $('#footer-include').load('includes/footer.html');
+        $('#menu-content').load('includes/menu.html');
+        $('#footer-content').load('includes/footer.html');
     });
 </script>
 </body>
