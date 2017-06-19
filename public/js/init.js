@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     /**init functions**/
     headerSize();
-    adminContent();
+    Ingresar();
     smoothScroll();
     changeViewProfesor();
 
@@ -41,22 +41,25 @@ $(document).ready(function() {
         $('.center').css('height', hslider);
     }
 
-    $( '.modal-ingresar' ).on( 'click', function(e) {
-        e.preventDefault();
-        var modal_add_content = bootbox.dialog({
-            message: "<form><div class='form-group'><label>Email</label><input type='email' class='form-control'></div><div class='form-group'><label>Password</label><input type='password' class='form-control'></div></form>",
-            buttons: {
-                ok: {
-                    label: 'Ingresar',
-                    className: 'btn-enviar',
-                    callback: function(e) {
-                        window.location="admin-profesor.html";
+    function Ingresar(){
+        $( '.modal-ingresar' ).on( 'click', function(e) {
+            e.preventDefault();
+            var modal_add_content = bootbox.dialog({
+                message: "<form><div class='form-group'><label>Email</label><input type='email' class='form-control'></div><div class='form-group'><label>Password</label><input type='password' class='form-control'></div></form>",
+                buttons: {
+                    ok: {
+                        label: 'Ingresar',
+                        className: 'btn-enviar',
+                        callback: function(e) {
+                            window.location="admin-profesor.html";
+                        }
                     }
                 }
-            }
+            });
+            modal_add_content.addClass("modal-add");
         });
-        modal_add_content.addClass("modal-add");
-    });
+    }
+
 
     function smoothScroll(){
         $('a[href*="#"]')
@@ -108,22 +111,5 @@ $(document).ready(function() {
             $('#professorsList').removeClass('detail-view');
         })
     }
-
-    function adminContent(){
-        $('#settings-content').hide();
-        $('#calendar-content').show();
-
-        $('#calendario').click(function(e){
-            e.preventDefault();
-            $('#settings-content').hide();
-            $('#calendar-content').show();
-        })
-
-        $('#settings').click(function(e){
-            e.preventDefault();
-            $('#settings-content').show();
-            $('#calendar-content').hide();
-        });
-    };
 
 });
