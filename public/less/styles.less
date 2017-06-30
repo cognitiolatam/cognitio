@@ -108,6 +108,10 @@ ul{
 	&:hover,&:focus{
 		color: #fff;
 	}
+	&.btn-small{
+		padding: 5px 10px;
+		font-size: 15px;
+	}
 }
 
 .datos-estrellas{
@@ -593,11 +597,40 @@ h1{
 	.line-b{
 		margin-bottom: 20px;
 	}
+	.selected{
+		margin-left: 15px;
+		@media (min-width: 768px){
+			margin-left: -15px;
+		}
+		a{
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		ul li{
+			margin-bottom: 5px;
+		}
+		.option-selected{
+			background-color: #eeeeee;
+			padding: 1px 10px;
+			font-size:13px;
+			font-weight: 300;
+			&:after{
+				content: 'x';
+				display: inline-block;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+	}
 	#filters{
 		background-color: #eeeeee;
 		margin-right: -15px;
 		margin-left: -15px;
-		padding: 30px 15px;
+		padding: 15px 15px;
+		@media (min-width: 768px){
+			padding: 30px 15px;
+		}
 		h4{
 			font-size: 16px;
 		}
@@ -626,7 +659,6 @@ h1{
 		margin-top: 10px;
 		margin-bottom: 10px;
 		.form-control{
-			border:0px;
 			height: auto;
 			box-shadow: none;
 		}
@@ -696,7 +728,8 @@ h1{
 					padding: 15px;
 				}
 				.caption{
-					margin-left: 120px;
+					margin-left: 130px;
+					margin-top: -4px;
 				}
 				.nombre{
 					margin-bottom: 5px;
@@ -712,6 +745,7 @@ h1{
 					display: none;
 					@media (min-width: 768px){
 						display: block;
+						margin-left: 5px;
 					}
 				}
 				.precio{
@@ -905,10 +939,25 @@ h1{
 				border-left: 0px;
 				border-radius: 0px;
 				box-shadow: none;
+				&:focus + label {
+					font-weight: 700;
+					font-size: 12px;
+					transform: translate3d(0, -20px, 0);
+				}
 			}
 			.btn-aprentio{
 				font-size: 15px;
 				margin-top: 20px;
+			}
+			fieldset{
+				position: relative;
+			}
+			label {
+				position: absolute;
+				top: 15px;
+				left: 8px;
+				transform: translate3d(0, 0, 0);
+				transition: all 0.2s ease-in-out;
 			}
 		}
 		.forget-account{
@@ -1038,14 +1087,14 @@ h1{
 			text-align: center;
 			margin-top: 20px;
 			.profile-usertitle-name {
-				color: #5a7391;
+				color: #555;
 				font-size: 20px;
 				font-weight: 600;
 				margin-bottom: 7px;
 			}
 			.profile-usertitle-job {
 				text-transform: uppercase;
-				color: #5b9bd1;
+				color: @basecolor;
 				font-size: 13px;
 				font-weight: 800;
 				margin-bottom: 7px;
@@ -1069,6 +1118,7 @@ h1{
 				border-bottom: 2px solid @basecolor;
 				padding-bottom: 10px;
 				margin-bottom: 20px;
+				margin-top: 0px;
 			}
 		}
 		.btn-circle{
@@ -1121,6 +1171,34 @@ h1{
 					}
 				}
 			}
+			form{
+				margin-top: 30px;
+				label{
+					font-weight:300;
+					font-size: 14px;
+				}
+				.form-group{
+					margin-bottom: 20px;
+				}
+				.medium{
+					width: 100%;
+					@media (min-width: 768px){
+						width: 49.7%;
+					}
+					.form-control{
+						width: 100%;
+					}
+				}
+				.small{
+					width: 100%;
+					@media (min-width: 768px){
+						width: 32.9%;
+					}
+					.form-control{
+						width: 100%;
+					}
+				}
+			}
 		}
 	}
 }
@@ -1153,4 +1231,8 @@ h1{
 
 .owl-theme .owl-controls .owl-page.active span {
     background-color: @basecolor;
+}
+
+#upload{
+	display:none
 }
