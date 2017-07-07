@@ -136,6 +136,51 @@ h1{
 	}
 }
 
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+	background-color: @basecolor;
+	border-color: @basecolor;
+}
+
+.pagination>li>a{
+	margin:5px;
+}
+
+.pagination>li>a, .pagination>li>span{
+	border: 0px;
+	color: #000000;
+}
+
+.pagination{
+	background-color: #ffffff;
+}
+
+.aprentio-tabs{
+	&.nav-tabs>li.active>a, &.nav-tabs>li.active>a:focus, &.nav-tabs>li.active>a:hover{
+		border-top:2px solid @basecolor;
+		border-right: 2px solid @basecolor;
+		border-left:2px solid @basecolor;
+		border-bottom:0px;
+		background-color: transparent;
+	}
+	&.nav-tabs>li>a{
+		background-color: #f9f9f9;
+		border-top:1px solid #eae9e9;
+		border-right: 1px solid #eae9e9;
+		border-left:1px solid #eae9e9;
+		border-bottom:0px;
+		font-size:16px;
+	}
+	&.nav-tabs{
+		border-bottom:2px solid @basecolor;
+	}
+}
+
+.shadow{
+	-moz-box-shadow: 0px 0px 8px #d6d6d6;;
+	-webkit-box-shadow: 0px 0px 8px #d6d6d6;;
+	box-shadow: 0px 0px 8px #d6d6d6;;
+}
+
 #menu{
 	padding-top: 18px;
 	height: 70px;
@@ -277,6 +322,14 @@ h1{
 			height: 40px;
 			background-color: transparent;
 			border: 0;
+		}
+	}
+	.ver-catalogo{
+		margin-top: 10px;
+		a{
+			color: @basecolor;
+			font-size:18px;
+			text-decoration: underline;
 		}
 	}
 }
@@ -775,7 +828,7 @@ h1{
 		}
 		&.block-view{
 			.prof{
-				display: inline-block;
+				//display: inline-block;
 				text-align: left;
 				.img{
 					margin: 0 auto;
@@ -874,6 +927,9 @@ h1{
 					font-size: 18px;
 				}
 			}
+			.tab-content{
+				margin-top: 30px;
+			}
 		}
 	}
 	.boton{
@@ -947,6 +1003,11 @@ h1{
 					font-size: 12px;
 					transform: translate3d(0, -25px, 0);
 				}
+				&.label-up + label{
+					font-weight: 300;
+					font-size: 12px;
+					transform: translate3d(0, -25px, 0);
+				}
 			}
 			.btn-aprentio{
 				font-size: 15px;
@@ -968,9 +1029,35 @@ h1{
 		}
 		.forget-account{
 			margin-top: 10px;
+			a{
+				color: @basecolor;
+				text-decoration: underline;
+			}
 		}
 		.btn-sociales{
 			margin-top: 20px;
+		}
+	}
+}
+
+#catalogo-result{
+	background-color: #f9f9f9;
+	padding-top:25px;
+	padding-bottom:25px;
+	.catalogo{
+		margin-top: 30px;
+		li{
+			padding: 20px;
+			text-align: center;
+			background-color: #ffffff;
+			width: 174px;
+			height:168px;
+			color: @basecolor;
+			font-size:15px;
+			margin: 5px;
+			p{
+				margin-top: 10px;
+			}
 		}
 	}
 }

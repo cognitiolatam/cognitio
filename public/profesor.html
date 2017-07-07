@@ -52,7 +52,7 @@
       <div class="container">
           <div class="row">
             <div class="col-md-8 text-left">
-              <div class="profesor-details">
+              <div class="profesor-details shadow">
                <ul class="list-inline">
                  <li>
                    <img src="http://lorempixel.com/100/100/" alt="..." class="img-circle img">
@@ -89,42 +89,35 @@
                 <button type="submit" class="btn btn-aprentio btn-reservar">Reservar</button>
               </div>
                <div class="info">
-                 <div>
-                   <h4 class="underline">Información Académica</h4>
-                   <p class="info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra metus nisi, eget suscipit enim pretium eget. Curabitur aliquam neque enim, id accumsan tortor tincidunt ut. Proin a purus vestibulum mi scelerisque imperdiet eu at lorem. Fusce porta eget erat non condimentum. Pellentesque eget volutpat lacus, efficitur efficitur nibh. Etiam maximus ex dui, a eleifend diam tempus euismod. Curabitur convallis nisi nec mollis malesuada. Phasellus risus neque, malesuada in accumsan in, lacinia vel quam. Maecenas urna purus, luctus in vulputate ac, tincidunt nec mauris. Duis blandit sem eget sollicitudin feugiat.
+                   <div>
+                       <!-- Nav tabs -->
+                       <ul class="nav nav-tabs nav-justified aprentio-tabs" role="tablist">
+                           <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información Académica</a></li>
+                           <li role="presentation"><a href="#subjects" aria-controls="subjects" role="tab" data-toggle="tab">Materias</a></li>
+                           <li role="presentation"><a href="#place" aria-controls="place" role="tab" data-toggle="tab">Ubicación</a></li>
+                       </ul>
 
-                    Sed commodo ornare lectus, eget tempus sem. Etiam ultrices turpis sapien, vitae fermentum nisl gravida posuere. Cras consectetur ipsum velit, et tincidunt nibh tristique a. Maecenas sed metus nec risus laoreet mattis. Integer id leo nisl. Donec eros ex, luctus vel laoreet ut, dignissim sit amet quam. Sed lacus magna, tincidunt at posuere id, laoreet a sapien. In in lacus sit amet lorem lobortis interdum. Nulla facilisi. Nunc tincidunt mollis urna, vitae ultricies dolor fermentum ut. Donec rutrum arcu pharetra quam iaculis finibus. Sed eget enim vel nisi malesuada eleifend lacinia sit amet turpis.
-
-                    Quisque pellentesque at enim at finibus. Aliquam eu neque sem. In hac habitasse platea dictumst. Nam faucibus non lorem vitae molestie. Aenean et auctor est, sed convallis turpis. Mauris rutrum massa risus, at scelerisque arcu maximus ut. In auctor, urna vitae auctor blandit, erat dui scelerisque ex, ut convallis ex lorem eget lorem.</p>
-                 </div>
-                 <div>
-                   <h4 class="underline">Materias</h4>
-                   <ul class="info-text materias-list">
-                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                   </ul>
-                 </div>
-                 <div>
-                   <h4 class="underline">Ubicación</h4>
-                   <ul class="list-inline">
-                     <li>
-                       MAPA
-                     </li>
-                     <li>
-                       <h4>Trasportes que te acercan</h4>
-                       <p>Lineas de colectivo</p>
-                       <p>Subte</p>
-                     </li>
-                   </ul>
-                 </div>
+                       <!-- Tab panes -->
+                       <div class="tab-content">
+                           <div role="tabpanel" class="tab-pane active" id="info">...</div>
+                           <div role="tabpanel" class="tab-pane" id="subjects">
+                               <ul class="info-text materias-list">
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                               </ul>
+                           </div>
+                           <div role="tabpanel" class="tab-pane" id="place">...</div>
+                           <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                       </div>
+                   </div>
                </div>
               </div>
             </div>
             <div class="col-md-4 text-left hidden-xs">
-               <div class="profesor-book">
+               <div class="profesor-book shadow">
                 <div><h3>$250</h3></div>
                 <div class="text-center boton">
                   <button type="submit" class="btn btn-aprentio btn-reservar">Reservar</button>

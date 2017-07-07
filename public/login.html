@@ -158,6 +158,14 @@
                 console.log("Not logged in into FB.");
             }
         }
+
+
+        $('input').on('change', function () {
+            if($(this).val() != ''){
+                $(this).addClass('label-up');
+            }
+        }).change();
+
     });
 </script>
 </body>
