@@ -50,11 +50,17 @@
               <li class="view"><a href="" class="view-detail"><span class="glyphicon glyphicon-list"></span></a></li>
               <li class="view"><a href="" class="view-block"><span class="glyphicon glyphicon-th-large"></span></a></li>
               <li class="filter-sort">
-                <select id="sorts">
-                  <option value="*">show all</option>
-                  <option value="number">number > 50</option>
-                  <option value="name">name</option>
-                </select>
+                <div class="btn-group" id="sorts">
+                  <button class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span>Ordenar por</span>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="button" data-sort-by="original-order">Mostrar Todos</a></li>
+                    <li><a href="#" class="button" data-sort-by="number">Precio</a></li>
+                    <li><a href="#" class="button" data-sort-by="name">Nombre</a></li>
+                  </ul>
+                </div>
               </li>
             </ul>
             <!--<div  class="button-group">  <button class="button is-checked" data-sort-by="original-order">original order</button>-->
@@ -119,7 +125,7 @@
                           <div class="ub-pr">
                             <div class="ubicacion">Haedo, Buenos Aires</div>
                             <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">$250</div>
+                            <div class="precio precio-u number">150</div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -130,7 +136,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d">$250</div>
+                          <div class="precio precio-d number">250</div>
                         </div>
                       </div>
                     </a>
@@ -145,7 +151,7 @@
                           <div class="ub-pr">
                             <div class="ubicacion">Haedo, Buenos Aires</div>
                             <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">$250</div>
+                            <div class="precio precio-u number">950</div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -156,7 +162,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d">$250</div>
+                          <div class="precio precio-d number">250</div>
                         </div>
                       </div>
                     </a>
@@ -171,7 +177,7 @@
                           <div class="ub-pr">
                             <div class="ubicacion">Haedo, Buenos Aires</div>
                             <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">$250</div>
+                            <div class="precio precio-u number">550</div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -182,7 +188,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d">$250</div>
+                          <div class="precio precio-d number">250</div>
                         </div>
                       </div>
                     </a>
@@ -197,7 +203,7 @@
                           <div class="ub-pr">
                             <div class="ubicacion">Haedo, Buenos Aires</div>
                             <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">$250</div>
+                            <div class="precio precio-u number">750</div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -208,7 +214,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d">$250</div>
+                          <div class="precio precio-d">250</div>
                         </div>
                       </div>
                     </a>
@@ -223,7 +229,7 @@
                           <div class="ub-pr">
                             <div class="ubicacion">Haedo, Buenos Aires</div>
                             <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">$250</div>
+                            <div class="precio precio-u number">350</div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -234,7 +240,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d">$250</div>
+                          <div class="precio precio-d number">$250</div>
                         </div>
                       </div>
                     </a>
@@ -255,16 +261,17 @@
   <!-- Init functions -->
   <script src="js/init.js" type="text/javascript"></script>
 
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- Isotope sorts -->
+  <script src="js/isotope.pkgd.min.js"></script>
 
   <script type="text/javascript">
       $(document).ready(function() {
           $('#menu-content').load('includes/menu.html');
           $('#footer-content').load('includes/footer.html');
-          portfolio();
+          portfolioSort();
+          changeViewProfesor();
 
-          function portfolio(){
-              // init Isotope
+          function portfolioSort(){
               var $grid = $('.grid').isotope({
                   itemSelector: '.element-item',
                   getSortData: {
@@ -273,19 +280,36 @@
                   }
               });
 
-// bind filter on select change
-              $('.filters-select').on( 'change', function() {
-                  // get filter value from option value
-                  var filterValue = this.value;
-                  // use filterFn if matches value
-                  filterValue = filterFns[ filterValue ] || filterValue;
-                  $grid.isotope({ filter: filterValue });
+              // bind filter on select change
+              $('#sorts').on( 'click', 'a', function() {
+                  var sortByValue = $(this).attr('data-sort-by');
+                  $grid.isotope({ sortBy: sortByValue });
               });
-
-
           };
 
           $(window).load(function(){$('.grid').isotope('layout');});
+
+          $('.view-detail').on('click',function(){
+              $('.grid').isotope('layout');
+          });
+
+          $('.view-block').on('click',function(){
+              $('.grid').isotope('layout');
+          });
+
+          function changeViewProfesor(){
+              $('.view-detail').click(function(e){
+                  e.preventDefault();
+                  $('#professorsList').addClass('detail-view');
+                  $('#professorsList').removeClass('block-view');
+              })
+
+              $('.view-block').click(function(e){
+                  e.preventDefault();
+                  $('#professorsList').addClass('block-view');
+                  $('#professorsList').removeClass('detail-view');
+              })
+          }
 
       });
   </script>

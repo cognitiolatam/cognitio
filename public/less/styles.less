@@ -10,9 +10,9 @@ body{
 }
 
 body.admin{
-	padding-top: 0px;
+	padding-top: 0;
 	.navbar{
-		margin-bottom: 0px;
+		margin-bottom: 0;
 	}
 }
 
@@ -43,12 +43,12 @@ body.admin{
 }
 
 .mbottom-0{
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus,.btn.active, .btn:active {
-    outline: 0px auto -webkit-focus-ring-color;
-    outline-offset: 0px;
+    outline: 0 auto -webkit-focus-ring-color;
+    outline-offset: 0;
     box-shadow: none;
 }
 
@@ -89,12 +89,12 @@ ul{
 	background-color: @basecolor;
 	color: #fff;
 	font-size: 20px;
-	padding: 15px 0px;
+	padding: 15px 0;
 	font-weight: 400;
 	font-family: @secondfont;
 	@media (min-width: 768px){
 		font-size: 24px;
-		padding: 24px 0px;
+		padding: 24px 0;
 	}
 }
 
@@ -104,7 +104,7 @@ ul{
 	color: #fff;
 	font-size: 20px;
 	text-transform: uppercase;
-	border-radius: 0px;
+	border-radius: 0;
 	&:hover,&:focus{
 		color: #fff;
 	}
@@ -116,8 +116,8 @@ ul{
 
 .datos-estrellas{
 	li{
-		padding-right:0px;
-		padding-left:0px;
+		padding-right:0;
+		padding-left:0;
 	}
 	.glyphicon-star{
 		font-size: 16px;
@@ -146,7 +146,7 @@ h1{
 }
 
 .pagination>li>a, .pagination>li>span{
-	border: 0px;
+	border: 0;
 	color: #000000;
 }
 
@@ -156,29 +156,33 @@ h1{
 
 .aprentio-tabs{
 	&.nav-tabs>li.active>a, &.nav-tabs>li.active>a:focus, &.nav-tabs>li.active>a:hover{
-		border-top:2px solid @basecolor;
-		border-right: 2px solid @basecolor;
-		border-left:2px solid @basecolor;
-		border-bottom:0px;
-		background-color: transparent;
+		border-bottom:2px solid @basecolor;
+		background-color: rgba(243, 232, 255, 0.5);
+		border-top:  0;
+		border-right:  0;
+		border-left:  0;
+		font-weight: 700;
 	}
 	&.nav-tabs>li>a{
-		background-color: #f9f9f9;
-		border-top:1px solid #eae9e9;
-		border-right: 1px solid #eae9e9;
-		border-left:1px solid #eae9e9;
-		border-bottom:0px;
+		background-color: transparent;
 		font-size:16px;
-	}
-	&.nav-tabs{
-		border-bottom:2px solid @basecolor;
+		border-top:  0;
+		border-right:  0;
+		border-left:  0;
+		border-bottom:2px solid #cc9bfe;
 	}
 }
 
 .shadow{
-	-moz-box-shadow: 0px 0px 8px #d6d6d6;;
-	-webkit-box-shadow: 0px 0px 8px #d6d6d6;;
-	box-shadow: 0px 0px 8px #d6d6d6;;
+	-moz-box-shadow: 0 0 8px #d6d6d6;;
+	-webkit-box-shadow: 0 0 8px #d6d6d6;;
+	box-shadow: 0 0 8px #d6d6d6;;
+}
+
+.form-control:focus{
+	border-color: #cc9bfe;
+	-webkit-box-shadow: inset 0 1px 1px rgba(243, 232, 255, 0.75), 0 0 8px rgba(243, 232, 255, 0.75);
+	box-shadow: inset 0 1px 1px rgba(243, 232, 255, 0.75), 0 0 8px rgba(243, 232, 255, 0.75);
 }
 
 #menu{
@@ -188,9 +192,9 @@ h1{
 	font-size: 14px;
 	background-color: #fff;
 	.navbar-toggle{
-		margin-top: 0px;
-		border: 0px;
-		margin-right: 0px;
+		margin-top: 0;
+		border: 0;
+		margin-right: 0;
 		&:hover,&:focus{
 			background: transparent;
 		}
@@ -203,14 +207,13 @@ h1{
 	}
 	.search-menu{
 		text-align: center;
-		margin: -3px 0px;
-		border: 0px;
+		margin: -3px 0;
+		border: 0;
 		.form-group{
 			width: 100%;
 		}
 		.form-control{
 			width: 100%;
-			//border: 0px;
 			height: 41px;
 		}
 		.inner-addon {
@@ -246,8 +249,8 @@ h1{
 		margin-right: -15px;
 		margin-left: -15px;
 		@media (min-width: 768px){
-			margin-right: 0px;
-			margin-left: 0px;
+			margin-right: 0;
+			margin-left: 0;
 		}
 	}
 	.avatar{
@@ -273,7 +276,7 @@ h1{
 	background-size: cover;
 	color: #ffffff;
 	.center{
-		margin-top: 0px;
+		margin-top: 0;
 		width: 100%;
 		@media (min-width: 768px){
 			margin-top: -50px;
@@ -297,8 +300,8 @@ h1{
 		}
 		.form-group{
 			width: 100%;
-			margin-right: 0px;
-			margin-left: 0px;
+			margin-right: 0;
+			margin-left: 0;
 			@media (min-width: 768px){
 				width: 270px;
 				margin-right: 10px;
@@ -309,10 +312,10 @@ h1{
 			}
 			.form-control{
 				width: 100%;
-			    border-top: 0px;
-			    border-right: 0px;
-			    border-left: 0px;
-			    border-radius: 0px;
+			    border-top: 0;
+			    border-right: 0;
+			    border-left: 0;
+			    border-radius: 0;
 			    box-shadow: none;
 			}
 		}
@@ -362,7 +365,6 @@ h1{
 			left: 0;
 			right: 0;
 			height: 100%;
-			width: 100%;
 			opacity: 0;
 			transition: .5s ease;
 			background-color: rgba(0,0,0,.6);
@@ -413,8 +415,8 @@ h1{
 		}
 	}
 	#owl-demo .item{
-		padding: 0px;
-		border: 0px;
+		padding: 0;
+		border: 0;
 		margin-right: 15px;
 		margin-left: 15px;
 		margin-bottom: 40px;
@@ -455,7 +457,7 @@ h1{
 		ul{
 			li{
 				vertical-align: top;
-				margin-right: 0px;
+				margin-right: 0;
 				text-align: center;
 				width: 100%;
 				color: #fff;
@@ -466,7 +468,7 @@ h1{
 				}
 				&:not{
 					&:first-child{
-						margin-left: 0px;
+						margin-left: 0;
 						@media (min-width: 768px){
 							margin-left: 30px;
 						}
@@ -562,7 +564,6 @@ h1{
 			li{
 				margin-bottom: 15px;
 				width: 100%;
-				margin-bottom: 15px;
 				@media (min-width: 768px){
 					width: auto;
 				}
@@ -577,8 +578,8 @@ h1{
 	}
 	.home-cel{
 		position: absolute;
-		bottom: 0px;
-		left: 0px;
+		bottom: 0;
+		left: 0;
 		@media (min-width: 768px){
 			left: -50px;
 		}
@@ -586,7 +587,7 @@ h1{
 			left: -100px;
 		}
 		@media (min-width: 1200px){
-			left: 0px;
+			left: 0;
 		}
 	}
 }
@@ -703,10 +704,7 @@ h1{
 		}
 	}
 	.view{
-		margin-left: 2px;
-		margin-right: 2px;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 10px 2px;
 	}
 	.filter-sort{
 		margin-top: 10px;
@@ -714,6 +712,16 @@ h1{
 		.form-control{
 			height: auto;
 			box-shadow: none;
+		}
+	}
+	#sorts{
+		.dropdown-toggle{
+			background-color: transparent;
+			border: 1px solid #ccc;
+			padding: 5px;
+			span{
+				font-size: 12px;
+			}
 		}
 	}
 	#professorsList{
@@ -724,7 +732,7 @@ h1{
 		.prof{
 			min-width: 145px;
 			text-align: left;
-			margin: 0px 0px 20px 0px;
+			margin: 0 5px 20px 0;
 			font-size: 13px;
 			vertical-align: top;
 			max-height: 322px;
@@ -759,6 +767,10 @@ h1{
 				font-weight: 700;
 				font-size: 20px;
 				margin-bottom: 20px;
+				&:before{
+					content: '$';
+					display: inline-block;
+				}
 			}
 			a{
 				&:hover{
@@ -766,16 +778,18 @@ h1{
 				}
 			}
 			.thumbnail{
-				border: 0px;
+				border: 0;
 			}
 			.caption{
-				padding: 0px;
+				padding: 0;
 			}
 		}
 		&.detail-view{
 			.prof{
 				display: block;
 				text-align: left;
+				width: 100%;
+				margin-bottom: 0;
 				.img{
 					margin: 0;
 					float: left;
@@ -805,7 +819,7 @@ h1{
 					}
 				}
 				.precio{
-					margin-bottom: 0px;
+					margin-bottom: 0;
 				}
 				.precio-d{
 					display:block;
@@ -964,7 +978,7 @@ h1{
 		@media (min-width: 768px){
 			min-height: 300px;
 			margin-bottom: 300px;
-			padding-bottom: 0px;
+			padding-bottom: 0;
 		}
 	}
 	.form-content{
@@ -993,10 +1007,10 @@ h1{
 			}
 			.form-control{
 				width: 100%;
-				border-top: 0px;
-				border-right: 0px;
-				border-left: 0px;
-				border-radius: 0px;
+				border-top: 0;
+				border-right: 0;
+				border-left: 0;
+				border-radius: 0;
 				box-shadow: none;
 				&:focus + label {
 					font-weight: 300;
@@ -1045,16 +1059,23 @@ h1{
 	padding-top:25px;
 	padding-bottom:25px;
 	.catalogo{
+		text-align: center;
 		margin-top: 30px;
+		@media (min-width: 768px){
+			text-align: left;
+		}
 		li{
 			padding: 20px;
 			text-align: center;
 			background-color: #ffffff;
-			width: 174px;
+			width: 164px;
 			height:168px;
 			color: @basecolor;
 			font-size:15px;
 			margin: 5px;
+			@media (min-width: 768px){
+				width: 174px;
+			}
 			p{
 				margin-top: 10px;
 			}
@@ -1102,11 +1123,11 @@ h1{
 		.modal-body{
 			padding: 15px;
 			@media (min-width: 768px){
-				padding: 0px;
+				padding: 0;
 			}
 			.close{
 				margin-top: -17px !important;
-				margin-right: 0px;
+				margin-right: 0;
 				display: block;
 				@media (min-width: 768px){
 					margin-top: -25px!important;
@@ -1115,10 +1136,10 @@ h1{
 			}
 		}
 		ul{
-			margin-left: 0px;
+			margin-left: 0;
 		}
 		.content{
-			margin-top: 0px;
+			margin-top: 0;
 			@media (min-width: 768px){
 				margin-top: 30px;
 			}
@@ -1144,10 +1165,10 @@ h1{
 			text-align: center;
 		}
 		.nav-tabs.nav-justified>li>a{
-			border: 0px;
+			border: 0;
 		}
 		form{
-			padding: 0px;
+			padding: 0;
 			max-width: 300px;
 			margin: 20px auto;
 			.form-group{
@@ -1170,11 +1191,10 @@ h1{
 		background-color: #fff;
 		margin-top: 0;
 		margin-bottom: 25px;
-		padding: 0;
 		border-radius: 4px;
 		padding: 30px 0;
 		.profile-userpic{
-			padding: 0px 15px;
+			padding: 0 15px;
 		}
 		.profile-usertitle {
 			text-align: center;
@@ -1211,7 +1231,7 @@ h1{
 				border-bottom: 2px solid @basecolor;
 				padding-bottom: 10px;
 				margin-bottom: 20px;
-				margin-top: 0px;
+				margin-top: 0;
 			}
 		}
 		.btn-circle{
@@ -1240,7 +1260,8 @@ h1{
 				.hour{
 					color: @basecolor;
 					margin-right: 15px;
-				}.class{
+				}
+				.class{
 					margin-bottom: 15px;
 				}
 			}
@@ -1254,20 +1275,9 @@ h1{
 			}
 		}
 		&#profile{
-			.config-opts{
-				li{
-					&.active{
-						border-bottom: 2px solid @basecolor;
-						a{
-							border: 0px;
-						}
-					}
-					a{
-					
-						&:hover,&:focus{
-							background-color: transparent;
-						}
-					}
+			.aprentio-tabs{
+				li>a{
+					font-size: 13px;
 				}
 			}
 			form{
@@ -1302,11 +1312,10 @@ h1{
 	}
 }
 
-
 /**Owl Carousel**/
 #owl-demo .item{
   display: block;
-  padding: 30px 0px 50px 0px;
+  padding: 30px 0 50px 0;
   margin: 5px;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
