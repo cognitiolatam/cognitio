@@ -237,9 +237,6 @@
   <!--Owl Carousel -->
   <script src="js/owl.carousel.js"></script>
 
-  <!-- Init functions -->
-  <script src="js/init.js" type="text/javascript"></script>
-
   <!-- Models -->
     <script src="js/models/professors.js"></script>
     <script type="text/javascript">
@@ -248,8 +245,46 @@
       };
 
       $(document).ready(function() {
-        $('#menu-content').load('includes/menu.html');
-        $('#footer-content').load('includes/footer.html');
+          $(window).bind("load", function () {
+              $("#status").fadeOut();
+              $("#preloader").delay(450).fadeOut("slow");
+          })
+
+          $('#menu-content').load('includes/menu.html');
+          $('#footer-content').load('includes/footer.html');
+
+          /**init functions**/
+          headerSize();
+
+          $(window).resize(function() {
+              headerSize();
+          });
+
+          function headerSize(){
+              var windowWidth = $(window).width();
+              var windowHeight = $(window).height();
+              if (windowWidth>=992){
+                  $( "#header" ).css({
+                      "height": "600px"
+                  });
+              }else if (windowWidth>769 && windowWidth<992){
+                  $( "#header" ).css({
+                      "height": "500px"
+                  });
+
+              }else if (windowWidth>600 && windowWidth<=768){
+                  $( "#header" ).css({
+                      "height": "480px"
+                  });
+
+              }else if (windowWidth<=600){
+                  $( "#header" ).css({
+                      "height": "400px"
+                  });
+              };
+              var hslider =  $( "#header" ).css('height');
+              $('.center').css('height', hslider);
+          }
 
           $("#owl-demo").owlCarousel({
               navigation: false,

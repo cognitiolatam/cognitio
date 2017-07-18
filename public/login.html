@@ -113,10 +113,13 @@
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 
-<!-- Init functions -->
-<script src="js/init.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        $(window).bind("load", function () {
+            $("#status").fadeOut();
+            $("#preloader").delay(450).fadeOut("slow");
+        })
+
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
 

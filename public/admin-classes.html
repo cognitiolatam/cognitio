@@ -164,11 +164,13 @@
 
 <script src="js/bootstrap.min.js"></script>
 
-<!-- Init functions -->
-<script src="js/init.js" type="text/javascript"></script>
-
 <script>
     $(document).ready(function() {
+        $(window).bind("load", function () {
+            $("#status").fadeOut();
+            $("#preloader").delay(450).fadeOut("slow");
+        })
+
         $('#menu-include').load('includes/menu.html');
         $('#footer-include').load('includes/footer.html');
     });

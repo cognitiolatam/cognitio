@@ -145,6 +145,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        $(window).bind("load", function () {
+            $("#status").fadeOut();
+            $("#preloader").delay(450).fadeOut("slow");
+        })
+
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
     });
