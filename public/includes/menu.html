@@ -15,9 +15,11 @@
             </div>
             <div class="col-md-6 col-sm-6 hidden-xs">
                 <form class="navbar-form search-menu">
-                    <div class="form-group inner-addon right-addon">
-                        <span class="glyphicon icn-search" aria-hidden="true"></span>
-                        <input type="text" class="form-control">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-search">
+                        <span class="input-group-btn btn-search">
+                          <button class="btn btn-default form-search" type="button"><span class="btn_search"></span></button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -28,9 +30,11 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="visible-xs">
                                 <form class="navbar-form search-menu">
-                                    <div class="form-group inner-addon right-addon">
-                                        <span class="glyphicon icn-search" aria-hidden="true"></span>
-                                        <input type="text" class="form-control">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-search">
+                                        <span class="input-group-btn btn-search">
+                                        <button class="btn btn-default form-search" type="button"><span class="btn_search"></span></button>
+                                        </span>
                                     </div>
                                 </form>
                             </li>
@@ -66,3 +70,10 @@
         </div>
     </div>
 </nav>
+<script>
+    $(document).ready(function(){
+        $('.form-search').click(function() {
+            location.href='profesores.html';
+        });
+    })
+</script>
