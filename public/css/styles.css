@@ -212,6 +212,26 @@ h1 {
     right: 9px;
     pointer-events: none;
 }
+#menu .btn-search{
+    width: 47px;
+    height:41px;
+}
+#menu .input-group{
+    width: 100%;
+}
+#menu .form-search{
+    width: 47px;
+    height:41px;
+}
+#menu .form-search:hover,#menu .form-search:focus{
+    background-color: transparent;
+}
+#menu .btn_search{
+    width: 24px;
+    height:24px;
+    background-image: url(../images/icn-search.png);
+    display: block;
+}
 #menu .ingresa-xs {
     margin-top: 3px;
     margin-right: 10px;
