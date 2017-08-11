@@ -32,8 +32,8 @@
   <link href="css/owl.carousel.css" rel="stylesheet">
 
   <!-- Styles -->
-  <!--<link rel="stylesheet/less" type="text/css" href="less/styles.less" />-->
-  <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+  <!--<link href="css/styles.css" rel="stylesheet">-->
 
   <!--Fonts -->
   <link href="css/fonts.css" rel="stylesheet">
@@ -48,42 +48,49 @@
     <section id="profesores-result">
       <div class="container">
         <div class="row line-b">
-          <div class="col-md-6">
+          <div class="col-md-6 hidden-xs">
             <div><h4>Resultados para:&nbsp;<span class="highlight">Profesores de Matematica</span></h4></div>
           </div>
-          <div class="col-md-6">
-            <ul class="list-inline text-right mbottom-0">
-              <li class="view"><a href="" class="view-detail"><span class="glyphicon glyphicon-list"></span></a></li>
-              <li class="view"><a href="" class="view-block"><span class="glyphicon glyphicon-th-large"></span></a></li>
-              <li class="filter-sort">
-                <div class="btn-group" id="sorts">
-                  <button class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span>Ordenar por</span>
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" class="button" data-sort-by="original-order">Mostrar Todos</a></li>
-                    <li><a href="#" class="button" data-sort-by="number">Precio</a></li>
-                    <li><a href="#" class="button" data-sort-by="name">Nombre</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-sm-3">
-            <div class="selected">
-              <ul class="list-inline">
-                <li>
-                  <a href="#"><span class="option-selected">Haedo</span></a>
+          <div class="filters">
+            <div class="col-md-6">
+              <ul class="list-inline text-right">
+                <li class="view"><a href="" class="view-detail"><span class="glyphicon glyphicon-list"></span></a></li>
+                <li class="view"><a href="" class="view-block"><span class="glyphicon glyphicon-th-large"></span></a></li>
+                <li class="filter-sort">
+                  <div class="btn-group" id="sorts">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span>Ordenar por</span>
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" class="button" data-sort-by="original-order">Mostrar Todos</a></li>
+                      <li><a href="#" class="button" data-sort-by="number">Precio</a></li>
+                      <li><a href="#" class="button" data-sort-by="name">Nombre</a></li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <a href="#"><span class="option-selected">Primario</span></a>
+                <li class="visible-xs-inline-block">
+                  <button class="btn" id="filter_xs">
+                    <span>Filtrar</span>
+                  </button>
                 </li>
               </ul>
             </div>
-            <div id="filters">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="selected">
+              <ul class="list-inline">
+                <li>
+                  <a href="#"><p class="option-selected">Haedo</p></a>
+                </li>
+                <li>
+                  <a href="#"><p class="option-selected">Primario</p></a>
+                </li>
+              </ul>
+            </div>
+            <div id="filters" class="hidden-xs">
               <div class="filters">
                 <h4>Ubicación</h4>
                 <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div>
@@ -104,11 +111,11 @@
                 <div><a href="#">Más de $200</a></div>
               </div>
             </div>
-            <div style="background-color: #fff">
+            <div style="background-color: #fff" hidden>
               Publicidad
             </div>
           </div>
-          <div class="col-md-10 col-sm-9">
+          <div class="col-md-10 col-sm-9 col-xs-12">
               <div id="professorsList" class="block-view">
                 <div class="grid">
                   <div class="prof element-item">
@@ -120,8 +127,8 @@
                           <div class="materia">Matemáticas</div>
                           <div class="ub-pr">
                             <div class="ubicacion">Avellaneda, Buenos Aires</div>
-                            <div class="ubicacion">Lunes a Viernes (3hs)</div>
-                            <div class="precio precio-u number">350</div>
+                            <div class="ubicacion hidden-xs">Lunes a Viernes (3hs)</div>
+                            <div class="precio precio-u number">350 <small>(individual)</small></div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -132,7 +139,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d number">350</div>
+                          <div class="precio precio-d number">350 <small>(individual)</small></div>
                         </div>
                       </div>
                     </a>
@@ -146,8 +153,8 @@
                           <div class="materia">Lengua</div>
                           <div class="ub-pr">
                             <div class="ubicacion">Haedo, Buenos Aires</div>
-                            <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">150</div>
+                            <div class="ubicacion hidden-xs">Lunes a Viernes (8hs)</div>
+                            <div class="precio precio-u number">150 <small>(individual)</small></div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -158,7 +165,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d number">150</div>
+                          <div class="precio precio-d number">150 <small>(individual)</small></div>
                         </div>
                       </div>
                     </a>
@@ -172,8 +179,8 @@
                           <div class="materia">Inglés</div>
                           <div class="ub-pr">
                             <div class="ubicacion">Palermo, Buenos Aires</div>
-                            <div class="ubicacion">Lunes a Viernes (8hs)</div>
-                            <div class="precio precio-u number">90</div>
+                            <div class="ubicacion hidden-xs">Lunes a Viernes (8hs)</div>
+                            <div class="precio precio-u number">90 <small>(individual)</small></div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -184,7 +191,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d number">90</div>
+                          <div class="precio precio-d number">90 <small>(individual)</small></div>
                         </div>
                       </div>
                     </a>
@@ -198,8 +205,8 @@
                           <div class="materia">Música</div>
                           <div class="ub-pr">
                             <div class="ubicacion">Flores, Buenos Aires</div>
-                            <div class="ubicacion">Lunes a Viernes (6hs)</div>
-                            <div class="precio precio-u number">100</div>
+                            <div class="ubicacion hidden-xs">Lunes a Viernes (6hs)</div>
+                            <div class="precio precio-u number">100 <small>(individual)</small></div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -210,7 +217,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d number">100</div>
+                          <div class="precio precio-d number">100 <small>(individual)</small></div>
                         </div>
                       </div>
                     </a>
@@ -224,8 +231,8 @@
                           <div class="materia">Análisis Matemático</div>
                           <div class="ub-pr">
                             <div class="ubicacion">Avellaneda, Buenos Aires</div>
-                            <div class="ubicacion">Lunes a Viernes (3hs)</div>
-                            <div class="precio precio-u number">350</div>
+                            <div class="ubicacion hidden-xs">Lunes a Viernes (3hs)</div>
+                            <div class="precio precio-u number">350 <small>(individual)</small></div>
                           </div>
                           <div class="datos-estrellas">
                             <ul class="list-inline">
@@ -236,7 +243,7 @@
                               <li><span class="glyphicon glyphicon-star"></span></li>
                             </ul>
                           </div>
-                          <div class="precio precio-d number">350</div>
+                          <div class="precio precio-d number">350 <small>(individual)</small></div>
                         </div>
                       </div>
                     </a>
@@ -247,6 +254,69 @@
         </div>
       </div>
     </section>
+    <div id="filters_xs">
+      <div class="text-right">
+        <button class="btn" id="close_filter_xs">
+          <span>Cerrar</span>
+        </button>
+      </div>
+      <div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Ubicación<span class="glyphicon icn pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div> 
+                  <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div> 
+                  <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div> 
+                  <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+                </div>
+             </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Ubicación<span class="glyphicon icn pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div> 
+                <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div> 
+                <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div> 
+                <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Ubicación<span class="glyphicon icn pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div> 
+                <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div> 
+                <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div> 
+                <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <div id="footer-content"></div>
 
   <script src="js/jquery.min.js"></script>
@@ -310,6 +380,13 @@
                   $('#professorsList').removeClass('detail-view');
               })
           }
+
+          $('#filter_xs').click(function(){
+              $('#filters_xs').show();
+          })
+          $('#close_filter_xs').click(function(){
+              $('#filters_xs').hide();
+          })
 
       });
   </script>

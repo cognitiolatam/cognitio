@@ -759,22 +759,23 @@ h1 {
     }
 }
 #profesores-result #professorsList .prof {
-    min-width: 145px;
+    width: 47%;
+    width: calc(50% - 10px);
     text-align: left;
     margin: 0 5px 20px 0;
     font-size: 13px;
     vertical-align: top;
-    max-height: 322px;
+    height: 322px;
 }
 #profesores-result #professorsList .prof :active {
     text-decoration: none;
 }
 @media (min-width: 768px) {
     #profesores-result #professorsList .prof {
-        min-width: 220px;
+        width: 220px;
         font-size: 15px;
         margin: 0 7px 20px 7px;
-        max-height: 365px;
+        height: 365px;
     }
 }
 #profesores-result #professorsList .prof .nombre {
@@ -814,6 +815,9 @@ h1 {
 }
 #profesores-result #professorsList .prof .caption {
     padding: 0;
+}
+#profesores-result #professorsList .prof .datos-estrellas {
+    margin-left: 5px;
 }
 #profesores-result #professorsList.detail-view .prof {
     display: block;

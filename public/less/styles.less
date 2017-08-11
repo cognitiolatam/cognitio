@@ -42,8 +42,8 @@ body.admin{
 	border-bottom: 1px solid #aaaaaa;
 }
 
-.mbottom-0{
-	margin-bottom: 0;
+.mbottom(@mbottom){
+	margin-bottom: @mbottom;
 }
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus,.btn.active, .btn:active {
@@ -79,6 +79,40 @@ a,a:hover,a:focus{
 
 ul{
 	list-style-type: none;
+}
+
+.panel{
+	margin-bottom: 20px;
+	box-shadow: none;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #ccc;
+	.panel-title{
+		font-size:20px;
+		a{
+			color: #777;
+			&:hover{
+				text-decoration: none;
+			}
+			&[aria-expanded="true"]{
+				.icn {
+					&:after {
+						content: "\e260";
+						display: inline-block;
+						color: @basecolor;
+					}
+				}
+			}
+			&[aria-expanded="false"]{
+				.icn{
+					&:after{
+						content: "\e259";
+						display: inline-block;
+						color: @basecolor;
+					}
+				}
+			}
+		}
+	}
 }
 
 .img{
@@ -236,7 +270,6 @@ h1{
 	.form-search{
 		width: 47px;
 		height:41px;
-		background-image: url(../images/icn-search.png);
 		&:hover,&:focus{
 			background-color: transparent;
 		}
@@ -269,6 +302,7 @@ h1{
 		background-color: #fff;
 		margin-right: -15px;
 		margin-left: -15px;
+		text-align: right;
 		@media (min-width: 768px){
 			margin-right: 0;
 			margin-left: 0;
@@ -278,10 +312,14 @@ h1{
 		margin-top: -5px;
 	}
 	#menu-collapse{
+		border-bottom: 1px solid #ddd;
+		@media (min-width: 768px){
+			border-bottom: 0px;
+		}
 		li{
 			a{
-				padding-top: 5px;
-				padding-bottom: 5px;
+				padding-top: 7px;
+				padding-bottom: 7px;
 				@media (min-width: 768px){
 					&:not(.last){
 						.line-r;
@@ -622,39 +660,6 @@ h1{
 		color: @basecolor;
 		margin-bottom: 80px;
 	}
-	.panel{
-		margin-bottom: 20px;
-		box-shadow: none;
-		background-color: #f9f9f9;
-		border-bottom: 1px solid #ccc;
-		.panel-title{
-			font-size:20px;
-			a{
-				color: #777;
-				&:hover{
-					text-decoration: none;
-				}
-				&[aria-expanded="true"]{
-					.icn {
-						&:after {
-							content: "\e260";
-							display: inline-block;
-							color: @basecolor;
-						}
-					}
-				}
-				&[aria-expanded="false"]{
-					.icn{
-						&:after{
-							content: "\e259";
-							display: inline-block;
-							color: @basecolor;
-						}
-					}
-				}
-			}
-		}
-	}
 	.sub-collapse{
 		margin-left: 20px;
 	}
@@ -662,7 +667,7 @@ h1{
 
 /*Profesores**/
 #profesores-result{
-	padding-top: 40px;
+	padding-top: 0px;
 	padding-bottom: 40px;
 	background-color: #f8f8f8;
 	@media (min-width: 768px){
@@ -673,7 +678,7 @@ h1{
 		margin-bottom: 20px;
 	}
 	.selected{
-		margin-left: 15px;
+		margin-left: 0px;
 		@media (min-width: 768px){
 			margin-left: -15px;
 		}
@@ -687,7 +692,7 @@ h1{
 		}
 		.option-selected{
 			background-color: #eeeeee;
-			padding: 1px 10px;
+			padding: 5px 10px;
 			font-size:13px;
 			font-weight: 300;
 			&:after{
@@ -696,6 +701,15 @@ h1{
 				margin-left: 5px;
 				margin-right: 5px;
 			}
+		}
+	}
+	.filters{
+		background-color: #ffffff;
+		@media (min-width: 768px){
+			background-color: transparent;
+		}
+		ul{
+			.mbottom(0px);
 		}
 	}
 	#filters{
@@ -735,14 +749,12 @@ h1{
 			box-shadow: none;
 		}
 	}
-	#sorts{
-		.dropdown-toggle{
-			background-color: transparent;
-			border: 1px solid #ccc;
-			padding: 5px;
-			span{
-				font-size: 12px;
-			}
+	.btn{
+		background-color: transparent;
+		border: 1px solid #ccc;
+		padding: 5px;
+		span{
+			font-size: 12px;
 		}
 	}
 	#professorsList{
@@ -751,20 +763,19 @@ h1{
 			text-align: left;
 		}
 		.prof{
-			min-width: 145px;
+			width: 46%;
 			text-align: left;
-			margin: 0 5px 20px 0;
 			font-size: 13px;
 			vertical-align: top;
-			max-height: 322px;
-			:active{
+			//height: 322px;
+			overflow: hidden;
+			&:active{
 				text-decoration: none;
 			}
 			@media (min-width: 768px){
-				min-width: 220px;
+				width: 220px;
 				font-size: 15px;
 				margin: 0 7px 20px 7px;
-				max-height: 365px;
 			}
 			.nombre{
 				color: #343434;
@@ -778,16 +789,23 @@ h1{
 			.materia{
 				color: @basecolor;
 				margin-bottom: 10px;
+				max-height: 50px;
+				overflow: hidden;
 			}
 			.ubicacion{
 				color: #343434;
 				margin-bottom: 10px;
+				max-height: 50px;
+				overflow: hidden;
 			}
 			.precio{
 				color: @basecolor;
 				font-weight: 700;
-				font-size: 20px;
+				font-size: 17px;
 				margin-bottom: 20px;
+				@media (min-width: 768px){
+					font-size: 20px;
+				}
 				&:before{
 					content: '$';
 					display: inline-block;
@@ -800,9 +818,13 @@ h1{
 			}
 			.thumbnail{
 				border: 0;
+				border-radius: 0px;
 			}
 			.caption{
 				padding: 0;
+			}
+			.datos-estrellas{
+				margin-left: 5px;
 			}
 		}
 		&.detail-view{
@@ -810,7 +832,8 @@ h1{
 				display: block;
 				text-align: left;
 				width: 100%;
-				margin-bottom: 0;
+				margin: 0;
+				height: auto;
 				.img{
 					margin: 0;
 					float: left;
@@ -864,7 +887,12 @@ h1{
 		&.block-view{
 			.prof{
 				//display: inline-block;
+				height: 322px;
 				text-align: left;
+				margin: 0 5px 10px;
+				@media (min-width: 768px){
+					height: 365px;
+				}
 				.img{
 					margin: 0 auto;
 				}
@@ -886,6 +914,40 @@ h1{
 						}
 					}
 				}
+			}
+		}
+	}
+}
+
+#filters_xs{
+	background-color: #ffffff;
+	display: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	bottom: 0;
+	padding: 70px 15px;
+	margin-top: 20px;
+	z-index: 999;
+	.btn{
+		background-color: transparent;
+		border: 1px solid #ccc;
+		padding: 5px 10px;
+		margin-bottom: 20px;
+		span{
+			font-size: 12px;
+		}
+	}
+	.panel,.panel-group{
+		margin-bottom: 0px;
+		.panel-title{
+			font-size: 15px;
+		}
+		.panel-body {
+			background-color: #ffffff;
+			a {
+				color: @basecolor;
+				font-size: 13px;
 			}
 		}
 	}
@@ -1086,17 +1148,23 @@ h1{
 			text-align: left;
 		}
 		li{
-			padding: 20px;
+			padding: 10px 5px;
 			text-align: center;
 			background-color: #ffffff;
-			width: 164px;
-			height:185px;
+			width: 130px;
+			height: 160px;
+			color: #a751fe;
+			font-size: 13px;
+			text-align: center;
+			background-color: #ffffff;
 			color: @basecolor;
-			font-size:15px;
 			margin: 5px;
 			vertical-align: top;
 			@media (min-width: 768px){
+				font-size:15px;
 				width: 174px;
+				padding: 20px;
+				height:185px;
 			}
 			p{
 				margin-top: 10px;
