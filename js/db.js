@@ -166,7 +166,7 @@ var self = {
                         numberOfhits: 45
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: professor.dataValues.id,
+                            professorid: 1,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 7'
                         });
@@ -179,7 +179,7 @@ var self = {
                         numberOfhits: 12
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: professor.dataValues.id,
+                            professorid: 1,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
@@ -205,6 +205,20 @@ var self = {
                     individualPrice:120,
                     groupPrice: 180
                 }).then(function (professor) {
+
+                    self.Subject.create({
+                        name: 'Matematica',
+                        description: 'CBC',
+                        type: 'Exactas',
+                        numberOfhits: 43
+                    }).then(function (subject) {
+                        self.SubjectProfessor.create({
+                            professorid: 2,
+                            subjectid: subject.dataValues.id,
+                            description: 'Cursada y aprobada con 9'
+                        });
+                    });
+
                     if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
                 });
             });
