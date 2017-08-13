@@ -337,7 +337,8 @@
           $('#menu-content').load('includes/menu.html');
           $('#footer-content').load('includes/footer.html');
 
-          $('.grid').isotope('layout');
+          $(window).load(function(){portfolioSort();});
+
 
           /**init functions**/
           portfolioSort();
@@ -358,8 +359,6 @@
                   $grid.isotope({ sortBy: sortByValue });
               });
           };
-
-          $(window).load(function(){$('.grid').isotope('layout');});
 
           $('.view-detail').on('click',function(){
               $('.grid').isotope('layout');
