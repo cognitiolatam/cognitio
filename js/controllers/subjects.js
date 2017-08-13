@@ -22,13 +22,10 @@ var self = {
 		});
 	},
 
-	_getAllSubjects: function(resp) {
-		console.log('[CONTROLLERS] SUBJECT _getAllSubjects.');
+	_getAll: function(resp) {
+		console.log('[CONTROLLERS] SUBJECT _getAll.');
 
-		models.Subject.findAll({
-            include: [models.Professor]
-            //Filter travels by deleted and by date
-        }).then(function (subject) {
+		models.Subject.findAll().then(function (subject) {
 			cb(resp, JSON.stringify(subject));
 		});
 	}

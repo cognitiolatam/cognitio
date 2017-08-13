@@ -207,8 +207,26 @@ app.route('/students/:id/lessons')
 		if(log) console.log("[REQUEST] /students/:id/lessons GET. ID: " + request.params.id);
 		controllers.Student._getAllLessonsByID(request.params.id, response);
 	});
-	
-	
+
+
+
+/*--------------------SUBJECTS---------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+// /Subjects
+//	GET:	List and searches all students. Parameters: (List of students. Filter by direction );
+//	POST:	Create a new student and saves it. Parameters:
+app.route('/subjects')
+	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Subjects list request.'); next();})
+	.get(function(request, response, next) {
+		if(log) console.log("[REQUEST] /subjects GET. Query: " + request.params.q);
+		controllers.Subject._getAll(response);
+	})
+/*	.post(function(request, response, next) {
+		if(log) console.log("[REQUEST] /students POST. Students (User) ID: " + request.body.userid);
+		controllers.Student._create(request.body, response);
+	})*/;
+
+
 	
 /*-------------------------------------------------------------------------*/
 /*--------------------NOTIFICATIONS----------------------------------------*/	
