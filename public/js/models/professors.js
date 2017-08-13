@@ -1,7 +1,8 @@
 //GET
 function _getAllProfessors(filters) {
 	//parseFilters
-    $.ajax({url: "/professors", success: function(result){
+    console.log("Professors request.");
+    $.ajax({url: "/professors?", success: function(result){
         _parseGetAllProfessorsData(result);
     }});
 }

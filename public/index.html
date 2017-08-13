@@ -62,7 +62,7 @@
                       <label>Materia</label><br>
                       <input type="text" class="form-control" placeholder="Materia">
                     </div>
-                    <input type="button" class="btn btn-search" id="buscar" onclick="location.href='profesores.html'">
+                    <input type="button" class="btn btn-search" id="buscar" onclick="_getAllProfessors();location.href='profesores.html'">
                     <!--onclick="_getAllProfessors(); "-->
                   </form>
                 </div>
@@ -244,8 +244,11 @@
   <!--Owl Carousel -->
   <script src="js/owl.carousel.js"></script>
 
-  <!-- Models -->
+  <!-- Models & Controllers-->
+    <script src="js/models/subjects.js"></script>
     <script src="js/models/professors.js"></script>
+    <script src="js/controllers/subjects.js"></script>
+    <script src="js/controllers/professors.js"></script>
     <script type="text/javascript">
       var Models = window.cognitio = {
             "professors":{}
