@@ -32,11 +32,16 @@ var self = {
 			cb(resp, JSON.stringify(professor.dataValues));
 		});
 	},
-	
-	_getAllProfessors: function(resp) {
-		console.log('[CONTROLLERS] PROFESSORS _getAllProfessors.');
-		
-		models.Professor.findAll().then(function (professors) {		
+
+	_getAll: function(resp) {
+		console.log('[CONTROLLERS] PROFESSORS _getAll');
+
+		models.Professor.findAll({
+            include: [
+                models.User,
+                models.SubjectProfessor
+            ]
+        }).then(function (professors) {
 			if(professors.length > 0) {
 				cb(resp, JSON.stringify(professors));
 			} else {

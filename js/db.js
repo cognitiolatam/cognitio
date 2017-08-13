@@ -14,6 +14,8 @@ var self = {
 	StudentLesson: null,
 	Review: null,
 	Notification: null,
+    Subject: null,
+    SubjectProfessor: null,
 
 	_setupDB: function (pg, seq, logg, testFlag) {
 		pg.defaults.ssl = true;
@@ -41,7 +43,9 @@ var self = {
 		Models.studentlesson = require('./models/studentlessons');
 		Models.review = require('./models/reviews');
 		Models.notification = require('./models/notifications');
-		
+        Models.subject = require('./models/subjects');
+        Models.subjectprofessor = require('./models/subjectsprofessor');
+
 		for (property in Models) {
 			Models[property]._init(connection, Sequelize, self);
 		}
@@ -49,21 +53,22 @@ var self = {
 		//Relations
 		//User
 		self.User.hasMany(self.Notification, {foreignKey: 'userid'});
-		
-		//Student
-		self.Student.hasOne(self.User, {foreignKey: 'userid'});		
+        self.User.hasOne(self.Professor, {foreignKey: 'userid'});
+
+        //Student
+		self.Student.belongsTo(self.User, {foreignKey: 'userid'});
 		self.Student.hasMany(self.StudentLesson, {foreignKey: 'studentid'});		
 		
 		//Professor
-		self.Professor.hasOne(self.User, {foreignKey: 'userid'});		
-		self.Professor.hasMany(self.Lesson, {foreignKey: 'professorid'});		
-		
-		//Lesson
+		self.Professor.belongsTo(self.User, {foreignKey: 'userid'});
+		self.Professor.hasMany(self.Lesson, {foreignKey: 'professorid'});
+        self.Professor.hasMany(self.SubjectProfessor, {foreignKey: 'professorid'});
+
+        //Lesson
 		self.Lesson.belongsTo(self.Professor, {foreignKey: 'professorid'});
 		self.Lesson.hasMany(self.StudentLesson, {foreignKey: 'lessonid'});
 		self.Lesson.hasMany(self.Notification, {foreignKey: 'lessonid'});
-		
-		
+
 		//StudentLesson
 		self.StudentLesson.belongsTo(self.Lesson, {foreignKey: 'lessonid'});
 		self.StudentLesson.belongsTo(self.Student, {foreignKey: 'studentid'});	
@@ -71,6 +76,13 @@ var self = {
 		//Notification
 		self.Notification.belongsTo(self.User, {foreignKey: 'userid'});
 		self.Notification.belongsTo(self.Lesson, {foreignKey: 'lessonid'});
+
+        //Subjects
+        self.Subject.hasMany(self.SubjectProfessor, {foreignKey: 'subjectid'});
+
+        //SubjectsProfessor
+        self.SubjectProfessor.belongsTo(self.Subject, {foreignKey: 'subjectid'});
+        self.SubjectProfessor.belongsTo(self.Professor, {foreignKey: 'professorid'});
 
 		if(testData) self._createTestData(connection);
 	},
@@ -130,14 +142,73 @@ var self = {
 	_createTestData: function(conn) {		
 		const forc = true; //IMPORTANT: CHANGE TO FALSE BEFORE GOING INTO PROD.
 		conn.sync({force: forc}).then(function () {
-            self.Professor.create({
-                userid: 1,
-                cuil: 20123456789,
-                individualPrice:100,
-                groupPrice: 200
-            }).then(function (professor) {
-                if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
+            self.User.create({
+				firstname: 'Roberto',
+				lastname: 'Garciarena',
+				address: 'Av. Scalabrini 382, Buenos Aires, Argentina',
+				birthDate: new Date((new Date()).getTime() + 460000000),
+				highSchoolStudies: 'Bachiller Pellegrini',
+				universitaryStudies: 'Contador UBA',
+				dni: 12121212,
+				fbid: '21212121',
+				token: 'tokenTest'
+			}).then(function (user) {
+                self.Professor.create({
+                    userid: user.dataValues.id,
+                    cuil: 20121212129,
+                    individualPrice:100,
+                    groupPrice: 200
+                }).then(function (professor) {
+                    self.Subject.create({
+                        name: 'Matematicas',
+                        description: 'Matematicas de secundario',
+                        type: 'Exactas',
+                        numberOfhits: 45
+                    }).then(function (subject) {
+                        self.SubjectProfessor.create({
+                            professorid: professor.dataValues.id,
+                            subjectid: subject.dataValues.id,
+                            description: 'Cursada y aprobada con 7'
+                        });
+                    });
+
+                    self.Subject.create({
+                        name: 'Algoritmos y estructura de datos',
+                        description: 'UBA y UTN',
+                        type: 'Informáticas',
+                        numberOfhits: 12
+                    }).then(function (subject) {
+                        self.SubjectProfessor.create({
+                            professorid: professor.dataValues.id,
+                            subjectid: subject.dataValues.id,
+                            description: 'Cursada y aprobada con 9'
+                        });
+                    });
+                });
             });
+
+
+            self.User.create({
+                firstname: 'Ana Paula',
+                lastname: 'Piriz',
+                address: 'Vera 382, Buenos Aires, Argentina',
+                birthDate: new Date((new Date()).getTime() + 1260000000),
+                highSchoolStudies: 'Perito Mercantil Normal II',
+                universitaryStudies: 'Arquitecta UBA',
+                dni: 34343434,
+                fbid: '43434343',
+                token: 'tokenTest'
+            }).then(function (user) {
+                self.Professor.create({
+                    userid: user.dataValues.id,
+                    cuil: 27343434349,
+                    individualPrice:120,
+                    groupPrice: 180
+                }).then(function (professor) {
+                    if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
+                });
+            });
+
 			if(log) console.log('\x1b[32m', "[DB] MODELS: Tables dropped and recreated.",'\x1b[0m');
         });
 	}

@@ -9,6 +9,8 @@ var self = {
 	StudentLesson: null,
 	Review: null,
 	Notification: null,
+	Subject: null,
+	SubjectProfessor: null,
 	
 	_callback : function(response, json) {
 		response.writeHead(200, {"Content-Type": "application/json"});
@@ -27,7 +29,9 @@ var self = {
 		self.StudentLesson = Controllers.StudentLesson = require('./controllers/studentlessons');
 		self.Review = Controllers.Review = require('./controllers/reviews');
 		self.Notification = Controllers.Notification = require('./controllers/notifications');
-		
+		self.Subject = Controllers.Subject = require('./controllers/subjects');
+		self.SubjectProfessor = Controllers.SubjectProfessor = require('./controllers/subjectsprofessor');
+
 		for (property in Controllers) {
 			Controllers[property]._init(db, self._callback);
 		} 
