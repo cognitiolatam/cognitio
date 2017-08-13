@@ -105,21 +105,28 @@ var self = {
 		self.Review = model;
 		if(log) console.log('\x1b[32m', "[MODELS] REVIEW: Table ready.",'\x1b[0m');		
 	},
-	
+
 	_setNotificationModel: function (model) {
 		self.Notification = model;
 		if(log) console.log('\x1b[32m', "[MODELS] NOTIFICATION: Table ready." ,'\x1b[0m');
 	},
-	
+
+	_setSubjectsModel: function (model) {
+		self.Subject = model;
+		if(log) console.log('\x1b[32m', "[MODELS] SUBJECT: Table ready." ,'\x1b[0m');
+	},
+
+	_setSubjectsProfessorModel: function (model) {
+		self.SubjectProfessor = model;
+		if(log) console.log('\x1b[32m', "[MODELS] SUBJECTPROFESSOR: Table ready." ,'\x1b[0m');
+	},
 
 
 
 
 
 
-	
-	
-	/*---------------------TEST DATA------------------------------------*/
+/*---------------------TEST DATA------------------------------------*/
 	_createTestData: function(conn) {		
 		const forc = true; //IMPORTANT: CHANGE TO FALSE BEFORE GOING INTO PROD.
 		conn.sync({force: forc}).then(function () {
