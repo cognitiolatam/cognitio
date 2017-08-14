@@ -82,21 +82,16 @@
           <div class="col-md-2 col-sm-3 col-xs-12">
             <div class="selected">
               <ul class="list-inline">
-                <li>
-                  <a href="#"><p class="option-selected">Haedo</p></a>
-                </li>
-                <li>
-                  <a href="#"><p class="option-selected">Primario</p></a>
-                </li>
+
               </ul>
             </div>
             <div id="filters" class="hidden-xs">
               <div class="filters">
                 <h4>Ubicación</h4>
-                <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div>
-                <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div>
-                <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div>
-                <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+                <div><a onclick="_getAllProfessors();" class="filter">Ramos Mejía</a><span class="filter-result">(15)</span></div>
+                <div><a href="#" class="filter">Haedo</a><span class="filter-result">(15)</span></div>
+                <div><a href="#" class="filter">Ciudadela</a><span class="filter-result">(15)</span></div>
+                <div><a href="#" class="filter">Liniers</a><span class="filter-result">(15)</span></div>
               </div>
               <div class="filters">
                 <h4>Materia</h4>
@@ -272,10 +267,10 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                  <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div> 
-                  <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div> 
-                  <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div> 
-                  <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+                  <div><a href="#">Ramos Mejía</a><span class="filter-result">(15)</span></div> 
+                  <div><a href="#">Ciudadela</a><span class="filter-result">(25)</span></div> 
+                  <div><a href="#">Liniers</a><span class="filter-result">(5)</span></div> 
+                  <div><a href="#">Haedo</a><span class="filter-result">(10)</span></div>
                 </div>
              </div>
             </div>
@@ -290,10 +285,10 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
-                <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div> 
-                <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div> 
-                <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div> 
-                <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+                <div><a href="#">Ramos Mejía</a><span class="filter-result">(15)</span></div> 
+                <div><a href="#">Ciudadela</a><span class="filter-result">(25)</span></div> 
+                <div><a href="#">Liniers</a><span class="filter-result">(5)</span></div> 
+                <div><a href="#">Haedo</a><span class="filter-result">(10)</span></div>
               </div>
             </div>
           </div>
@@ -307,10 +302,10 @@
             </div>
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
               <div class="panel-body">
-                <div><a href="#">Ramos Mejía <span class="filter-result">(15)</span></a></div> 
-                <div><a href="#">Ciudadela <span class="filter-result">(25)</span></a></div> 
-                <div><a href="#">Liniers <span class="filter-result">(5)</span></a></div> 
-                <div><a href="#">Haedo <span class="filter-result">(10)</span></a></div>
+                <div><a href="#">Ramos Mejía</a><span class="filter-result">(15)</span></div> 
+                <div><a href="#">Ciudadela</a><span class="filter-result">(25)</span></div> 
+                <div><a href="#">Liniers</a><span class="filter-result">(5)</span></div> 
+                <div><a href="#">Haedo</a><span class="filter-result">(10)</span></div>
               </div>
             </div>
           </div>
@@ -395,6 +390,18 @@
           $('#close_filter_xs').click(function(){
               $('#filters_xs').hide();
           })
+
+          $('.filter').click(function(e){
+              e.preventDefault();
+              $('.selected .list-inline').append('<li><div class="option-selected"><h6>'+$(this).text()+'</h6><div class="close_icon"></div></div></li>')
+              $(this).parent().hide()
+          })
+
+          $(".selected .list-inline").on("click", ".close_icon", function () {
+              $(this).parent().hide()
+              console.log('asasas')
+          });
+
 
       });
   </script>
