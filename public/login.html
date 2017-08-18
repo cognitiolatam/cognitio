@@ -29,7 +29,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Styles -->
-    <!--<link rel="stylesheet/less" type="text/css" href="less/styles.less" />-->
     <link href="css/styles.css" rel="stylesheet">
 
     <!--Fonts -->
@@ -83,17 +82,19 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-body">
-                            <form>
+                            <form method="post" id="loginForm">
                                 <fieldset class="form-group">
                                     <input type="email" class="form-control" id="email">
                                     <label for="email">Email</label>
+                                    <div class="label-error email-error hidden">Ingresa un email correcto</div>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <input type="password" class="form-control" id="pass" autocomplete="new-password">
                                     <label for="pass">Contraseña</label>
+                                    <div class="label-error pass-error hidden">Ingresa una contrseña correcta</div>
                                 </fieldset>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-aprentio" onclick="location.href='admin-profile.html'">Ingresar</button>
+                                    <button type="submit" class="btn btn-aprentio">Ingresar</button>
                                 </div>
                                 <div class="forget-account text-center">
                                     <a href="#">Olvidé mi cuenta</a>
@@ -124,7 +125,7 @@
         $(window).bind("load", function () {
             $("#status").fadeOut();
             $("#preloader").delay(450).fadeOut("slow");
-        })
+        });
 
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
@@ -169,13 +170,43 @@
             }
         }
 
-
         $('input').on('change', function () {
             if($(this).val() != ''){
                 $(this).addClass('label-up');
             }
         }).change();
 
+        /*Validacion*/
+        $(function () {
+        // var base_url_js = <?php echo json_encode(base_url()); ?>;
+            $('#loginForm').submit(function(event){
+                event.preventDefault();
+
+                $("#email").removeClass('input-error');
+                $("#pass").removeClass('input-error');
+
+                $(".email-error").addClass('hidden');
+                $(".pass-error").addClass('hidden');
+
+                var data = new Object();
+
+                data.code = $("#email").val();
+                data.pass = $("#pass").val();
+                var error = false;
+
+                if(data.code == ''){
+                    $("#email").addClass("input-error");
+                    $(".email-error").removeClass('hidden');
+                    var error = true;
+                }
+                if(data.pass == ''){
+                    $("#pass").addClass("input-error");
+                    $(".pass-error").removeClass('hidden');
+                    var error = true;
+                }
+
+            })
+        })
 
 
     });

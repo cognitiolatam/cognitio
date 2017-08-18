@@ -1,5 +1,5 @@
 {
-  "name": "Cognitio",
+  "name": "aprentio",
   "version": "0.2.5",
   "description": "The new way of spread knowledge",
   "engines": {
@@ -19,12 +19,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cognitiolatam/cognitio"
+    "url": "git+https://github.com/cognitiolatam/cognitio.git"
   },
   "keywords": [
     "node",
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cognitiolatam/cognitio/issues"
+  },
+  "homepage": "https://github.com/cognitiolatam/cognitio#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "author": "Ivana Leikin"
 }

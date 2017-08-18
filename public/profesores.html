@@ -32,8 +32,7 @@
   <link href="css/owl.carousel.css" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
-  <!--<link href="css/styles.css" rel="stylesheet">-->
+  <link href="css/styles.css" rel="stylesheet">
 
   <!--Fonts -->
   <link href="css/fonts.css" rel="stylesheet">
@@ -88,10 +87,10 @@
             <div id="filters" class="hidden-xs">
               <div class="filters">
                 <h4>Ubicación</h4>
-                <div><a onclick="_getAllProfessors();" class="filter">Ramos Mejía</a><span class="filter-result">(15)</span></div>
-                <div><a href="#" class="filter">Haedo</a><span class="filter-result">(15)</span></div>
-                <div><a href="#" class="filter">Ciudadela</a><span class="filter-result">(15)</span></div>
-                <div><a href="#" class="filter">Liniers</a><span class="filter-result">(15)</span></div>
+                <div data-id="1"><a class="filter" id="ub_cat1">Ramos Mejía</a><span class="filter-result">(15)</span></div>
+                <div data-id="2"><a class="filter">Haedo</a><span class="filter-result">(15)</span></div>
+                <div data-id="3"><a class="filter">Ciudadela</a><span class="filter-result">(15)</span></div>
+                <div data-id="4"><a class="filter">Liniers</a><span class="filter-result">(15)</span></div>
               </div>
               <div class="filters">
                 <h4>Materia</h4>
@@ -334,13 +333,10 @@
           $(window).bind("load", function () {
               $("#status").fadeOut();
               $("#preloader").delay(450).fadeOut("slow");
-          })
+          });
 
           $('#menu-content').load('includes/menu.html');
           $('#footer-content').load('includes/footer.html');
-
-          $(window).load(function(){portfolioSort();});
-
 
           /**init functions**/
           portfolioSort();
@@ -360,7 +356,7 @@
                   var sortByValue = $(this).attr('data-sort-by');
                   $grid.isotope({ sortBy: sortByValue });
               });
-          };
+          }
 
           $('.view-detail').on('click',function(){
               $('.grid').isotope('layout');
@@ -375,31 +371,50 @@
                   e.preventDefault();
                   $('#professorsList').addClass('detail-view');
                   $('#professorsList').removeClass('block-view');
-              })
+              });
 
               $('.view-block').click(function(e){
                   e.preventDefault();
                   $('#professorsList').addClass('block-view');
                   $('#professorsList').removeClass('detail-view');
-              })
+              });
           }
 
           $('#filter_xs').click(function(){
               $('#filters_xs').show();
-          })
+          });
           $('#close_filter_xs').click(function(){
               $('#filters_xs').hide();
-          })
+          });
 
-          $('.filter').click(function(e){
-              e.preventDefault();
-              $('.selected .list-inline').append('<li><div class="option-selected"><h6>'+$(this).text()+'</h6><div class="close_icon"></div></div></li>')
-              $(this).parent().hide()
-          })
+          function getFilters() {
+              var type_filter = $('.filter').attr('id');
+              var data = {'filtro':type_filter};
+              $.ajax({
+                  type: "GET",
+                  url: "profesores/",
+                  data: data,
+                  success: function(data) {
+                    console.log(data)
+                  },
+                  error: function(jqXHR, textStatus, err) {
+                     alert('no')
+                  }
+              });
+          }
 
-          $(".selected .list-inline").on("click", ".close_icon", function () {
-              $(this).parent().hide()
-              console.log('asasas')
+          $('.filter').on('click', function() {
+              var id = $(this).parent().attr('data-id');
+              $('.selected .list-inline').append('<li><div data-id="'+id+'" class="option-selected"><h6>'+$(this).text()+'</h6><div class="close_icon"></div></div></li>')
+              $(this).parent().hide();
+              getFilters();
+          });
+
+
+          $('.selected .list-inline').on('click', '.close_icon', function () {
+              $(this).parent().parent().hide();
+              var id = $(this).parent().attr('data-id');
+              $('.filters').find("[data-id='" + id + "']").show();
           });
 
 
