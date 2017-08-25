@@ -268,15 +268,22 @@ h1{
 		width: 100%;
 	}
 	.form-search{
-		width: 47px;
+		width: 52px;
 		height:41px;
+		padding: 0;
 		&:hover,&:focus{
 			background-color: transparent;
 		}
+		.icon-search{
+			&:before{
+				font-size: 27px;
+				line-height: 27px;
+			}
+		}
 	}
 	.btn_search{
-		width: 24px;
-		height:24px;
+		width: 26px;
+		height:26px;
 		background-image: url(../images/icn-search.png);
 		display: block;
 	}
@@ -311,6 +318,13 @@ h1{
 	.avatar{
 		margin-top: -5px;
 	}
+	.ver-catalogo{
+		a{
+			border:1px solid @basecolor;
+			border-radius: 4px;
+			color: @basecolor;
+		}
+	}
 	#menu-collapse{
 		border-bottom: 1px solid #ddd;
 		@media (min-width: 768px){
@@ -320,9 +334,15 @@ h1{
 			a{
 				padding-top: 7px;
 				padding-bottom: 7px;
-				@media (min-width: 768px){
-					&:not(.last){
-						.line-r;
+				font-size: 13px;
+				//@media (min-width: 768px){
+				//	&:not(.last){
+				//		.line-r;
+				//	}
+				//}
+				.icon-faqs{
+					&:before{
+						font-size: 25px;
 					}
 				}
 			}
@@ -388,18 +408,10 @@ h1{
 		}
 		.btn-search{
 			background-image: url('@{path}/icn-btnsearch.png');
-			width: 41px;
-			height: 40px;
+			width: 40px;
+			height: 39px;
 			background-color: transparent;
 			border: 0;
-		}
-	}
-	.ver-catalogo{
-		margin-top: 10px;
-		a{
-			color: @basecolor;
-			font-size:18px;
-			text-decoration: underline;
 		}
 	}
 }
@@ -1034,10 +1046,9 @@ h1{
 				margin-top: 35px;
 			}
 			.info-text{
-				font-size: 13px;
+				font-size: 14px;
 			}
 			.materias-list{
-				padding-left: 20px;
 				span{
 					color: @basecolor;
 					font-size: 18px;
@@ -1045,6 +1056,14 @@ h1{
 			}
 			.tab-content{
 				margin-top: 30px;
+				li {
+					&:before{
+						content: "• ";
+						color: @basecolor;
+						font-size: 21px;
+						vertical-align: middle;
+					}
+				}
 			}
 		}
 	}
@@ -1384,7 +1403,7 @@ h1{
 			}
 		}
 		&#profile{
-			.aprentio-tabs{
+			.aprentio-tabs {
 				li>a{
 					font-size: 13px;
 				}

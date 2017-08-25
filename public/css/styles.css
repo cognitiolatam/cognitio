@@ -242,16 +242,21 @@ h1 {
   width: 100%;
 }
 #menu .form-search {
-  width: 47px;
+  width: 52px;
   height: 41px;
+  padding: 0;
 }
 #menu .form-search:hover,
 #menu .form-search:focus {
   background-color: transparent;
 }
+#menu .form-search .icon-search:before {
+  font-size: 27px;
+  line-height: 27px;
+}
 #menu .btn_search {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background-image: url(../images/icn-search.png);
   display: block;
 }
@@ -290,6 +295,11 @@ h1 {
 #menu .avatar {
   margin-top: -5px;
 }
+#menu .ver-catalogo a {
+  border: 1px solid #a751fe;
+  border-radius: 4px;
+  color: #a751fe;
+}
 #menu #menu-collapse {
   border-bottom: 1px solid #ddd;
 }
@@ -301,11 +311,10 @@ h1 {
 #menu #menu-collapse li a {
   padding-top: 7px;
   padding-bottom: 7px;
+  font-size: 13px;
 }
-@media (min-width: 768px) {
-  #menu #menu-collapse li a:not(.last) {
-    border-right: 1px solid #aaaaaa;
-  }
+#menu #menu-collapse li a .icon-faqs:before {
+  font-size: 25px;
 }
 .input-error {
   border-bottom: 1px solid #ff5a5f;
@@ -375,18 +384,10 @@ h1 {
 }
 #header .form-search .btn-search {
   background-image: url('../images/icn-btnsearch.png');
-  width: 41px;
-  height: 40px;
+  width: 40px;
+  height: 39px;
   background-color: transparent;
   border: 0;
-}
-#header .ver-catalogo {
-  margin-top: 10px;
-}
-#header .ver-catalogo a {
-  color: #a751fe;
-  font-size: 18px;
-  text-decoration: underline;
 }
 #destacados-home {
   background-color: #fff;
@@ -1067,10 +1068,7 @@ h1 {
   margin-top: 35px;
 }
 #profesor-result .profesor-details .info .info-text {
-  font-size: 13px;
-}
-#profesor-result .profesor-details .info .materias-list {
-  padding-left: 20px;
+  font-size: 14px;
 }
 #profesor-result .profesor-details .info .materias-list span {
   color: #a751fe;
@@ -1078,6 +1076,12 @@ h1 {
 }
 #profesor-result .profesor-details .info .tab-content {
   margin-top: 30px;
+}
+#profesor-result .profesor-details .info .tab-content li:before {
+  content: "• ";
+  color: #a751fe;
+  font-size: 21px;
+  vertical-align: middle;
 }
 #profesor-result .boton {
   margin-top: 30px;
