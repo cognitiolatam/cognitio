@@ -23,7 +23,7 @@ var self = {
 	},
 
 	_getAllLessons: function(resp) {
-		console.log('[CONTROLLERS] LESSONS _getAllLessons.');
+		console.log('[CONTROLLERS] LESSONS _getAll.');
 
 		models.Lesson.findAll({
             include: [models.Professor]
@@ -43,20 +43,32 @@ var self = {
 			cb(resp, JSON.stringify(studentsByLesson));
 		});
 	},
-	
+
 	_createLesson: function(data, resp) {
 		const professorId = data.professorid;
-		
+        const subjectId = data.subjectid;
+        const lessonPrice = data.price;
+        const lessonDescription = data.description;
+        const lessonAddress = data.address;
+        const lessonAvailability = data.availability;
+
 		console.log('[CONTROLLERS] LESSONS _createLesson. ProfessorID:' + professorId);
-		
+
+
+
         models.Professor.findOne({
             where: { id: professorId }
         }).then(function (professor) {
             professorID = professor.dataValues.id;
-            models.Lesson.create({
-                professorid: professorID
-            }).then(function (lesson) {
-                cb(resp, JSON.stringify(lesson.dataValues));
+            models.Subject.findOne({
+                where: { id: subjectId }
+            }).then(function (subject) {
+                subjectID = subject.dataValues.id;
+                models.Lesson.create({
+
+                }).then(function (lesson) {
+                    cb(resp, JSON.stringify(lesson.dataValues));
+                });
             });
         });
 	}

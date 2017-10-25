@@ -138,11 +138,11 @@ app.route('/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log("[REQUEST] /lessons GET. Query: " + request.params.q);
-		controllers.Lesson._getAll(response);
+		controllers.Lesson._getAllLessons(response);
 	})
 	.post(function(request, response, next) {
 		if(log) console.log("[REQUEST] /lessons POST. Professor ID: " + request.body.professorid);
-		controllers.Lesson._create(request.body, response);
+		controllers.Lesson._createLesson(request.body, response);
 	});
 
 // /Lessons/:id

@@ -217,7 +217,15 @@ var self = {
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
-                    });
+						self.Lesson.create({
+							professorid: 2,
+							subjectid: 1,
+							price: 200,
+							description: 'Descripcion de la primer clase',
+							address: "DIRECCION",
+							availability: "LUN A VIE DE 13 a 15"
+						});
+					});
 
                     if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
                 });

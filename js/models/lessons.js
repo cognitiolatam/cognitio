@@ -4,7 +4,27 @@ var self = {
 			professorid: {
                 type: Sequelize.INTEGER,
                 allowNull: false
-            }
+            },
+			subjectid: {
+				type: Sequelize.INTEGER,
+				allowNull: false
+			},
+			price: {
+				type: Sequelize.INTEGER,
+				allowNull: false
+			},
+			description: {
+				type: Sequelize.STRING,
+				allowNull: false
+			},
+			address: {
+				type: Sequelize.STRING,
+				allowNull: false
+			},
+			availability: {
+				type: Sequelize.STRING,
+				allowNull: false
+			}
 		});
 		db._setLessonModel(Lesson);
 	}
