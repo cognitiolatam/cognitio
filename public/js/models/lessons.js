@@ -1,7 +1,10 @@
 //GET
 function _getAllLessons(filters) {
     //parseFilters
-    $.ajax({url: "/lessons", success: function(result){
+    var params = "";
+    params += "" == filters.place? "" : "place="+filters.place;
+    params += "" == filters.subject? "": "&subject="+filters.subject;
+    $.ajax({url: "/lessons?"+params, success: function(result){
         _parseGetAllLessonsData(result);
     }});
 }

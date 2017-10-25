@@ -55,13 +55,13 @@
                   <form class="form-inline">
                     <div class="form-group text-left">
                       <label>Tu Ciudad</label><br>
-                      <input type="text" class="form-control" placeholder="Ciudad">
+                      <input id="place" type="text" class="form-control" placeholder="Ciudad">
                     </div>
                     <div class="form-group text-left">
                       <label>Materia</label><br>
-                      <input type="text" class="form-control" placeholder="Materia">
+                      <input id="subject" type="text" class="form-control" placeholder="Materia">
                     </div>
-                    <input type="button" class="btn btn-search" id="buscar" onclick="_getAllProfessors();location.href='profesores.html'">
+                    <input type="button" class="btn btn-search" id="buscar" onclick="_loadProfessors()">
                     <!--onclick="_getAllProfessors(); "-->
                   </form>
                 </div>
@@ -289,6 +289,11 @@
               autoPlay: false
           });
       });
+
+      var _loadProfessors = function() {
+          console.log("Loading professors...");
+          location.href='profesores.html?place=' + $('#place').val() + '&subject=' + $('#subject').val();
+      }
     </script>
   </body>
 </html>
