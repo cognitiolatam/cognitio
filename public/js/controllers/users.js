@@ -4,3 +4,8 @@ function _parseGetAllUsersData(resp) {
         //...
     }
 }
+
+function _parseCreateUserData(result) {
+    console.log("User created: ", result);
+}
+

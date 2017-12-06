@@ -27,24 +27,27 @@ var self = {
 	},
 	
 	_createUser: function(data, resp) {
-		const facebookID = data.fbID;
+		const facebookID = data.fbID || 0;
 		const name = data.firstName;
 		const surname = data.lastName;
-		
-		console.log('[CONTROLLERS] USERS _createUser:' + facebookID);
-		
+		const email = data.email || "";
+		const passwordmd5 = data.hs;
+
+		console.log('[CONTROLLERS] USERS _createUser:' + facebookID + '. ' + email);
+		/*
 		if(isNaN(Number(facebookID)) || Number(facebookID) < -9223372036854775808 || Number(facebookID) > 9223372036854775807) {
 			cb(resp, '{"ERROR_CODE": 1,"Description": "Invalid User ID."}');
 			return;
 		}
-		
+		*/
 		models.User.create({
 				firstname: name,
 				lastname: surname,
 				fbid: facebookID,
-                token: 'exampleToken'
-		}).then(function (user) {
-			cb(resp, JSON.stringify(user.dataValues));
+                email: email,
+                passwordmd5: passwordmd5
+    		}).then(function (user) {
+	    		cb(resp, JSON.stringify(user.dataValues));
 		});
 	},
 	

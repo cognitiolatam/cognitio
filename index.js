@@ -63,8 +63,8 @@ app.route('/users')
 		controllers.User._getAll(response);
 	})
 	.post(function(request, response, next) {
-		if(log) console.log("[REQUEST] /users POST. New ID: ", request.body.id);
-		controllers.User._create(request.body, response);
+		if(log) console.log("[REQUEST] /users POST. New ID: ", request.body.email? request.body.email : request.body.fbID);
+		controllers.User._createUser(request.body, response);
 	});
 
 // /Users/:id

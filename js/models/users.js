@@ -2,11 +2,13 @@ var self = {
 	_init: function(connection, Sequelize, db) {
 		var User = connection.define('user', {
 			firstname: {
-				type: Sequelize.STRING
-			},
+				type: Sequelize.STRING,
+                allowNull: false
+            },
 			lastname: {
-				type: Sequelize.STRING
-			},
+				type: Sequelize.STRING,
+                allowNull: false
+            },
 			address: {
 				type: Sequelize.STRING
 			},
@@ -27,17 +29,18 @@ var self = {
 					min: 1
 				}
 			},
+			email: {
+			    type: Sequelize.STRING
+            },
 			fbid: {
-				type: Sequelize.BIGINT,
-				unique: true,
-				validate: {
-					isNumeric: true,
-					min: 1
-				}
+				type: Sequelize.BIGINT
 			},
 			token: {
 				type: Sequelize.STRING
-			}
+			},
+			passwordmd5: {
+                type: Sequelize.STRING
+            }
 		});
 		
 		db._setUserModel(User);

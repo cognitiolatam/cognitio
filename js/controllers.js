@@ -20,8 +20,7 @@ var self = {
 	_setupControllers: function (database, ayc, logg) {
 		db = database;
 		async =  ayc;
-		log = log;
-		
+
 		self.User = Controllers.User = require('./controllers/users');
 		self.Lesson = Controllers.Lesson = require('./controllers/lessons');
 		self.Student = Controllers.Student = require('./controllers/students');

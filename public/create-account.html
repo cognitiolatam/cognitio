@@ -90,15 +90,23 @@
                                     <label for="name">Nombre</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input type="text" class="form-control" id="apellido">
-                                    <label for="apellido">Apellido</label>
+                                    <input type="text" class="form-control" id="surname">
+                                    <label for="surname">Apellido</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input type="email" class="form-control" id="email" autocomplete="new-password">
+                                    <input type="email" class="form-control" id="email">
                                     <label for="email">Email</label>
                                 </fieldset>
+                                <fieldset class="form-group">
+                                    <input type="password" class="form-control" id="password" autocomplete="password">
+                                    <label for="email">Contraseña</label>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input type="password" class="form-control" id="password2" autocomplete="password">
+                                    <label for="email">Repita su contraseña</label>
+                                </fieldset>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-aprentio" onclick="location.href='index.html'">Registrarse</button>
+                                    <button type="button" class="btn btn-aprentio" onclick="_registerUser()">Registrarse</button>
                                 </div>
                             </form>
                             <div class="btn-sociales">
@@ -122,13 +130,17 @@
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 
+<!-- Models & Controllers-->
+<script src="js/models/users.js"></script>
+<script src="js/controllers/users.js"></script>
+
 <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 <script type="text/javascript">
     $(document).ready(function() {
         $(window).bind("load", function () {
             $("#status").fadeOut();
             $("#preloader").delay(450).fadeOut("slow");
-        })
+        });
 
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
@@ -186,6 +198,14 @@
             }
         }).change();
     });
+
+
+
+    var _registerUser = function() {
+        console.log("Registering new user...");
+        _createUser();
+//        location.href='profesores.html?place=' + $('#place').val() + '&subject=' + $('#subject').val();
+    };
 </script>
 </body>
 </html>
