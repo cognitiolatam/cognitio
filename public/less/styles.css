@@ -336,6 +336,10 @@ h1 {
   color: #ff5a5f;
   font-size: 10px;
 }
+.label-error.error-general {
+  text-align: center;
+  font-size: 12px;
+}
 #header {
   background-image: url('../images/bg-header2.jpg');
   background-size: cover;
@@ -398,7 +402,8 @@ h1 {
 #header .form-search .btn-search {
   background-image: url('../images/icn-btnsearch.png');
   width: 40px;
-  height: 39px;
+  height: 40px;
+  background-size: 100%;
   background-color: transparent;
   border: 0;
 }
@@ -1120,19 +1125,9 @@ h1 {
 }
 #login-register {
   background-color: #f9f9f9;
-}
-#login-register .up {
-  background-color: #a751fe;
-  min-height: 100%;
-  padding-bottom: 50px;
-  position: relative;
+  padding: 50px 0;
 }
 @media (min-width: 768px) {
-  #login-register .up {
-    min-height: 300px;
-    margin-bottom: 300px;
-    padding-bottom: 0;
-  }
 }
 #login-register .form-content {
   position: relative;
@@ -1140,10 +1135,6 @@ h1 {
   width: 100%;
 }
 @media (min-width: 768px) {
-  #login-register .form-content {
-    position: absolute;
-    bottom: -150px;
-  }
 }
 #login-register .form-content .form-body {
   width: auto;
@@ -1210,6 +1201,9 @@ h1 {
 }
 #login-register .form-content .btn-sociales {
   margin-top: 20px;
+}
+#login-register.login {
+  padding: 100px 0;
 }
 #catalogo-result {
   background-color: #f9f9f9;

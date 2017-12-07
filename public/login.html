@@ -75,7 +75,7 @@
         </div>
     </div>
 </div>
-<section id="login-register">
+<section id="login-register" class="login">
     <div class="up">
         <div class="form-content">
             <div class="container">
@@ -93,6 +93,7 @@
                                     <label for="pass">Contraseña</label>
                                     <div class="label-error pass-error hidden">Ingresa una contrseña correcta</div>
                                 </fieldset>
+                                <div class="hidden label-error error-general" role="alert" style="margin-bottom: 40px;">Tus datos son incorrectos</div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-aprentio">Ingresar</button>
                                 </div>
@@ -178,7 +179,6 @@
 
         /*Validacion*/
         $(function () {
-        // var base_url_js = <?php echo json_encode(base_url()); ?>;
             $('#loginForm').submit(function(event){
                 event.preventDefault();
 
@@ -203,6 +203,9 @@
                     $("#pass").addClass("input-error");
                     $(".pass-error").removeClass('hidden');
                     var error = true;
+                }
+                if(!error){
+                    $('.error-general').removeClass('hidden');
                 }
 
             })
