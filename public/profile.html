@@ -86,7 +86,7 @@
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name"> Fernanda Alvear </div>
                         <div class="profile-usertitle-job"> Música </div>
-                        <div class="profile-usertitle-profile"> <a href="#" class="btn"><label class="btn btn-circle">PERFIL ALUMNO<span class="glyphicon glyphicon-retweet" style="margin-left: 10px"></span></label></a> </div>
+                        <div class="profile-usertitle-profile"> <a href="#" class="btn"><label class="btn btn-circle">PERFIL<span class="glyphicon glyphicon-retweet" style="margin-left: 10px"></span></label></a> </div>
                     </div>
                     <div class="profile-usermenu">
                         <ul class="nav">
@@ -121,16 +121,20 @@
 
 <script src="js/bootstrap.min.js"></script>
 
+
+<script src="js/models/users.js"></script>
+<script src="js/controllers/users.js"></script>|
+
 <script>
     $(document).ready(function() {
         $(window).bind("load", function () {
             $("#status").fadeOut();
             $("#preloader").delay(450).fadeOut("slow");
-        })
+        });
 
         $('#menu-include').load('includes/menu.html');
         $('#footer-include').load('includes/footer.html');
-        $('#admin-classes').load('admin-classes.html');
+        $('#admin-profile').load('admin-profile.html');
 
         $('.mis-clases').click(function(e){
             e.preventDefault();

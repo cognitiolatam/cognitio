@@ -25,6 +25,22 @@ var self = {
 			}
 		});
 	},
+
+    _getByID: function(id, resp) {
+        console.log('[CONTROLLERS] USERS _getByID:' + id);
+
+        models.User.findOne({
+            where: { id: id }
+        }).then(function (user) {
+            if(user) {
+                cb(resp, JSON.stringify(user.dataValues));
+            } else {
+                //User not created.
+                cb(resp, '{"ERROR_CODE": 2,"Description": "User not found. Create user to proceed."}');
+            }
+        });
+    },
+
 	
 	_createUser: function(data, resp) {
 		const facebookID = data.fbID || 0;

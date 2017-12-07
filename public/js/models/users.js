@@ -6,8 +6,11 @@ function _getAllUsers(filters) {
     }});
 }
 
-function _getByUserID(userID) {
-
+function _getUser(filters) {
+    //parseFilters
+    $.ajax({url: "/users/"+filters.userid, success: function(result){
+        _parseGetUser(result);
+    }});
 }
 
 

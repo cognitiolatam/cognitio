@@ -79,4 +79,29 @@
             </form>
         </div>
     </div>
+    <script>
+        var urlParams;
+        (window.onpopstate = function () {
+            var match,
+                pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=]+)=?([^&]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                query  = window.location.search.substring(1);
+
+            urlParams = {};
+            while (match = search.exec(query))
+                urlParams[decode(match[1])] = decode(match[2]);
+        })();
+
+        $(document).ready(function() {
+            $(window).bind("load", function () {
+                $("#status").fadeOut();
+                $("#preloader").delay(450).fadeOut("slow");
+            });
+            /**init functions**/
+            console.log(urlParams);
+
+            _getUser(urlParams);
+        });
+    </script>
 </div>
