@@ -1,7 +1,7 @@
 function _parseGetAllLessonsData(resp) {
 //    Models.professors = resp;
 //    for (i = 0; i < Models.professors.length; i++) {
-    console.log("Lessons callback.");
+    console.log("Lessons callback.", resp);
     for (i = 0; i < resp.length; i++) {
         console.log(resp[i]);
         _drawLessonsOverview(resp[i]);

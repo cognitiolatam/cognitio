@@ -222,13 +222,29 @@ var self = {
                             description: 'Cursada y aprobada con 9'
                         });
 						self.Lesson.create({
-							professorid: 2,
+							professorid: 1,
 							subjectid: 1,
 							price: 200,
 							description: 'Descripcion de la primer clase',
-							address: "DIRECCION",
+							address: "Direccion primera clase",
 							availability: "LUN A VIE DE 13 a 15"
 						});
+                        self.Lesson.create({
+                            professorid: 1,
+                            subjectid: 5,
+                            price: 123,
+                            description: 'Descripcion de la SEGUNDA clase',
+                            address: "Direc 2da clase",
+                            availability: "Sab de 10 a 12"
+                        });
+                        self.Lesson.create({
+                            professorid: 1,
+                            subjectid: 3,
+                            price: 443,
+                            description: 'Descripcion de la TERCERA clase',
+                            address: "Direc 3ra clase",
+                            availability: "Dom de 15 a 21"
+                        });
 					});
 
                     if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
