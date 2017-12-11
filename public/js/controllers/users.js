@@ -10,6 +10,20 @@ function _parseCreateUserData(result) {
     location.href = 'profile.html?userid=' + result.id;
 }
 
+function _parseLoginUserData(result) {
+    if(result.ERROR_CODE === undefined) {
+        console.log("Login result: ", result);
+        location.href = 'profile.html?userid=' + result.id;
+    } else {
+        if(result.ERROR_CODE === 9998) {
+            $(".no-email-error").removeClass('hidden');
+        } else if(result.ERROR_CODE === 9999) {
+            $(".pass-error-invalid").removeClass('hidden');
+        }
+    }
+}
+
+
 function _parseGetUser(result) {
     console.log("User retrieved: ", result);
     $("#nombre").val(result.firstname);

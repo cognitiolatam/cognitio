@@ -50,6 +50,16 @@ app.get('/', function(request, response) {
 });
 
 
+/*--------------------USERS------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+// /Login
+//	POST:	Login;
+app.route('/login')
+    .post(function(request, response, next) {
+        if(log) console.log("[REQUEST] /login POST. Username: ", request.body.username);
+        controllers.User._login(request.body, response);
+    });
+
 
 /*--------------------USERS------------------------------------------------*/
 /*-------------------------------------------------------------------------*/
@@ -60,7 +70,7 @@ app.route('/users')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Users list request.'); next();})
 	.get(function(request, response, next) {
 		if(log) console.log('[REQUEST] /users GET (All).');
-		controllers.User._getAll(response);
+		controllers.User._getAllUsers(response);
 	})
 	.post(function(request, response, next) {
 		if(log) console.log("[REQUEST] /users POST. New ID: ", request.body.email? request.body.email : request.body.fbID);

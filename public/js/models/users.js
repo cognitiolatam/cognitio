@@ -199,6 +199,21 @@ var MD5 = function (string) {
     return temp.toLowerCase();
 };
 
+
+function _userLogin(email, password) {
+    var pw = MD5(password);
+    $.post("/login",
+        {
+            username: email,
+            hs: pw
+        },
+        function(result){
+            _parseLoginUserData(result);
+        }
+    );
+}
+
+
 //POST
 function _createUser(userData) {
     const name = $('#name').val();
