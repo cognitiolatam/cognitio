@@ -5,6 +5,27 @@ var self = {
 		models = DB;
 		cb = cbCtrl
 	},
+
+    _login: function(data, resp) {
+        const username = data.username;
+        const passwordmd5 = data.hs;
+
+        console.log('[CONTROLLERS] USERS _login:' + username);
+
+        models.User.findOne({
+            where: { email: username }
+        }).then(function (user) {
+            if(user !== null) {
+                if(user.passwordmd5 === data.hs) {
+                    cb(resp, JSON.stringify(user.dataValues));
+                } else {
+                    cb(resp, '{"ERROR_CODE": 9999,"Description": "Password invalid."}');
+                }
+            } else {
+                cb(resp, '{"ERROR_CODE": 9998,"Description": "User does not exist."}');
+            }
+        });
+    },
 	
 	_getByFBID: function(facebookID, resp) {
 		console.log('[CONTROLLERS] USERS _getByFBID:' + facebookID);

@@ -151,7 +151,9 @@ var self = {
 				universitaryStudies: 'Contador UBA',
 				dni: 12121212,
 				fbid: '21212121',
-				token: 'tokenTest'
+				token: 'tokenTest',
+                email: 'b@a.com',
+                passwordmd5: '827ccb0eea8a706c4c34a16891f84e7b'
 			}).then(function (user) {
                 self.Professor.create({
                     userid: user.dataValues.id,
@@ -197,7 +199,9 @@ var self = {
                 universitaryStudies: 'Arquitecta UBA',
                 dni: 34343434,
                 fbid: '43434343',
-                token: 'tokenTest'
+                token: 'tokenTest',
+				email: 'a@a.com',
+				passwordmd5: '81dc9bdb52d04dc20036dbd8313ed055'
             }).then(function (user) {
                 self.Professor.create({
                     userid: user.dataValues.id,

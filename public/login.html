@@ -86,19 +86,23 @@
                                 <fieldset class="form-group">
                                     <input type="email" class="form-control" id="email">
                                     <label for="email">Email</label>
-                                    <div class="label-error email-error hidden">Ingresa un email correcto</div>
+                                    <div class="label-error email-error-empty hidden">Ingresa tu email</div>
+                                    <div class="label-error no-email-error hidden">El email no se encuentra registrado</div>
+
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input type="password" class="form-control" id="pass" autocomplete="new-password">
-                                    <label for="pass">Contraseña</label>
-                                    <div class="label-error pass-error hidden">Ingresa una contrseña correcta</div>
+                                    <input type="password" class="form-control" id="password" autocomplete="password">
+                                    <label for="password">Contraseña</label>
+                                    <div class="label-error pass-error-empty hidden">Ingresa tu contraseña</div>
+                                    <div class="label-error pass-error-invalid hidden">Tu contraseña es inválida</div>
                                 </fieldset>
                                 <div class="hidden label-error error-general" role="alert" style="margin-bottom: 40px;">Tus datos son incorrectos</div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-aprentio">Ingresar</button>
+                                    <button type="button" class="btn btn-aprentio" onclick="_loginUser()">Ingresar</button>
                                 </div>
                                 <div class="forget-account text-center">
                                     <a href="#">Olvidé mi cuenta</a>
+                                    <a href="create-account.html">Registrarme</a>
                                 </div>
                             </form>
                             <div class="btn-sociales">
@@ -120,6 +124,10 @@
 
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
+
+<!-- Models & Controllers-->
+<script src="js/models/users.js"></script>
+<script src="js/controllers/users.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -176,43 +184,47 @@
                 $(this).addClass('label-up');
             }
         }).change();
-
-        /*Validacion*/
-        $(function () {
-            $('#loginForm').submit(function(event){
-                event.preventDefault();
-
-                $("#email").removeClass('input-error');
-                $("#pass").removeClass('input-error');
-
-                $(".email-error").addClass('hidden');
-                $(".pass-error").addClass('hidden');
-
-                var data = new Object();
-
-                data.code = $("#email").val();
-                data.pass = $("#pass").val();
-                var error = false;
-
-                if(data.code == ''){
-                    $("#email").addClass("input-error");
-                    $(".email-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(data.pass == ''){
-                    $("#pass").addClass("input-error");
-                    $(".pass-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(!error){
-                    $('.error-general').removeClass('hidden');
-                }
-
-            })
-        })
-
-
     });
+
+
+    /*Validacion*/
+    var _validateForm = function(){
+        var error;
+        $("#email").removeClass('input-error');
+        $("#password").removeClass('input-error');
+
+        $(".email-error-empty").addClass('hidden');
+        $(".no-email-error").addClass('hidden');
+        $(".pass-error-empty").addClass('hidden');
+        $(".pass-error-invalid").addClass('hidden');
+
+        var data = new Object();
+
+        data.code = $("#email").val();
+        data.pass = $("#password").val();
+        error = false;
+
+        if(data.code == ''){
+            $("#email").addClass("input-error");
+            $(".email-error-empty").removeClass('hidden');
+            error = true;
+        }
+        if(data.pass == ''){
+            $("#pass").addClass("input-error");
+            $(".pass-error-empty").removeClass('hidden');
+            error = true;
+        }
+        if(error){
+            $('.error-general').removeClass('hidden');
+        }
+        return !error;
+    };
+
+    var _loginUser = function(){
+        if(_validateForm()) {
+            _userLogin($("#email").val(),$("#password").val());
+        }
+    };
 </script>
 </body>
 </html>
