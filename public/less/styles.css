@@ -402,7 +402,7 @@ h1 {
   box-shadow: none;
 }
 #header .form-search .btn-search {
-  background-image: url('../images/icn-btnsearch.png');
+  background-image: url('../images/icons/icn-btnsearch.png');
   width: 40px;
   height: 40px;
   background-size: 100%;
@@ -952,6 +952,7 @@ h1 {
 @media (min-width: 768px) {
   #profesores-result #professorsList.block-view .prof {
     height: 365px;
+    float: left;
   }
 }
 #profesores-result #professorsList.block-view .prof .img {

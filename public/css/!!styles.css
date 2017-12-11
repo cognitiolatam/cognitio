@@ -208,7 +208,7 @@ h1 {
   background: transparent;
 }
 #menu .icn-search {
-  background-image: url('../images/icn-search.png');
+  background-image: url('../images/icons/icn-search.png');
   height: 24px;
   width: 24px;
   vertical-align: middle;
@@ -257,7 +257,7 @@ h1 {
 #menu .btn_search {
   width: 26px;
   height: 26px;
-  background-image: url(../images/icn-search.png);
+  background-image: url(../images/icons/icn-search.png);
   display: block;
 }
 #menu .ingresa-xs {
@@ -383,7 +383,7 @@ h1 {
   box-shadow: none;
 }
 #header .form-search .btn-search {
-  background-image: url('../images/icn-btnsearch.png');
+  background-image: url('../images/icons/icn-btnsearch.png');
   width: 40px;
   height: 39px;
   background-color: transparent;
