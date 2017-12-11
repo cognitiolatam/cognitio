@@ -32,14 +32,6 @@
                     </ul>
                 </div>
             </div>
-            <form class="navbar-form search-menu hidden-xs">
-                <div class="input-group">
-                    <input type="text" class="form-control input-search">
-                    <span class="input-group-btn btn-search">
-                      <button class="btn btn-default form-search" type="button"><span class="icon-search"></span></button>
-                    </span>
-                </div>
-            </form>
             <!-- If user not Logged in-->
             <!-- If user Logged in-->
             <div class="navbar-menu menu-login" style="display: none">
@@ -52,7 +44,7 @@
                             <a href="#"><span class="glyphicon glyphicon-send"></span></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle last" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://lorempixel.com/30/30/" alt="..." class="img-circle img avatar"></a>
+                            <a href="#" class="dropdown-toggle last" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://lorempixel.com/30/30/" alt="..." class="img-circle img avatar"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Mi Cuenta</a></li>
                                 <li><a href="#">Salir</a></li>
@@ -61,6 +53,14 @@
                     </ul>
                 </div>
             </div>
+            <form class="navbar-form search-menu hidden-xs">
+                <div class="input-group">
+                    <input type="text" class="form-control input-search">
+                    <span class="input-group-btn btn-search">
+                      <button class="btn btn-default form-search" type="button"><span class="icon-search"></span></button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 </nav>
@@ -70,8 +70,8 @@
             //location.href='profesores.html';
         });
 
-        var myParam = location.search.split('login=')[1]
-        if(myParam){
+        var login = location.search.split('login=')[1]
+        if(login){
             $('.menu-login').show();
             $('.menu-nologin').hide();
         }
