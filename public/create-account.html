@@ -53,7 +53,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>
+                    <!--<a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>-->
+                    <a class="navbar-brand" href="index.html"><img src="images/logo2.png" class="logo-img" style="height: 46px"></a>
                 </div>
             </div>
             <div class="col-md-10 col-sm-10">
@@ -102,17 +103,17 @@
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <input type="password" class="form-control" id="password" autocomplete="password">
-                                    <label for="email">Contraseña</label>
+                                    <label for="password">Contraseña</label>
                                     <div class="label-error pass-error hidden">Ingresa una contraseña</div>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <input type="password" class="form-control" id="password2" autocomplete="password">
-                                    <label for="email">Repita su contraseña</label>
+                                    <label for="password2">Repita su contraseña</label>
                                     <div class="label-error pass2-error hidden">Repita su contraseña</div>
                                 </fieldset>
                                 <div class="hidden label-error error-general" role="alert" style="margin-bottom: 40px;">Tus datos son incorrectos</div>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-aprentio" onclick="_registerUser()">Registrarse</button>
+                                    <button type="submit" class="btn btn-aprentio">Registrarse</button><!--onclick="_registerUser()-->
                                 </div>
                             </form>
                             <div class="btn-sociales">
@@ -135,6 +136,9 @@
 
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
+
+<!-- Bootbox -->
+<script src="js/bootbox.min.js"></script>
 
 <!-- Models & Controllers-->
 <script src="js/models/users.js"></script>
@@ -206,14 +210,14 @@
 
         /*Validacion*/
         $(function () {
-            $('#loginForm').submit(function(event){
+            $('#createForm').submit(function(event){
                 event.preventDefault();
 
                 $("#name").removeClass('input-error');
                 $("#surname").removeClass('input-error');
                 $("#email").removeClass('input-error');
-                $("#pass").removeClass('input-error');
-                $("#pass2").removeClass('input-error');
+                $("#password").removeClass('input-error');
+                $("#password2").removeClass('input-error');
 
                 $(".name-error").addClass('hidden');
                 $(".surname-error").addClass('hidden');
@@ -226,8 +230,8 @@
                 data.name = $("#name").val();
                 data.surname = $("#surname").val();
                 data.email = $("#email").val();
-                data.pass = $("#pass").val();
-                data.pass2 = $("#pass2").val();
+                data.pass = $("#password").val();
+                data.pass2 = $("#password2").val();
                 var error = false;
 
                 if(data.name == ''){
@@ -246,17 +250,33 @@
                     var error = true;
                 }
                 if(data.pass == ''){
-                    $("#pass").addClass("input-error");
+                    $("#password").addClass("input-error");
                     $(".pass-error").removeClass('hidden');
                     var error = true;
                 }
                 if(data.pass2 == ''){
-                    $("#pass").addClass("input-error");
+                    $("#password2").addClass("input-error");
                     $(".pass2-error").removeClass('hidden');
                     var error = true;
                 }
-                if(!error){
-                    $('.error-general').removeClass('hidden');
+                if(data.pass != data.pass2){
+                    $("#password2").addClass("input-error");
+                    $(".pass2-error").removeClass('hidden');
+                    var error = true;
+                }
+                if(error == false){
+//                    var _registerUser = function() {
+//                        console.log("Registering new user...");
+//                        _createUser();
+//                    };
+//                    $('#error-general').removeClass('hidden');
+                    console.log("Registering new user...");
+                    bootbox.alert({
+                        title: "&nbsp;",
+                        message: '<div style="text-align: center">Se ha registrado con éxito. Inicie sesión, por favor</div>',
+                        className: 'modal-aprentio'
+                    });
+                    _createUser();
                 }
 
             })
@@ -264,10 +284,6 @@
 
     });
 
-    var _registerUser = function() {
-        console.log("Registering new user...");
-        _createUser();
-    };
 </script>
 </body>
 </html>

@@ -172,6 +172,7 @@ h1 {
   border-right: 0;
   border-left: 0;
   font-weight: 700;
+  border-radius: 0px;
 }
 .aprentio-tabs.nav-tabs > li > a {
   background-color: transparent;
@@ -180,6 +181,7 @@ h1 {
   border-right: 0;
   border-left: 0;
   border-bottom: 2px solid #cc9bfe;
+  border-radius: 0px;
 }
 .shadow {
   -moz-box-shadow: 0 0 8px #d6d6d6;
@@ -1041,13 +1043,23 @@ h1 {
 #profesor-result .profesor-details .materia {
   font-size: 22px;
 }
+#profesor-result .profesor-details .nom-mat {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #profesor-result .profesor-details .nom-mat {
+    width: auto;
+  }
+}
 #profesor-result .profesor-details .estrellas-content {
   float: none;
   margin-top: 30px;
+  width: 100%;
 }
 @media (min-width: 768px) {
   #profesor-result .profesor-details .estrellas-content {
     float: right;
+    width: auto;
   }
 }
 #profesor-result .profesor-details .estrellas-content .datos-estrellas .glyphicon-star {
@@ -1087,6 +1099,7 @@ h1 {
 }
 #profesor-result .profesor-details .info .info-text {
   font-size: 14px;
+  text-align: left;
 }
 #profesor-result .profesor-details .info .materias-list span {
   color: #a751fe;
@@ -1273,6 +1286,17 @@ h1 {
     margin-top: 30px;
   }
 }
+.modal-aprentio .modal-header {
+  background-color: #a751fe;
+}
+.modal-aprentio .modal-body {
+  padding: 45px 15px;
+}
+.modal-aprentio .btn {
+  background-color: #ffffff;
+  color: #a751fe;
+  border: 1px solid #a751fe;
+}
 .modal-aprentio.modal-reserva .modal-dialog {
   width: auto;
 }
@@ -1310,6 +1334,10 @@ h1 {
   .modal-aprentio.modal-reserva .content {
     margin-top: 30px;
   }
+}
+.modal-aprentio.modal-reserva .opts li {
+  display: table-cell;
+  width: 1%;
 }
 .modal-aprentio.modal-reserva .opts li.active {
   border-bottom: 3px solid #a751fe;

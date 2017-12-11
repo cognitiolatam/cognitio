@@ -196,6 +196,7 @@ h1{
 		border-right:  0;
 		border-left:  0;
 		font-weight: 700;
+		border-radius: 0px;
 	}
 	&.nav-tabs>li>a{
 		background-color: transparent;
@@ -204,6 +205,7 @@ h1{
 		border-right:  0;
 		border-left:  0;
 		border-bottom:2px solid #cc9bfe;
+		border-radius: 0px;
 	}
 }
 
@@ -1020,11 +1022,19 @@ h1{
 		.materia{
 			font-size: 22px;
 		}
+		.nom-mat{
+			width: 100%;
+			@media (min-width: 768px){
+				width: auto;
+			}
+		}
 		.estrellas-content{
 			float: none;
 			margin-top: 30px;
+			width: 100%;
 			@media (min-width: 768px){
 				float: right;
+				width: auto;
 			}
 			.datos-estrellas{
 				.glyphicon-star{
@@ -1061,6 +1071,7 @@ h1{
 			}
 			.info-text{
 				font-size: 14px;
+				text-align: left;
 			}
 			.materias-list{
 				span{
@@ -1261,6 +1272,17 @@ h1{
 }
 
 .modal-aprentio{
+	.modal-header{
+		background-color: @basecolor;
+	}
+	.modal-body{
+		padding: 45px 15px;
+	}
+	.btn{
+		background-color: #ffffff;
+		color: @basecolor;
+		border: 1px solid @basecolor;
+	}
 	&.modal-reserva{
 		.modal-dialog {
 			width: auto;
@@ -1294,6 +1316,8 @@ h1{
 		}
 		.opts{
 			li{
+				display: table-cell;
+				width: 1%;
 				&.active{
 					border-bottom: 3px solid @basecolor;
 				}

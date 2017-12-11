@@ -116,7 +116,7 @@
                            </div>
                            <div role="tabpanel" class="tab-pane" id="place">
                                <div>
-                                   <img src="images/ejemplos/mapa_ex.png" class="img-responsive" style="max-width: 450px;margin: 0 auto;">
+                                   <img src="images/ejemplos/mapa_ex.png" class="img-responsive" style="margin: 0 auto;">
                                </div>
                            </div>
                        </div>
@@ -230,6 +230,15 @@
                     buttons: false
                 });
                 modal_reserva.addClass("modal-aprentio modal-reserva");
+            });
+
+            $( '#btn-confirm' ).on( 'click', function(e) {
+                e.preventDefault();
+                var modal_confirmacion = bootbox.alert({
+                    title: "&nbsp;",
+                    message: '<div style="text-align: center">Su clase ha sido reservada con éxito.</div>',
+                    className: 'modal-aprentio'
+                });
             });
 
             $(document).on("shown.bs.modal", function() {
