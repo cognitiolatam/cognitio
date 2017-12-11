@@ -147,8 +147,8 @@ app.route('/professors/:id/lessons')
 app.route('/lessons')
 	.all(function(req,res,next) {if(log) console.log('[AUTH] Authentication Middleware. Lessons request.'); next();})
 	.get(function(request, response, next) {
-		if(log) console.log("[REQUEST] /lessons GET. Query: " + request.params.q);
-		controllers.Lesson._getAllLessons(response);
+        if(log) console.log("[REQUEST] /lessons GET. Query: " + request.query.subject + request.query.place);
+		controllers.Lesson._getAllLessons(request, response);
 	})
 	.post(function(request, response, next) {
 		if(log) console.log("[REQUEST] /lessons POST. Professor ID: " + request.body.professorid);

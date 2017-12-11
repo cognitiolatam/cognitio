@@ -18,19 +18,19 @@ function _drawLessonsOverview(lesson) {
     var divCardItem = $(document.createElement('div')).addClass("thumbnail card clearfix shadow");
     var userPhoto = $(document.createElement('img')).addClass("img-circle img").attr("src","http://lorempixel.com/100/100/");
     var divCaption  = $(document.createElement('div')).addClass("caption");
-    var h3Item = $(document.createElement('h3')).addClass("nombre name").text(lesson.professor.cuil);
-    var subject = $(document.createElement('div')).addClass("materia").text("Materia ID " + lesson.subjectid);
+    var h3Item = $(document.createElement('h3')).addClass("nombre name").text(lesson.professor.user.firstname + ' ' + lesson.professor.user.lastname);
+    var subject = $(document.createElement('div')).addClass("materia").text(lesson.subject.name);
     var divUprItem = $(document.createElement('div')).addClass("ub-pr");
-    var ubicacionItem = $(document.createElement('div')).addClass("ubicacion").text("Direccion "+lesson.address);
-    var scheduleItem = $(document.createElement('div')).addClass("ubicacion hidden-xs").text("Horarios "+lesson.availability);
-    var priceDiv = $(document.createElement('div')).addClass("precio precio-u number").text("Precio "+lesson.price);
-    var priceSmall = $(document.createElement('small')).text("individual");
+    var ubicacionItem = $(document.createElement('div')).addClass("ubicacion").text(lesson.address);
+    var scheduleItem = $(document.createElement('div')).addClass("ubicacion hidden-xs").text(lesson.availability);
+    var priceDiv = $(document.createElement('div')).addClass("precio precio-u number").text(lesson.price);
+    //var priceSmall = $(document.createElement('small')).text("individual");
     var priceDiv2 = $(document.createElement('div')).addClass("precio precio-d number").text("250");
     var priceSmall2 = $(document.createElement('small')).text("individual");
     var overviewStarsHTML = '';
     //_drawStarsHtml(5 review);
 
-    priceDiv.append(priceSmall);
+    //priceDiv.append(priceSmall);
     divUprItem.append(ubicacionItem);
     divUprItem.append(scheduleItem);
     divUprItem.append(priceDiv);
