@@ -63,8 +63,8 @@
                    <img src="images/ejemplos/prof_2.jpg" alt="..." class="img-circle img">
                  </li>
                  <li class="nom-mat">
-                   <div class="nombre">Sofía Lopez</div>
-                   <div class="materia highlight">Lengua<span class="icon-subject-language"></span></div>
+                   <div id="name" class="nombre"></div>
+                   <div id="subjectsList" class="materia highlight"><span class="icon-subject-language"></span></div>
                  </li>
                  <li class="estrellas-content">
                    <div class="datos-estrellas">
@@ -79,8 +79,8 @@
                  </li>
                </ul>
                <ul class="list-inline detail">
-                 <li>
-                   <span class="icon-location"></span>Haedo, Buenos Aires
+                 <li id="address">
+                   <span class="icon-location"></span>
                  </li>
                  <li>
                    <span class="icon-watch"></span>Lunes a Viernes
@@ -101,10 +101,7 @@
                        <!-- Tab panes -->
                        <div class="tab-content">
                            <div role="tabpanel" class="tab-pane active" id="info">
-                               <ul class="info-text materias-list">
-                                   <li>Licenciada en Lenguas</li>
-                                   <li>Universidad UBA</li>
-                                   <li>Profesora/Jefa Cátedra en UBA</li>
+                               <ul class="info-text academic-formation materias-list">
                                </ul>
                            </div>
                            <div role="tabpanel" class="tab-pane" id="subjects">
@@ -127,8 +124,8 @@
             <div class="col-md-4 text-left hidden-xs">
                <div class="profesor-book shadow">
                 <div class="precio">
-                    <h3>Grupal $250</h3>
-                    <h3>Individual $250</h3>
+                    <h3>Grupal <span class="groupPrice"></span></h3>
+                    <h3>Individual <span class="indivPrice"></span></h3>
                 </div>
                 <div class="text-center boton">
                   <button type="submit" class="btn btn-aprentio btn-reservar">Reservar</button>
@@ -215,8 +212,8 @@
                     '<div class="form-group">' +
                     '<label>Precio</label>' +
                     '<select class="form-control">' +
-                    '<option>Clase Grupal($150)</option>' +
-                    '<option>Clase Individual($250)</option>' +
+                    '<option>Clase Grupal (<span class="groupPrice">$' + Models.professor.groupPrice + '</span>)</option>' +
+                    '<option>Clase Individual (<span class="indivPrice">$' + Models.professor.individualPrice + '</span>)</option>' +
                     '</select>' +
                     '</div>' +
                     '<div class="form-group">' +
