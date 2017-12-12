@@ -19,10 +19,10 @@ var self = {
                 if(user.passwordmd5 === data.hs) {
                     cb(resp, JSON.stringify(user.dataValues));
                 } else {
-                    cb(resp, '{"ERROR_CODE": 9999,"Description": "Password invalid."}');
+                    cb(resp, '{"ERROR_CODE": 999,"Description": "Password invalid."}');
                 }
             } else {
-                cb(resp, '{"ERROR_CODE": 9998,"Description": "User does not exist."}');
+                cb(resp, '{"ERROR_CODE": 998,"Description": "User does not exist."}');
             }
         });
     },
@@ -31,7 +31,7 @@ var self = {
 		console.log('[CONTROLLERS] USERS _getByFBID:' + facebookID);
 		
 		if(isNaN(Number(facebookID)) || Number(facebookID) < -9223372036854775808 || Number(facebookID) > 9223372036854775807) {
-			cb(resp, '{"ERROR_CODE": 1,"Description": "Invalid User ID."}');
+			cb(resp, '{"ERROR_CODE": 901,"Description": "Invalid User ID."}');
 			return;
 		}
 
@@ -42,7 +42,7 @@ var self = {
 				cb(resp, JSON.stringify(user.dataValues));
 			} else {
 				//User not created.
-				cb(resp, '{"ERROR_CODE": 2,"Description": "User not found. Create user to proceed."}');
+				cb(resp, '{"ERROR_CODE": 902,"Description": "User not found. Create user to proceed."}');
 			}
 		});
 	},
@@ -57,7 +57,7 @@ var self = {
                 cb(resp, JSON.stringify(user.dataValues));
             } else {
                 //User not created.
-                cb(resp, '{"ERROR_CODE": 2,"Description": "User not found. Create user to proceed."}');
+                cb(resp, '{"ERROR_CODE": 903,"Description": "User not found. Create user to proceed."}');
             }
         });
     },
@@ -96,7 +96,7 @@ var self = {
 				cb(resp, JSON.stringify(users));
 			} else {
 				//Any user created.
-				cb(resp, '{"ERROR_CODE": 3,"Description": "User list is empty. Create an user to proceed."}');
+				cb(resp, '{"ERROR_CODE": 904,"Description": "User list is empty. Create an user to proceed."}');
 			}
 		});
 		

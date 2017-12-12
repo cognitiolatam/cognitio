@@ -68,8 +68,9 @@ var self = {
 		self.Lesson.belongsTo(self.Professor, {foreignKey: 'professorid'});
 		self.Lesson.hasMany(self.StudentLesson, {foreignKey: 'lessonid'});
 		self.Lesson.hasMany(self.Notification, {foreignKey: 'lessonid'});
+        self.Lesson.belongsTo(self.Subject, {foreignKey: 'subjectid'});
 
-		//StudentLesson
+        //StudentLesson
 		self.StudentLesson.belongsTo(self.Lesson, {foreignKey: 'lessonid'});
 		self.StudentLesson.belongsTo(self.Student, {foreignKey: 'studentid'});	
 
@@ -168,7 +169,7 @@ var self = {
                         numberOfhits: 45
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: 1,
+                            professorid: professor.dataValues.id,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 7'
                         });
@@ -181,7 +182,7 @@ var self = {
                         numberOfhits: 12
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: 1,
+                            professorid: professor.dataValues.id,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
@@ -217,32 +218,32 @@ var self = {
                         numberOfhits: 43
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: 2,
+                            professorid: professor.dataValues.id,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
 						self.Lesson.create({
 							professorid: 1,
-							subjectid: 1,
+							subjectid: subject.dataValues.id,
 							price: 200,
 							description: 'Descripcion de la primer clase',
-							address: "Direccion primera clase",
+							address: "Alberto Saraza 334, Capital Federal",
 							availability: "LUN A VIE DE 13 a 15"
 						});
                         self.Lesson.create({
-                            professorid: 1,
-                            subjectid: 5,
+                            professorid: 2,
+                            subjectid: subject.dataValues.id,
                             price: 123,
                             description: 'Descripcion de la SEGUNDA clase',
-                            address: "Direc 2da clase",
+                            address: "De los inmigrantes y Cochambamba, Temperley",
                             availability: "Sab de 10 a 12"
                         });
                         self.Lesson.create({
-                            professorid: 1,
-                            subjectid: 3,
+                            professorid: professor.dataValues.id,
+                            subjectid: 2,
                             price: 443,
                             description: 'Descripcion de la TERCERA clase',
-                            address: "Direc 3ra clase",
+                            address: "Salto 1123, Paraná, Entre Rios",
                             availability: "Dom de 15 a 21"
                         });
 					});

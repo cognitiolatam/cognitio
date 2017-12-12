@@ -63,11 +63,11 @@
                    <img src="images/ejemplos/prof_2.jpg" alt="..." class="img-circle img">
                  </li>
                  <li class="nom-mat">
-                   <div class="name">Sofía Lopez</div>
-                   <div class="subject highlight">Lengua<span class="icon-subject-language"></span></div>
+                   <div id="name" class="nombre"></div>
+                   <div id="subjectsList" class="materia highlight"><span class="icon-subject-language"></span></div>
                  </li>
-                 <li class="stars-content">
-                   <div class="data-stars">
+                 <li class="estrellas-content">
+                   <div class="datos-estrellas">
                       <ul class="list-inline">
                         <li><span class="glyphicon glyphicon-star full"></span></li>
                         <li><span class="glyphicon glyphicon-star full"></span></li>
@@ -79,8 +79,8 @@
                  </li>
                </ul>
                <ul class="list-inline detail">
-                 <li>
-                   <span class="icon-location"></span>Haedo, Buenos Aires
+                 <li id="address">
+                   <span class="icon-location"></span>
                  </li>
                  <li>
                    <span class="icon-watch"></span>Lunes a Viernes
@@ -101,10 +101,7 @@
                        <!-- Tab panes -->
                        <div class="tab-content">
                            <div role="tabpanel" class="tab-pane active" id="info">
-                               <ul class="info-text materias-list">
-                                   <li>Licenciada en Lenguas</li>
-                                   <li>Universidad UBA</li>
-                                   <li>Profesora/Jefa Cátedra en UBA</li>
+                               <ul class="info-text academic-formation materias-list">
                                </ul>
                            </div>
                            <div role="tabpanel" class="tab-pane" id="subjects">
@@ -127,13 +124,13 @@
             <div class="col-md-4 text-left hidden-xs">
                <div class="profesor-book shadow">
                 <div class="precio">
-                    <h3>Grupal $250</h3>
-                    <h3>Individual $250</h3>
+                    <h3>Grupal <span class="groupPrice"></span></h3>
+                    <h3>Individual <span class="indivPrice"></span></h3>
                 </div>
                 <div class="text-center boton">
                   <button type="submit" class="btn btn-aprentio btn-reservar">Reservar</button>
                 </div>
-                <div class="pay">
+                <div class="metodos-pago">
                   <p>Metodos de pago</p>
                   <p>En efectivo en puntos de pago</p>
                   <!--<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae interdum ligula. Mauris nisi mi, venenatis pellentesque sapien non, suscipit laoreet risus.</small>-->
@@ -160,17 +157,40 @@
     <!--Bootbox -->
     <script src="js/bootbox.min.js"></script>
 
+    <script src="js/models/subjects.js"></script>
+    <script src="js/models/professors.js"></script>
+    <script src="js/models/users.js"></script>
+    <script src="js/controllers/users.js"></script>
+    <script src="js/controllers/subjects.js"></script>
+    <script src="js/controllers/professors.js"></script>
+
     <script>
+        var urlParams;
+
+        (window.onpopstate = function () {
+            var match,
+                pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=]+)=?([^&]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                query  = window.location.search.substring(1);
+
+            urlParams = {};
+            while (match = search.exec(query))
+                urlParams[decode(match[1])] = decode(match[2]);
+        })();
+
+        console.log(urlParams);
+
         $(document).ready(function() {
             $(window).bind("load", function () {
                 $("#status").fadeOut();
                 $("#preloader").delay(450).fadeOut("slow");
-            })
+            });
 
             $('#menu-content').load('includes/menu.html');
             $('#footer-content').load('includes/footer.html');
 
-            $( '.btn-reservar' ).on( 'click', function(e) {
+            $('.btn-reservar').on( 'click', function(e) {
                 e.preventDefault();
                 var modal_reserva = bootbox.dialog({
                     title: "",
@@ -192,8 +212,8 @@
                     '<div class="form-group">' +
                     '<label>Precio</label>' +
                     '<select class="form-control">' +
-                    '<option>Clase Grupal($150)</option>' +
-                    '<option>Clase Individual($250)</option>' +
+                    '<option>Clase Grupal (<span class="groupPrice">$' + Models.professor.groupPrice + '</span>)</option>' +
+                    '<option>Clase Individual (<span class="indivPrice">$' + Models.professor.individualPrice + '</span>)</option>' +
                     '</select>' +
                     '</div>' +
                     '<div class="form-group">' +
@@ -257,8 +277,8 @@
                 })
             });
 
+            _getProfessorByID(urlParams);
         });
     </script>
-
   </body>
 </html>

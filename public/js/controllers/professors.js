@@ -46,3 +46,43 @@ function _parseGetAllProfessorsData(resp) {
 //     parentDiv.append(divElementItem);
 //
 // }
+
+
+function _parseGetProfessorByID(result){
+    console.log("Professor/:id callback.");
+    Models = {};
+    Models.professor = result;
+    _drawProfessorDetails(result);
+}
+
+function _drawProfessorDetails(professor) {
+    $("#name").text(professor.user.firstname + " " + professor.user.lastname);
+    $("#subjectsList").append(_mainSubjectInfo(professor.subjectsprofessors).name);
+    $("#address").append(professor.user.address);
+    $(".groupPrice").text("$"+professor.groupPrice);
+    $(".indivPrice").text("$"+professor.individualPrice);
+    $(".academic-formation").append(_academicFormationList(professor.user));
+}
+
+function _mainSubjectInfo(subjectsprofessors) {
+    for(i = 0; i < subjectsprofessors.length ; i++) {
+        if(urlParams.subjectid === subjectsprofessors[i].subjectid)
+            return subjectsprofessors[i].subject;
+    }
+    if(subjectsprofessors.length > 0)
+        return subjectsprofessors[0].subject;
+    else
+        return "";
+}
+
+function _academicFormationList(professor) {
+    var html = "";
+    var univ = professor.universitaryStudies !== undefined? professor.universitaryStudies : "";
+    var highsc = professor.highSchoolStudies !== undefined? professor.highSchoolStudies : "";
+
+    if(highsc !== "")
+        html += "<li>Estudios secundarios: " + highsc + "</li>";
+    if(univ !== "")
+        html += "<li>Estudios universitarios: " + univ + "</li>";
+    return html;
+}

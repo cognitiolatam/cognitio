@@ -16,7 +16,7 @@ var self = {
 				cb(resp, JSON.stringify(student.dataValues));
 			} else {
 				//Student not created.
-				cb(resp, '{"ERROR_CODE": 22,"Description": "Student not found. Create student to proceed."}');
+				cb(resp, '{"ERROR_CODE": 603,"Description": "Student not found. Create student to proceed."}');
 			}
 		});
 	},
@@ -41,7 +41,7 @@ var self = {
 				cb(resp, JSON.stringify(students));
 			} else {
 				//Any student created.
-				cb(resp, '{"ERROR_CODE": 23,"Description": "Student list is empty. Create an student to proceed."}');
+				cb(resp, '{"ERROR_CODE": 604,"Description": "Student list is empty. Create an student to proceed."}');
 			}
 		});
 	},

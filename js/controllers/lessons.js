@@ -17,16 +17,45 @@ var self = {
 				cb(resp, JSON.stringify(lesson.dataValues));
 			} else {
 				//Lesson not created.
-				cb(resp, '{"ERROR_CODE": 32,"Description": "Lesson not found. Create lesson to proceed."}');
+				cb(resp, '{"ERROR_CODE": 201,"Description": "Lesson not found. Create lesson to proceed."}');
 			}
 		});
 	},
 
-	_getAllLessons: function(resp) {
+	_getAllLessons: function(req, resp) {
 		console.log('[CONTROLLERS] LESSONS _getAll.');
+		var subjectFilter = req.query.subject;
+        var placeFilter = req.query.place;
+		if(subjectFilter === undefined) {
+            subjectFilter = "";
+		}
+        if(placeFilter === undefined) {
+            placeFilter = "";
+        }
 
 		models.Lesson.findAll({
-            include: [models.Professor]
+            include: [
+                {
+                    model: models.Professor,
+                    include: [models.User]
+                },
+                {
+                    model: models.Subject,
+                    where: {
+                        name: {
+                            $iLike: '%'+subjectFilter+'%'
+                        }
+                    }
+                }
+            ],
+            where: {
+            	address: {
+            		$iLike: '%'+placeFilter+'%'
+				}/*,
+                subject: {
+                    $iLike: subjectFilter
+                }*/
+			}
             //Filter travels by deleted and by date
         }).then(function (lessons) {
 			cb(resp, JSON.stringify(lessons));

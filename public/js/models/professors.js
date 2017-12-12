@@ -7,8 +7,12 @@ function _getAllProfessors(filters) {
     }});
 }
 
-function _getByProfessorID(professorID) {
-
+function _getProfessorByID(filters) {
+    console.log(filters.id);
+    //parseFilters
+    $.ajax({url: "/professors/"+filters.id, success: function(result){
+        _parseGetProfessorByID(result);
+    }});
 }
 	
 function _getAllLessonsByProfessor(professorID) {
