@@ -10,13 +10,20 @@ var self = {
 		console.log('[CONTROLLERS] PROFESSORS _getByID:' + professorID);
 
         models.Professor.findOne({
+            include: [
+                models.User,
+                {
+                    model: models.SubjectProfessor,
+                    include: [models.Subject]
+                }
+            ],
             where: { id: professorID }
         }).then(function (professor) {
 			if(professor) {
 				cb(resp, JSON.stringify(professor.dataValues));
 			} else {
 				//Professor not created.
-				cb(resp, '{"ERROR_CODE": 12,"Description": "Professor not found. Create professor to proceed."}');
+				cb(resp, '{"ERROR_CODE":  401,"Description": "Professor not found. Create professor to proceed."}');
 			}
 		});
 	},
@@ -46,7 +53,7 @@ var self = {
 				cb(resp, JSON.stringify(professors));
 			} else {
 				//Any student created.
-				cb(resp, '{"ERROR_CODE": 13,"Description": "Professor list is empty. Create an professor to proceed."}');
+				cb(resp, '{"ERROR_CODE": 402,"Description": "Professor list is empty. Create an professor to proceed."}');
 			}
 		});
 	},

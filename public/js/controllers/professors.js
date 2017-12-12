@@ -46,3 +46,13 @@ function _parseGetAllProfessorsData(resp) {
 //     parentDiv.append(divElementItem);
 //
 // }
+
+
+function _parseGetProfessorByID(result){
+    console.log("Professor/:id callback.");
+    _drawProfessorDetails(result);
+}
+
+function _drawProfessorDetails(professor) {
+
+}

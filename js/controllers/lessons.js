@@ -17,7 +17,7 @@ var self = {
 				cb(resp, JSON.stringify(lesson.dataValues));
 			} else {
 				//Lesson not created.
-				cb(resp, '{"ERROR_CODE": 32,"Description": "Lesson not found. Create lesson to proceed."}');
+				cb(resp, '{"ERROR_CODE": 201,"Description": "Lesson not found. Create lesson to proceed."}');
 			}
 		});
 	},

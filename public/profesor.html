@@ -160,17 +160,40 @@
     <!--Bootbox -->
     <script src="js/bootbox.min.js"></script>
 
+    <script src="js/models/subjects.js"></script>
+    <script src="js/models/professors.js"></script>
+    <script src="js/models/users.js"></script>
+    <script src="js/controllers/users.js"></script>
+    <script src="js/controllers/subjects.js"></script>
+    <script src="js/controllers/professors.js"></script>
+
     <script>
+        var urlParams;
+
+        (window.onpopstate = function () {
+            var match,
+                pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=]+)=?([^&]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                query  = window.location.search.substring(1);
+
+            urlParams = {};
+            while (match = search.exec(query))
+                urlParams[decode(match[1])] = decode(match[2]);
+        })();
+
+        console.log(urlParams);
+
         $(document).ready(function() {
             $(window).bind("load", function () {
                 $("#status").fadeOut();
                 $("#preloader").delay(450).fadeOut("slow");
-            })
+            });
 
             $('#menu-content').load('includes/menu.html');
             $('#footer-content').load('includes/footer.html');
 
-            $( '.btn-reservar' ).on( 'click', function(e) {
+            $('.btn-reservar').on( 'click', function(e) {
                 e.preventDefault();
                 var modal_reserva = bootbox.dialog({
                     title: "",
@@ -257,8 +280,8 @@
                 })
             });
 
+            _getProfessorByID(urlParams);
         });
     </script>
-
   </body>
 </html>

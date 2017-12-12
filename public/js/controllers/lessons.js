@@ -14,7 +14,7 @@ function _drawLessonsOverview(lesson) {
     var parentDiv = $("#professorsList>.grid");
 
     var divElementItem = $(document.createElement('div')).addClass("prof element-item");
-    var aItem = $(document.createElement('a')).attr("href","profesor.html");
+    var aItem = $(document.createElement('a')).attr("href","profesor.html?id=" + lesson.professorid);
     var divCardItem = $(document.createElement('div')).addClass("thumbnail card clearfix shadow");
     var userPhoto = $(document.createElement('img')).addClass("img-circle img").attr("src","http://lorempixel.com/100/100/");
     var divCaption  = $(document.createElement('div')).addClass("caption");

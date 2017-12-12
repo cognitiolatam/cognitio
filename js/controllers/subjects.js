@@ -17,7 +17,7 @@ var self = {
 				cb(resp, JSON.stringify(subject.dataValues));
 			} else {
 				//Lesson not created.
-				cb(resp, '{"ERROR_CODE": 132,"Description": "Subject not found. Create subject to proceed."}');
+				cb(resp, '{"ERROR_CODE": 701,"Description": "Subject not found. Create subject to proceed."}');
 			}
 		});
 	},

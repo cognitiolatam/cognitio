@@ -5,7 +5,7 @@ var self = {
                 type: Sequelize.INTEGER,
                 allowNull: false
             },
-			subjectid: {
+            subjectid: {
 				type: Sequelize.INTEGER,
 				allowNull: false
 			},

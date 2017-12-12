@@ -169,7 +169,7 @@ var self = {
                         numberOfhits: 45
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: 1,
+                            professorid: professor.dataValues.id,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 7'
                         });
@@ -182,7 +182,7 @@ var self = {
                         numberOfhits: 12
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: 1,
+                            professorid: professor.dataValues.id,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
@@ -218,7 +218,7 @@ var self = {
                         numberOfhits: 43
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
-                            professorid: 2,
+                            professorid: professor.dataValues.id,
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
@@ -231,7 +231,7 @@ var self = {
 							availability: "LUN A VIE DE 13 a 15"
 						});
                         self.Lesson.create({
-                            professorid: 1,
+                            professorid: 2,
                             subjectid: subject.dataValues.id,
                             price: 123,
                             description: 'Descripcion de la SEGUNDA clase',
@@ -239,7 +239,7 @@ var self = {
                             availability: "Sab de 10 a 12"
                         });
                         self.Lesson.create({
-                            professorid: 1,
+                            professorid: professor.dataValues.id,
                             subjectid: 2,
                             price: 443,
                             description: 'Descripcion de la TERCERA clase',
