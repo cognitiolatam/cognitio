@@ -46,6 +46,11 @@ body.admin{
 	margin-bottom: @mbottom;
 }
 
+.border-radius(@border-radius){
+	border-radius: @border-radius;
+}
+
+
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus,.btn.active, .btn:active {
     outline: 0 auto -webkit-focus-ring-color;
     outline-offset: 0;
@@ -138,7 +143,7 @@ ul{
 	color: #fff;
 	font-size: 20px;
 	text-transform: uppercase;
-	border-radius: 0;
+	.border-radius(0);
 	&:hover,&:focus{
 		color: #fff;
 	}
@@ -148,7 +153,7 @@ ul{
 	}
 }
 
-.datos-estrellas{
+.data-stars{
 	li{
 		padding-right:0;
 		padding-left:0;
@@ -196,7 +201,7 @@ h1{
 		border-right:  0;
 		border-left:  0;
 		font-weight: 700;
-		border-radius: 0px;
+		.border-radius(0);
 	}
 	&.nav-tabs>li>a{
 		background-color: transparent;
@@ -205,7 +210,7 @@ h1{
 		border-right:  0;
 		border-left:  0;
 		border-bottom:2px solid #cc9bfe;
-		border-radius: 0px;
+		.border-radius(0);
 	}
 }
 
@@ -243,7 +248,7 @@ h1{
 			margin-top: 3px;
 			margin-right: 10px;
 			border: 1px solid #847f7f;
-			border-radius: 4px;
+			.border-radius(4px);
 			padding: 2px 10px;
 			a{
 				font-size: 13px;
@@ -315,10 +320,10 @@ h1{
 			margin-left: 0;
 			float: right;
 		}
-		.ver-catalogo{
+		.catalog{
 			a{
 				border:1px solid @basecolor;
-				border-radius: 4px;
+				.border-radius(4px);
 				color: @basecolor;
 			}
 		}
@@ -396,7 +401,7 @@ h1{
 	.form-search{
 		background-color: #ffffff;
 		padding: 20px 15px;
-		border-radius: 4px;
+		.border-radius(4px);
 		@media (min-width: 768px){
 			padding: 50px 40px;
 		}
@@ -417,7 +422,7 @@ h1{
 			    border-top: 0;
 			    border-right: 0;
 			    border-left: 0;
-			    border-radius: 0;
+				.border-radius(0);
 			    box-shadow: none;
 			}
 		}
@@ -432,7 +437,7 @@ h1{
 	}
 }
 
-#destacados-home{
+#featured-home{
 	background-color: #fff;
 	padding-top: 40px;
 	padding-bottom: 40px;
@@ -465,7 +470,7 @@ h1{
 			background-color: rgba(0,0,0,.6);
 			-webkit-border-radius:50%;
 			-moz-border-radius:50%;
-			border-radius:50%;
+			.border-radius(50%);
 			width: 184px;
 		}
 		&:hover .overlay {
@@ -484,13 +489,13 @@ h1{
 			transform: translate(-50%, -50%);
 			-ms-transform: translate(-50%, -50%);
 		}
-		.nombre{
+		.name{
 			color: #fff;
 			font-size: 18px;
 			margin-bottom: 15px;
 			margin-top: 20px;
 		}
-		.materia{
+		.subject{
 			font-size: 16px;
 			color: #fff;
 			margin-bottom: 20px;
@@ -518,7 +523,7 @@ h1{
 	}
 }
 
-#como-funciona{
+#how-works{
 	padding-top:40px;
 	padding-bottom: 70px;
 	position: relative;
@@ -544,7 +549,7 @@ h1{
 			margin-bottom: 20px;
 		}
 	}
-	.funcionamiento{
+	.how{
 		font-size: 17px;
 		@media (min-width: 992px){
 			padding-top:40px;
@@ -593,7 +598,7 @@ h1{
 	}
 }
 
-#infografia{
+#infography{
 	background-color: #f9f9f9;
 	padding-top: 40px;
 	padding-bottom: 80px;
@@ -828,6 +833,9 @@ h1{
 				font-size: 13px;
 				margin-bottom: 20px;
 				margin-top: 20px;
+				height: 20px;
+				overflow: hidden;
+				text-overflow: ellipsis;
 				@media (min-width: 768px){
 					font-size: 15px;
 				}
@@ -835,14 +843,16 @@ h1{
 			.materia{
 				color: @basecolor;
 				margin-bottom: 10px;
-				max-height: 50px;
+				height: 20px;
 				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.ubicacion{
 				color: #343434;
 				margin-bottom: 10px;
-				max-height: 50px;
+				height: 40px;
 				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.precio{
 				color: @basecolor;
@@ -864,12 +874,12 @@ h1{
 			}
 			.thumbnail{
 				border: 0;
-				border-radius: 0px;
+				.border-radius(0);
 			}
 			.caption{
 				padding: 0;
 			}
-			.datos-estrellas{
+			.data-stars{
 				margin-left: 5px;
 			}
 		}
@@ -901,7 +911,7 @@ h1{
 						display: block;
 					}
 				}
-				.datos-estrellas{
+				.data-stars{
 					display: none;
 					@media (min-width: 768px){
 						display: block;
@@ -987,7 +997,7 @@ h1{
 	}
 	.panel,.panel-group{
 		margin-bottom: 0px;
-		border-radius: 0px;
+		.border-radius(0);
 		.panel-title{
 			font-size: 15px;
 		}
@@ -1017,19 +1027,16 @@ h1{
 				vertical-align: middle;
 			}
 		}
-		.nombre{
-			font-size: 22px;
-		}
-		.materia{
-			font-size: 22px;
-		}
 		.nom-mat{
 			width: 100%;
 			@media (min-width: 768px){
 				width: auto;
 			}
+			.name,.subject{
+				font-size: 22px;
+			}
 		}
-		.estrellas-content{
+		.stars-content{
 			float: none;
 			margin-top: 30px;
 			width: 100%;
@@ -1037,7 +1044,7 @@ h1{
 				float: right;
 				width: auto;
 			}
-			.datos-estrellas{
+			.data-stars{
 				.glyphicon-star{
 					font-size: 22px;
 				}
@@ -1146,7 +1153,7 @@ h1{
 		form{
 			padding: 30px 20px;
 			-webkit-border-radius: 4px;
-			border-radius: 4px;
+			.border-radius(4px);
 			border: 1px solid #ccc;
 			background-color: #fff;
 			@media (min-width: 768px){
@@ -1157,7 +1164,7 @@ h1{
 				border-top: 0;
 				border-right: 0;
 				border-left: 0;
-				border-radius: 0;
+				.border-radius(0);
 				box-shadow: none;
 				&:focus + label {
 					font-weight: 300;
@@ -1211,7 +1218,7 @@ h1{
 	background-color: #f9f9f9;
 	padding-top:25px;
 	padding-bottom:25px;
-	.catalogo{
+	.catalog{
 		text-align: center;
 		margin-top: 30px;
 		@media (min-width: 768px){
@@ -1364,7 +1371,7 @@ h1{
 		background-color: #fff;
 		margin-top: 0;
 		margin-bottom: 25px;
-		border-radius: 4px;
+		.border-radius(4px);
 		padding: 30px 0;
 		.profile-userpic{
 			padding: 0 15px;
@@ -1412,7 +1419,7 @@ h1{
 			color: @basecolor;
 			font-size:13px;
 			margin-right: 5px;
-			border-radius: 25px;
+			.border-radius(25px);
 			&.active{
 				background-color: @basecolor;
 				color: #fff;
@@ -1493,7 +1500,7 @@ h1{
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;
+	.border-radius(3px);
   text-align: center;
 }
 
@@ -1502,7 +1509,7 @@ h1{
 }
 .owl-theme .owl-controls .owl-page span {
     background-color: #000;
-    border-radius: 20px;
+	.border-radius(20px);
     display: block;
     height: 12px;
     margin: 5px 7px;

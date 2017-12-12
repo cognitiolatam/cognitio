@@ -42,33 +42,7 @@
     #status {width:207px;height:207px;position:absolute;left:50%;top:50%;background-image:url(images/loading2.gif);background-repeat:no-repeat;background-position:center top;margin:-105px 0 0 -105px;}
 </style>
 <div id="preloader"><div id="status"></div></div>
-<nav class="navbar navbar-default navbar-fixed-top" id="menu">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-sm-2">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!--<a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>-->
-                    <a class="navbar-brand" href="index.html"><img src="images/logo2.png" class="logo-img" style="height: 46px"></a>
-                </div>
-            </div>
-            <div class="col-md-10 col-sm-10">
-                <div class="menu-xs">
-                    <div class="collapse navbar-collapse" id="menu-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="index.html" class="modal-ingresar" style="border-right: 0px;">Volver</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
+<div id="menu-content"></div>
 <div class="separator">
     <div class="container">
         <div class="row">
@@ -89,7 +63,7 @@
                                 <fieldset class="form-group">
                                     <input type="text" class="form-control" id="name">
                                     <label for="name">Nombre</label>
-                                    <div class="label-error email-error hidden">Ingresa un email</div>
+                                    <div class="label-error name-error hidden">Ingresa tu Nombre</div>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <input type="text" class="form-control" id="surname">
@@ -155,6 +129,12 @@
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
 
+        $('input').on('change', function () {
+            if($(this).val() != ''){
+                $(this).addClass('label-up');
+            }
+        }).change();
+
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : '877049032448024',
@@ -202,85 +182,76 @@
           console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         }*/
 
-        $('input').on('change', function () {
-            if($(this).val() != ''){
-                $(this).addClass('label-up');
-            }
-        }).change();
-
         /*Validacion*/
-        $(function () {
-            $('#createForm').submit(function(event){
-                event.preventDefault();
+        var _validateForm = $(function () {
+            var error;
+            $("#name").removeClass('input-error');
+            $("#surname").removeClass('input-error');
+            $("#email").removeClass('input-error');
+            $("#password").removeClass('input-error');
+            $("#password2").removeClass('input-error');
 
-                $("#name").removeClass('input-error');
-                $("#surname").removeClass('input-error');
-                $("#email").removeClass('input-error');
-                $("#password").removeClass('input-error');
-                $("#password2").removeClass('input-error');
+            $(".name-error").addClass('hidden');
+            $(".surname-error").addClass('hidden');
+            $(".email-error").addClass('hidden');
+            $(".pass-error").addClass('hidden');
+            $(".pass2-error").addClass('hidden');
 
-                $(".name-error").addClass('hidden');
-                $(".surname-error").addClass('hidden');
-                $(".email-error").addClass('hidden');
-                $(".pass-error").addClass('hidden');
-                $(".pass2-error").addClass('hidden');
+            var data = new Object();
 
-                var data = new Object();
+            data.name = $("#name").val();
+            data.surname = $("#surname").val();
+            data.email = $("#email").val();
+            data.pass = $("#password").val();
+            data.pass2 = $("#password2").val();
+            error = false;
 
-                data.name = $("#name").val();
-                data.surname = $("#surname").val();
-                data.email = $("#email").val();
-                data.pass = $("#password").val();
-                data.pass2 = $("#password2").val();
-                var error = false;
+            if(data.name == ''){
+                $("#name").addClass("input-error");
+                $(".name-error").removeClass('hidden');
+                error = true;
+            }
+            if(data.surname == ''){
+                $("#surname").addClass("input-error");
+                $(".surname-error").removeClass('hidden');
+                error = true;
+            }
+            if(data.email == ''){
+                $("#email").addClass("input-error");
+                $(".email-error").removeClass('hidden');
+                error = true;
+            }
+            if(data.pass == ''){
+                $("#password").addClass("input-error");
+                $(".pass-error").removeClass('hidden');
+                error = true;
+            }
+            if(data.pass2 == ''){
+                $("#password2").addClass("input-error");
+                $(".pass2-error").removeClass('hidden');
+                error = true;
+            }
+            if(data.pass != data.pass2){
+                $("#password2").addClass("input-error");
+                $(".pass2-error").removeClass('hidden');
+                var error = true;
+            }
+            if(!error){
+                $('.error-general').removeClass('hidden');
+            }
+            return !error;
+        })
 
-                if(data.name == ''){
-                    $("#name").addClass("input-error");
-                    $(".name-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(data.surname == ''){
-                    $("#surname").addClass("input-error");
-                    $(".surname-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(data.email == ''){
-                    $("#email").addClass("input-error");
-                    $(".email-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(data.pass == ''){
-                    $("#password").addClass("input-error");
-                    $(".pass-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(data.pass2 == ''){
-                    $("#password2").addClass("input-error");
-                    $(".pass2-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(data.pass != data.pass2){
-                    $("#password2").addClass("input-error");
-                    $(".pass2-error").removeClass('hidden');
-                    var error = true;
-                }
-                if(error == false){
-//                    var _registerUser = function() {
-//                        console.log("Registering new user...");
-//                        _createUser();
-//                    };
-//                    $('#error-general').removeClass('hidden');
-                    console.log("Registering new user...");
-                    bootbox.alert({
+        var _registerUser = function(){
+            if(_validateForm()) {
+                _createUser();
+                bootbox.alert({
                         title: "&nbsp;",
-                        message: '<div style="text-align: center">Se ha registrado con éxito. Inicie sesión, por favor</div>',
+                        message: '<div style="text-align: center">Se ha registrado con éxito.</div>',
                         className: 'modal-aprentio'
                     });
-                    _createUser();
-                }
-
-            })
-        })
+            }
+        };
 
     });
 

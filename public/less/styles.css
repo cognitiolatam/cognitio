@@ -123,14 +123,14 @@ ul {
   padding: 5px 10px;
   font-size: 15px;
 }
-.datos-estrellas li {
+.data-stars li {
   padding-right: 0;
   padding-left: 0;
 }
-.datos-estrellas .glyphicon-star {
+.data-stars .glyphicon-star {
   font-size: 16px;
 }
-.datos-estrellas .glyphicon-star.full {
+.data-stars .glyphicon-star.full {
   color: #fbd00a;
 }
 h1 {
@@ -172,7 +172,7 @@ h1 {
   border-right: 0;
   border-left: 0;
   font-weight: 700;
-  border-radius: 0px;
+  border-radius: 0;
 }
 .aprentio-tabs.nav-tabs > li > a {
   background-color: transparent;
@@ -181,7 +181,7 @@ h1 {
   border-right: 0;
   border-left: 0;
   border-bottom: 2px solid #cc9bfe;
-  border-radius: 0px;
+  border-radius: 0;
 }
 .shadow {
   -moz-box-shadow: 0 0 8px #d6d6d6;
@@ -299,7 +299,7 @@ h1 {
     float: right;
   }
 }
-#menu .navbar-menu .ver-catalogo a {
+#menu .navbar-menu .catalog a {
   border: 1px solid #a751fe;
   border-radius: 4px;
   color: #a751fe;
@@ -409,34 +409,34 @@ h1 {
   background-color: transparent;
   border: 0;
 }
-#destacados-home {
+#featured-home {
   background-color: #fff;
   padding-top: 40px;
   padding-bottom: 40px;
   position: relative;
 }
 @media (min-width: 768px) {
-  #destacados-home {
+  #featured-home {
     padding-top: 60px;
     padding-bottom: 60px;
   }
 }
-#destacados-home h1 {
+#featured-home h1 {
   margin-bottom: 50px;
   color: #a751fe;
 }
 @media (min-width: 768px) {
-  #destacados-home h1 {
+  #featured-home h1 {
     margin-bottom: 60px;
   }
 }
-#destacados-home .prof {
+#featured-home .prof {
   font-size: 18px;
   max-width: 185px;
   margin: 0 auto;
   position: relative;
 }
-#destacados-home .prof .overlay {
+#featured-home .prof .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -451,12 +451,12 @@ h1 {
   border-radius: 50%;
   width: 184px;
 }
-#destacados-home .prof:hover .overlay {
+#featured-home .prof:hover .overlay {
   height: 100%;
   opacity: 1;
   width: 184px;
 }
-#destacados-home .prof .caption {
+#featured-home .prof .caption {
   color: white;
   font-size: 20px;
   position: absolute;
@@ -467,36 +467,36 @@ h1 {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
-#destacados-home .prof .nombre {
+#featured-home .prof .name {
   color: #fff;
   font-size: 18px;
   margin-bottom: 15px;
   margin-top: 20px;
 }
-#destacados-home .prof .materia {
+#featured-home .prof .subject {
   font-size: 16px;
   color: #fff;
   margin-bottom: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
-#destacados-home .prof a:hover {
+#featured-home .prof a:hover {
   text-decoration: none;
 }
-#destacados-home .prof a:focus {
+#featured-home .prof a:focus {
   text-decoration: none;
 }
-#destacados-home .prof .thumbnail {
+#featured-home .prof .thumbnail {
   padding: 15px;
 }
-#destacados-home #owl-demo .item {
+#featured-home #owl-demo .item {
   padding: 0;
   border: 0;
   margin-right: 15px;
   margin-left: 15px;
   margin-bottom: 40px;
 }
-#como-funciona {
+#how-works {
   padding-top: 40px;
   padding-bottom: 70px;
   position: relative;
@@ -505,35 +505,35 @@ h1 {
   background-color: #a751fe;
 }
 @media (min-width: 768px) {
-  #como-funciona {
+  #how-works {
     padding-top: 50px;
     padding-bottom: 80px;
   }
 }
 @media (min-width: 992px) {
-  #como-funciona {
+  #how-works {
     text-align: left;
   }
 }
-#como-funciona h1 {
+#how-works h1 {
   margin-bottom: 10px;
   text-align: center;
   color: #fff;
 }
 @media (min-width: 768px) {
-  #como-funciona h1 {
+  #how-works h1 {
     margin-bottom: 20px;
   }
 }
-#como-funciona .funcionamiento {
+#how-works .how {
   font-size: 17px;
 }
 @media (min-width: 992px) {
-  #como-funciona .funcionamiento {
+  #how-works .how {
     padding-top: 40px;
   }
 }
-#como-funciona .funcionamiento ul li {
+#how-works .how ul li {
   vertical-align: top;
   margin-right: 0;
   text-align: center;
@@ -542,69 +542,69 @@ h1 {
   margin-bottom: 20px;
 }
 @media (min-width: 768px) {
-  #como-funciona .funcionamiento ul li {
+  #how-works .how ul li {
     margin-right: 30px;
     width: 30%;
   }
 }
-#como-funciona .funcionamiento ul li:not:first-child {
+#how-works .how ul li:not:first-child {
   margin-left: 0;
 }
 @media (min-width: 768px) {
-  #como-funciona .funcionamiento ul li:not:first-child {
+  #how-works .how ul li:not:first-child {
     margin-left: 30px;
   }
 }
-#como-funciona .funcionamiento .num {
+#how-works .how .num {
   color: rgba(255, 255, 255, 0.9);
   font-size: 100px;
   opacity: .2;
   font-weight: 700;
   letter-spacing: -7px;
 }
-#como-funciona .home-pc {
+#how-works .home-pc {
   position: absolute;
   left: -350px;
   top: 120px;
 }
 @media (min-width: 992px) {
-  #como-funciona .home-pc {
+  #how-works .home-pc {
     left: -325px;
   }
 }
 @media (min-width: 1200px) {
-  #como-funciona .home-pc {
+  #how-works .home-pc {
     left: -265px;
   }
 }
-#infografia {
+#infography {
   background-color: #f9f9f9;
   padding-top: 40px;
   padding-bottom: 80px;
   text-align: center;
 }
 @media (min-width: 768px) {
-  #infografia {
+  #infography {
     padding-top: 60px;
     padding-bottom: 200px;
     text-align: left;
   }
 }
-#infografia h1 {
+#infography h1 {
   margin-bottom: 50px;
 }
-#infografia h1 span {
+#infography h1 span {
   color: #a751fe;
 }
-#infografia .nosotros {
+#infography .nosotros {
   margin-top: 80px;
 }
-#infografia .nosotros .nombre {
+#infography .nosotros .nombre {
   font-size: 16px;
   margin-bottom: 5px;
   margin-top: 5px;
 }
-#infografia .nosotros .puesto {
+#infography .nosotros .puesto {
   font-size: 16px;
   color: #a751fe;
 }
@@ -835,6 +835,9 @@ h1 {
   font-size: 13px;
   margin-bottom: 20px;
   margin-top: 20px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (min-width: 768px) {
   #profesores-result #professorsList .prof .nombre {
@@ -844,14 +847,16 @@ h1 {
 #profesores-result #professorsList .prof .materia {
   color: #a751fe;
   margin-bottom: 10px;
-  max-height: 50px;
+  height: 20px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 #profesores-result #professorsList .prof .ubicacion {
   color: #343434;
   margin-bottom: 10px;
-  max-height: 50px;
+  height: 40px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 #profesores-result #professorsList .prof .precio {
   color: #a751fe;
@@ -873,12 +878,12 @@ h1 {
 }
 #profesores-result #professorsList .prof .thumbnail {
   border: 0;
-  border-radius: 0px;
+  border-radius: 0;
 }
 #profesores-result #professorsList .prof .caption {
   padding: 0;
 }
-#profesores-result #professorsList .prof .datos-estrellas {
+#profesores-result #professorsList .prof .data-stars {
   margin-left: 5px;
 }
 #profesores-result #professorsList.detail-view .prof {
@@ -911,11 +916,11 @@ h1 {
     display: block;
   }
 }
-#profesores-result #professorsList.detail-view .prof .datos-estrellas {
+#profesores-result #professorsList.detail-view .prof .data-stars {
   display: none;
 }
 @media (min-width: 768px) {
-  #profesores-result #professorsList.detail-view .prof .datos-estrellas {
+  #profesores-result #professorsList.detail-view .prof .data-stars {
     display: block;
     margin-left: 5px;
   }
@@ -1005,7 +1010,7 @@ h1 {
 #filters_xs .panel,
 #filters_xs .panel-group {
   margin-bottom: 0px;
-  border-radius: 0px;
+  border-radius: 0;
 }
 #filters_xs .panel .panel-title,
 #filters_xs .panel-group .panel-title {
@@ -1038,12 +1043,6 @@ h1 {
 #profesor-result .profesor-details ul li {
   vertical-align: middle;
 }
-#profesor-result .profesor-details .nombre {
-  font-size: 22px;
-}
-#profesor-result .profesor-details .materia {
-  font-size: 22px;
-}
 #profesor-result .profesor-details .nom-mat {
   width: 100%;
 }
@@ -1052,18 +1051,22 @@ h1 {
     width: auto;
   }
 }
-#profesor-result .profesor-details .estrellas-content {
+#profesor-result .profesor-details .nom-mat .name,
+#profesor-result .profesor-details .nom-mat .subject {
+  font-size: 22px;
+}
+#profesor-result .profesor-details .stars-content {
   float: none;
   margin-top: 30px;
   width: 100%;
 }
 @media (min-width: 768px) {
-  #profesor-result .profesor-details .estrellas-content {
+  #profesor-result .profesor-details .stars-content {
     float: right;
     width: auto;
   }
 }
-#profesor-result .profesor-details .estrellas-content .datos-estrellas .glyphicon-star {
+#profesor-result .profesor-details .stars-content .data-stars .glyphicon-star {
   font-size: 22px;
 }
 #profesor-result .profesor-details .detail {
@@ -1224,16 +1227,16 @@ h1 {
   padding-top: 25px;
   padding-bottom: 25px;
 }
-#catalogo-result .catalogo {
+#catalogo-result .catalog {
   text-align: center;
   margin-top: 30px;
 }
 @media (min-width: 768px) {
-  #catalogo-result .catalogo {
+  #catalogo-result .catalog {
     text-align: left;
   }
 }
-#catalogo-result .catalogo li {
+#catalogo-result .catalog li {
   padding: 10px 5px;
   width: 130px;
   height: 160px;
@@ -1245,14 +1248,14 @@ h1 {
   vertical-align: top;
 }
 @media (min-width: 768px) {
-  #catalogo-result .catalogo li {
+  #catalogo-result .catalog li {
     font-size: 15px;
     width: 174px;
     padding: 20px;
     height: 185px;
   }
 }
-#catalogo-result .catalogo li p {
+#catalogo-result .catalog li p {
   margin-top: 10px;
 }
 #footer {
