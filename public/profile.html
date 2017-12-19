@@ -92,8 +92,11 @@
                     <div class="profile-usermenu">
                         <ul class="nav">
                             <li>
+                                <a href="Javascript:void(0);" class="mis-anuncios">
+                                    <span class="icon-home"></span> Mis anuncios </a>
+                            </li>                            <li>
                                 <a href="Javascript:void(0);" class="mis-clases">
-                                    <span class="icon-home"></span> Mis Clases </a>
+                                    <span class="icon-classes"></span> Calendario </a>
                             </li>
                             <li>
                                 <a href="Javascript:void(0);" class="notifications">
@@ -101,13 +104,14 @@
                             </li>
                             <li>
                                 <a href="Javascript:void(0);" class="settings">
-                                    <span class="icon-config"></span> Configuración Perfil </a>
+                                    <span class="icon-config"></span> Configuración perfil </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-9 text-left">
+                <div id="profesores-lista"></div>
                 <div id="admin-classes"></div>
                 <div id="admin-notifications"></div>
                 <div id="admin-profile"></div>
@@ -125,6 +129,8 @@
 
 <script src="js/models/users.js"></script>
 <script src="js/controllers/users.js"></script>|
+<script src="js/models/lessons.js"></script>
+<script src="js/controllers/lessons.js"></script>|
 
 <script>
     $(document).ready(function() {
@@ -136,6 +142,26 @@
         $('#menu-include').load('includes/menu.html');
         $('#footer-include').load('includes/footer.html');
         $('#admin-profile').load('admin-profile.html');
+        $('#professors-list').load('profesores-lista.html');
+
+        $('.mis-anuncios').click(function(e){
+            e.preventDefault();
+            var href = this.href;
+
+            $.ajax({
+                type: "GET",
+                url: "profesores-lista.html?id=",
+                data: { },
+                success: function(data){
+                    $('#profesores-lista').html(data).show();
+                    $('#admin-classes').hide();
+                    $('#admin-notifications').hide();
+                    $('#admin-profile').hide();
+                }
+            });
+
+            return false;
+        });
 
         $('.mis-clases').click(function(e){
             e.preventDefault();

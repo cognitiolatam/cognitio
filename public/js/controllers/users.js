@@ -26,6 +26,8 @@ function _parseLoginUserData(result) {
 
 function _parseGetUser(result) {
     console.log("User retrieved: ", result);
+    Models = {};
+    Models.user = result;
     $("#nombre").val(result.firstname);
     $("#apellido").val(result.lastname);
     $("#email").val(result.email);
