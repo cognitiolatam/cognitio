@@ -77,6 +77,7 @@
                                 </div>
                                 <div class="forget-account text-center">
                                     <a href="#">Olvidé mi cuenta</a><br>
+                                    <a href="#">Olvidé mi contraseña</a><br>
                                     <a href="create-account.html">Registrarme</a>
                                 </div>
                             </form>
@@ -184,7 +185,7 @@
             error = true;
         }
         if(data.pass == ''){
-            $("#pass").addClass("input-error");
+            $("#password").addClass("input-error");
             $(".pass-error-empty").removeClass('hidden');
             error = true;
         }
@@ -197,7 +198,7 @@
     var _loginUser = function(){
         if(_validateForm()) {
             _userLogin($("#email").val(),$("#password").val());
-//            window.location.href = 'profesores.html'
+            //window.location = 'index.html'
         }
     };
 </script>

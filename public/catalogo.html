@@ -58,9 +58,12 @@
         <div class="row line-b">
             <div class="col-md-3 col-md-offset-9">
                 <div>
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Buscar">
+                    <form class="navbar-form search-menu">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-search" placeholder="Buscar">
+                            <span class="input-group-btn btn-search">
+                              <button class="btn btn-default form-search" type="button"><span class="icon-search"></span></button>
+                            </span>
                         </div>
                     </form>
                 </div>
@@ -70,108 +73,108 @@
             <div class="col-md-12">
                 <ul class="list-inline catalog">
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Matemática</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Música</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Lengua y Literatura</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Lengua</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Análisis Matemático</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Inglés</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Historia</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Ingeniería Software</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Marketing</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Ciencia Sociales</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Dibujo</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Programación Web</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Diseño Web</p>
-                        </div>
+                        </a>
                     </li>
                 </ul>
                 <nav class="text-center">
@@ -205,6 +208,10 @@
 
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
+
+        $('a').click(function(){
+            window.location = 'profesores.html'
+        })
     });
 </script>
 </body>
