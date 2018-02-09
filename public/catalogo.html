@@ -73,7 +73,7 @@
             <div class="col-md-12">
                 <ul class="list-inline catalog">
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="matematica">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -81,7 +81,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="musica">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -89,7 +89,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="lenguayliteratura">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -97,7 +97,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="lengua">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -105,7 +105,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="analisis">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -113,7 +113,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="ingles">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -121,7 +121,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="historia">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -129,7 +129,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="ingenieriasoft">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -137,7 +137,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="marketing">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -145,7 +145,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="cenciasoc">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -153,7 +153,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="dibujo">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -161,7 +161,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="programacionweb">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -169,7 +169,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-subject="disenioweb">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
@@ -196,10 +196,17 @@
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 
-<!-- Init functions -->
-<script src="js/init.js" type="text/javascript"></script>
+<!-- Models & Controllers-->
+<script src="js/models/subjects.js"></script>
+<script src="js/models/professors.js"></script>
+<script src="js/controllers/subjects.js"></script>
+<script src="js/controllers/professors.js"></script>
 
 <script type="text/javascript">
+    var Models = window.cognitio = {
+            "professors":{}
+      };
+
     $(document).ready(function() {
         $(window).bind("load", function () {
             $("#status").fadeOut();
@@ -209,9 +216,16 @@
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
 
-        $('a').click(function(){
-            window.location = 'profesores.html'
+
+        $('.catalog li a').click(function(e){
+            e.preventDefault();
+            _loadProfessors($(this));
         })
+
+        function _loadProfessors(that) {
+          location.href='profesores.html?&subject=' + that.data('subject');
+        }
+
     });
 </script>
 </body>

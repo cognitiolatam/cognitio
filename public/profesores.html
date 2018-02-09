@@ -357,10 +357,9 @@
           /**init functions**/
 
           _getAllLessons(urlParams);
-
-
           portfolioSort();
           changeViewProfesor();
+          //showFilter(urlParams);
 
           function portfolioSort(){
               var $grid = $('.grid').isotope({
@@ -424,11 +423,15 @@
           }
 */
           $('.filter').on('click', function() {
-              var id = $(this).parent().attr('data-id');
-              $('.selected .list-inline').append('<li><div data-id="'+id+'" class="option-selected"><h6>'+$(this).text()+'</h6><div class="close_icon"></div></div></li>')
-              $(this).parent().hide();
-              getFilters();
+              showFilter($(this));
           });
+
+          function showFilter(that){
+              var id = that.parent().attr('data-id');
+              $('.selected .list-inline').append('<li><div data-id="'+id+'" class="option-selected"><h6>'+that.text()+'</h6><div class="close_icon"></div></div></li>')
+              that.parent().hide();
+              //getFilters();
+          }
 
 
           $('.selected .list-inline').on('click', '.close_icon', function () {
