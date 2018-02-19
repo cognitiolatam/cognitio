@@ -178,7 +178,7 @@ var self = {
                     self.Subject.create({
                         name: 'Algoritmos',
                         description: 'Algoritmos y estructura de datos',
-                        type: 'Informáticas',
+                        type: 'Informaticas',
                         numberOfhits: 12
                     }).then(function (subject) {
                         self.SubjectProfessor.create({
@@ -255,13 +255,13 @@ var self = {
             self.Subject.create({
                 name: 'Guitarra',
                 description: 'Guitarra',
-                type: 'Arte',
+                type: 'Artisticas',
                 numberOfhits: 43
             });
             self.Subject.create({
                 name: 'Piano',
                 description: 'Piano',
-                type: 'Arte',
+                type: 'Artisticas',
                 numberOfhits: 43
             });
             self.Subject.create({
@@ -273,7 +273,7 @@ var self = {
             self.Subject.create({
                 name: 'Sociales',
                 description: 'Cs. Sociales',
-                type: 'Humanidades',
+                type: 'Sociales',
                 numberOfhits: 43
             });
             self.Subject.create({

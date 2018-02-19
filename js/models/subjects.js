@@ -9,7 +9,7 @@ var self = {
 			},
 			type: {
 				type: Sequelize.ENUM,
-				values: ['Exactas','Sociales','Naturales','Artísticas','Diseño','Informáticas','Tecnológicas']
+				values: ['Exactas','Lenguajes','Sociales','Naturales','Artisticas','Diseño','Informaticas','Tecnologicas','Ciencia']
 			},
 			numberOfhits: {
 				type: Sequelize.INTEGER
