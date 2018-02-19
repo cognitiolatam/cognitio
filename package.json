@@ -12,8 +12,8 @@
   "dependencies": {
     "async": "2.3.0",
     "body-parser": "^1.17.1",
-    "ejs": "2.4.1",
     "express": "4.13.3",
+    "express-session": "^1.15.6",
     "pg": "6.x",
     "sequelize": "^3.30.4"
   },
@@ -35,6 +35,5 @@
     "grunt": "^1.0.1",
     "grunt-contrib-less": "^1.4.1",
     "grunt-contrib-watch": "^1.0.0"
-  },
-  "author": "Ivana Leikin"
+  }
 }

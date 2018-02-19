@@ -144,27 +144,27 @@ var self = {
 		const forc = true; //IMPORTANT: CHANGE TO FALSE BEFORE GOING INTO PROD.
 		conn.sync({force: forc}).then(function () {
             self.User.create({
-				firstname: 'Roberto',
-				lastname: 'Garciarena',
-				address: 'Av. Scalabrini 382, Buenos Aires, Argentina',
-				birthDate: new Date((new Date()).getTime() + 460000000),
-				highSchoolStudies: 'Bachiller Pellegrini',
-				universitaryStudies: 'Contador UBA',
-				dni: 12121212,
-				fbid: '21212121',
-				token: 'tokenTest',
+                firstname: 'Roberto',
+                lastname: 'Garciarena',
+                address: 'Av. Scalabrini 382, Buenos Aires, Argentina',
+                birthDate: new Date((new Date()).getTime() + 460000000),
+                highSchoolStudies: 'Bachiller Pellegrini',
+                universitaryStudies: 'Contador UBA',
+                dni: 12121212,
+                fbid: '21212121',
+                token: 'tokenTest',
                 email: 'b@a.com',
                 passwordmd5: '827ccb0eea8a706c4c34a16891f84e7b'
-			}).then(function (user) {
+            }).then(function (user) {
                 self.Professor.create({
                     userid: user.dataValues.id,
                     cuil: 20121212129,
-                    individualPrice:100,
+                    individualPrice: 100,
                     groupPrice: 200
                 }).then(function (professor) {
                     self.Subject.create({
-                        name: 'Matematicas',
-                        description: 'Matematicas de secundario',
+                        name: 'MatematicaS',
+                        description: 'Matemáticas de secundario',
                         type: 'Exactas',
                         numberOfhits: 45
                     }).then(function (subject) {
@@ -176,8 +176,8 @@ var self = {
                     });
 
                     self.Subject.create({
-                        name: 'Algoritmos y estructura de datos',
-                        description: 'UBA y UTN',
+                        name: 'Algoritmos',
+                        description: 'Algoritmos y estructura de datos',
                         type: 'Informáticas',
                         numberOfhits: 12
                     }).then(function (subject) {
@@ -201,19 +201,19 @@ var self = {
                 dni: 34343434,
                 fbid: '43434343',
                 token: 'tokenTest',
-				email: 'a@a.com',
-				passwordmd5: '81dc9bdb52d04dc20036dbd8313ed055'
+                email: 'a@a.com',
+                passwordmd5: '81dc9bdb52d04dc20036dbd8313ed055'
             }).then(function (user) {
                 self.Professor.create({
                     userid: user.dataValues.id,
                     cuil: 27343434349,
-                    individualPrice:120,
+                    individualPrice: 120,
                     groupPrice: 180
                 }).then(function (professor) {
 
                     self.Subject.create({
                         name: 'Matematica',
-                        description: 'CBC',
+                        description: 'Matemáticas universitario',
                         type: 'Exactas',
                         numberOfhits: 43
                     }).then(function (subject) {
@@ -222,14 +222,14 @@ var self = {
                             subjectid: subject.dataValues.id,
                             description: 'Cursada y aprobada con 9'
                         });
-						self.Lesson.create({
-							professorid: 1,
-							subjectid: subject.dataValues.id,
-							price: 200,
-							description: 'Descripcion de la primer clase',
-							address: "Alberto Saraza 334, Capital Federal",
-							availability: "LUN A VIE DE 13 a 15"
-						});
+                        self.Lesson.create({
+                            professorid: 1,
+                            subjectid: subject.dataValues.id,
+                            price: 200,
+                            description: 'Descripcion de la primer clase',
+                            address: "Alberto Saraza 334, Capital Federal",
+                            availability: "LUN A VIE DE 13 a 15"
+                        });
                         self.Lesson.create({
                             professorid: 2,
                             subjectid: subject.dataValues.id,
@@ -246,11 +246,43 @@ var self = {
                             address: "Salto 1123, Paraná, Entre Rios",
                             availability: "Dom de 15 a 21"
                         });
-					});
+                    });
 
-                    if(log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
+                    if (log) console.log('\x1b[32m', "[GENERAL] TEST DATA: Created Professor. ID: " + professor.id, '\x1b[0m');
                 });
             });
+
+            self.Subject.create({
+                name: 'Guitarra',
+                description: 'Guitarra',
+                type: 'Arte',
+                numberOfhits: 43
+            });
+            self.Subject.create({
+                name: 'Piano',
+                description: 'Piano',
+                type: 'Arte',
+                numberOfhits: 43
+            });
+            self.Subject.create({
+                name: 'Lengua',
+                description: 'Lengua y literatura',
+                type: 'Lenguajes',
+                numberOfhits: 43
+            });
+            self.Subject.create({
+                name: 'Sociales',
+                description: 'Cs. Sociales',
+                type: 'Humanidades',
+                numberOfhits: 43
+            });
+            self.Subject.create({
+                name: 'Quimica',
+                description: 'Química',
+                type: 'Ciencia',
+                numberOfhits: 43
+            });
+
 
 			if(log) console.log('\x1b[32m', "[DB] MODELS: Tables dropped and recreated.",'\x1b[0m');
         });

@@ -1,6 +1,7 @@
 /*--------------------Initial Setup----------------------------------------*/
 /*-------------------------------------------------------------------------*/
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
 const db = require('./js/db');
@@ -8,6 +9,7 @@ const pg = require('pg');
 const controllers = require('./js/controllers');
 const async = require('async');
 const seq = require('sequelize');
+
 /*Enable or disable Log entries*/
 const log = true;
 const testData = true;
@@ -17,6 +19,7 @@ const testData = true;
 /*-------------------------------------------------------------------------*/
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public')); /*---static root---*/
+app.use(session({secret: 'aapprreennttiioo'}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.listen(app.get('port'), function() {
@@ -38,7 +41,14 @@ controllers._setupControllers(db, async, log);
 /*-------------------------------------------------------------------------*/
 app.use(function(req, res, next){
 	if(log) console.log('[GENERAL] General stuff before execute the response here..');
-	next();
+    sess = req.session;
+    if(sess.email) {
+        //res.redirect('/index.html');
+    } else {
+        //res.redirect('/login.html');
+    }
+    console.log(sess);
+    next();
 });
 
 
@@ -46,7 +56,9 @@ app.use(function(req, res, next){
 /*-------------------------------------------------------------------------*/
 app.get('/', function(request, response) {
 	if(log) console.log('[GENERAL] Request main page...');
-	response.redirect('/index.html');
+    sess = req.session;
+    console.log(sess);
+    response.redirect('/index.html');
 });
 
 
@@ -57,6 +69,9 @@ app.get('/', function(request, response) {
 app.route('/login')
     .post(function(request, response, next) {
         if(log) console.log("[REQUEST] /login POST. Username: ", request.body.username);
+        sess = request.session;
+        sess.email=request.body.email;
+        console.log("[SESSION MANAGEMENT] LOGIN TESTING....: ",sess,sess.email);
         controllers.User._login(request.body, response);
     });
 
