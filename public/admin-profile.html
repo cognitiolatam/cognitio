@@ -2,13 +2,14 @@
     <div class="clearfix">
         <h3>Configuración Perfil</h3>
         <ul class="nav nav-tabs pull-right aprentio-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">Información Personal</a></li>
-            <li role="presentation"><a href="#studies" aria-controls="studies" role="tab" data-toggle="tab">Estudios</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Privacidad</a></li>
+            <li role="presentation" class="active"><a href="#info-profile" aria-controls="profile" role="tab" data-toggle="tab">Información Personal</a></li>
+            <li role="presentation"><a href="#classes" aria-controls="classes" role="tab" data-toggle="tab">Configuración Clases</a></li>
+            <!--<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Privacidad</a></li>-->
         </ul>
     </div>
+    <div class="text-right" id="edit" style="margin: 20px 0"><span class="glyphicon glyphicon-pencil" style="cursor: pointer;"></span></div>
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="profile2">
+        <div role="tabpanel" class="tab-pane active" id="info-profile">
             <form>
                 <div class="form-inline">
                     <div class="form-group medium">
@@ -26,8 +27,8 @@
                         <input type="text" class="form-control" id="dni">
                     </div>
                     <div class="form-group small">
-                        <div><label for="exampleInputName2">CUIL</label></div>
-                        <input type="text" class="form-control" id="exampleInputName2">
+                        <div><label for="cuil">CUIL</label></div>
+                        <input type="text" class="form-control" id="cuil">
                     </div>
                     <div class="form-group small">
                         <div><label for="fec-nac">Fecha Nacimiento</label></div>
@@ -44,19 +45,45 @@
                         <input type="text" class="form-control" id="ciudad">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-aprentio btn-small">Guardar</button>
-            </form>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="studies">
-            <form>
                 <div class="form-inline">
                     <div class="form-group medium">
                         <div><label for="estudios">Estudios/Carrera</label></div>
                         <input type="text" class="form-control" id="estudios">
                     </div>
+                </div>
+                <div class="form-inline">
                     <div class="form-group medium">
-                        <div><label for="materias">Materias</label></div>
-                        <input type="text" class="form-control" id="materias">
+                        <label for="servicio">Subir un servicio</label>
+                        <input type="file" id="servicio">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-aprentio btn-small">Guardar</button>
+            </form>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="classes">
+            <form>
+                <div class="form-inline">
+                    <div class="form-group medium">
+                        <div><label for="materias">Seleccione la/s Materia/s que desee enseñar</label></div>
+                        <select multiple="multiple" id="materias">
+                            <option value="1">Matemática</option>
+                            <option value="2">Lengua</option>
+                            <option value="3">Historia</option>
+                            <option value="4">Inglés</option>
+                            <option value="5">Música</option>
+                            <option value="6">Álgebra</option>
+                            <option value="7">Computación</option>
+                            <option value="8">Alemán</option>
+                            <option value="9">Arte</option>
+                            <option value="10">Redes</option>
+                            <option value="11">Derecho</option>
+                            <option value="12">Psicología</option>
+                        </select>
+                        <div style="margin-top: 10px;"><small>Si no encuentra la/s materia/s que busca, haga click <a href="#" class="addclasses">aquí</a></small></div>
+                    </div>
+                    <div class="form-group medium">
+                        <div><label for="radio">Radio ubicación</label></div>
+                        <input type="text" class="form-control" id="radio">
                     </div>
                 </div>
                 <div class="form-inline">
@@ -70,9 +97,158 @@
                     </div>
                 </div>
                 <div class="form-inline">
+                    <div class="form-group medium">
+                        <div><label for="horarios">Horarios</label></div>
+                    </div>
+                </div>
+                <div>
                     <div class="form-group">
-                        <label for="servicio">Subir un servicio</label>
-                        <input type="file" id="servicio">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Lunes</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Martes</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Miércoles</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Jueves</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Viernes</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Sábado</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <ul class="list-inline">
+                            <li style="width: 80px;">Domingo</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select>
+                            </li>
+                            <li>a</li>
+                            <li>
+                                <select class="form-control">
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                    <option>8:00hs</option>
+                                </select></li>
+                        </ul>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-aprentio btn-small">Guardar</button>
@@ -101,7 +277,66 @@
             /**init functions**/
             console.log(urlParams);
 
+            edit();
+            multiSelect();
+
+            $(function () {
+                $('#fec-nac').datetimepicker({
+                    format: 'DD/MM/YYYY'
+                });
+            });
+
+            function edit(){
+                 $('.form-control').prop('disabled','true');
+                $('#edit').click(function(){
+                    $('.form-control').removeAttr('disabled');
+                });
+            }
+
+            function multiSelect(){
+                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                  $('#materias').multipleSelect();
+                })
+            }
+
+            $('.addclasses').on( 'click', function(e) {
+                e.preventDefault();
+                var modal_addclasses = bootbox.dialog({
+                    title: "&nbsp;",
+                    onEscape: true,
+                    message:
+                    '<div class="content">' +   
+                    '<form id="addclass">' +
+                    '<div class="form-group">' +
+                    '<div>' +
+                    '<label for="addclasses">Agregue la/s materia/s que desee. Luego haga click en Enviar y procesaremos su solicitud</label>' +
+                    '<span><a href="#" class="addclass">+</a></span></div>' +
+                    '<input type="text" class="form-control" id="addclasses">' +
+                    '</div>' +
+                    '<div class="content-add"></div>' +
+                    '<div style="margin-top: 30px;text-align: center">' +
+                    '<button type="submit" class="btn btn-aprentio" id="btn-enviar">Enviar</button>' +
+                    '</div>' +
+                    '</form>' +
+                    '</div>',
+                    buttons: false
+                });
+                modal_addclasses.addClass("modal-aprentio");
+            });
+
+            $(document).on("shown.bs.modal", function() {
+                $('.addclass').on( 'click', function(e) {
+                    e.preventDefault();
+                    console.log('assa')
+                    $('#addclass .content-add').append('<div class="form-group">' +
+                        '<input type="text" class="form-control" id="addclasses">' +
+                        '</div>');
+                });
+            });
+
+
             _getUser(urlParams);
+            
         });
     </script>
 </div>

@@ -103,6 +103,11 @@
         </div>
     </div>
 </section>
+
+<div id="success" style="position: fixed;background-color: rgba(0,0,0,.8);width: 100%;height: 100%;top:0;display: none;">
+    <div class="alert alert-success" role="alert" style="padding:30px 15px;text-align:center;background-color:#eddbff;color: #a751fe;position: fixed;top:50%;right: 0;left:0;margin:0 auto;width: 500px;">Te has registrado con éxito!</div>
+</div>
+
 <div id="footer-content"></div>
 
 <script src="js/jquery.min.js"></script>
@@ -121,6 +126,7 @@
 <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 <script type="text/javascript">
     $(document).ready(function() {
+
         $(window).bind("load", function () {
             $("#status").fadeOut();
             $("#preloader").delay(450).fadeOut("slow");
@@ -245,13 +251,23 @@
         var _registerUser = function(){
             if(_validateForm()) {
                 _createUser();
-                bootbox.alert({
-                        title: "&nbsp;",
-                        message: '<div style="text-align: center">Se ha registrado con éxito.</div>',
-                        className: 'modal-aprentio'
-                    });
+                /*bootbox.alert({
+                    title: "&nbsp;",
+                    message: '<div style="position: fixed;background-color: rgba(0,0,0,.8);width: 100%;height: 100%;top:0">' +
+                            '<div class="alert alert-success" role="alert" style="padding:30px 15px;text-align:center;background-color:#eddbff;color: #a751fe;position: fixed;top:50%;right: 0;left:0;margin:0 auto;width: 500px;">Te has registrado con éxito!</div></div>',
+                    className: 'modal-aprentio'
+                });*/
             }
         };
+
+        /*function success() {
+            $("#success").show(); 
+            setTimeout(function() {     
+               window.location = 'index.html'
+            },7000);
+        }*/
+
+
 
     });
 

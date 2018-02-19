@@ -93,9 +93,10 @@
                    <div>
                        <!-- Nav tabs -->
                        <ul class="nav nav-tabs nav-justified aprentio-tabs" role="tablist">
-                           <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información Académica</a></li>
+                           <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información</a></li>
                            <li role="presentation"><a href="#subjects" aria-controls="subjects" role="tab" data-toggle="tab">Materias</a></li>
                            <li role="presentation"><a href="#place" aria-controls="place" role="tab" data-toggle="tab">Ubicación</a></li>
+                           <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
                        </ul>
 
                        <!-- Tab panes -->
@@ -114,6 +115,11 @@
                            <div role="tabpanel" class="tab-pane" id="place">
                                <div>
                                    <img src="images/ejemplos/mapa_ex.png" class="img-responsive" style="margin: 0 auto;">
+                               </div>
+                           </div>
+                           <div role="tabpanel" class="tab-pane" id="reviews">
+                               <div>
+                                   Lorem Ipsum
                                </div>
                            </div>
                        </div>
@@ -166,6 +172,9 @@
 
     <script>
         var urlParams;
+        var Models = window.cognitio = {
+              "professors":{}
+        };
 
         (window.onpopstate = function () {
             var match,

@@ -58,9 +58,12 @@
         <div class="row line-b">
             <div class="col-md-3 col-md-offset-9">
                 <div>
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Buscar">
+                    <form class="navbar-form search-menu">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-search" placeholder="Buscar">
+                            <span class="input-group-btn btn-search">
+                              <button class="btn btn-default form-search" type="button"><span class="icon-search"></span></button>
+                            </span>
                         </div>
                     </form>
                 </div>
@@ -70,108 +73,108 @@
             <div class="col-md-12">
                 <ul class="list-inline catalog">
                     <li>
-                        <div>
+                        <a href="#" data-subject="matematica">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Matemática</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="musica">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Música</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="lenguayliteratura">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Lengua y Literatura</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="lengua">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Lengua</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="analisis">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Análisis Matemático</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="ingles">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Inglés</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="historia">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Historia</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="ingenieriasoft">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Ingeniería Software</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="marketing">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Marketing</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="cenciasoc">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Ciencia Sociales</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="dibujo">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Dibujo</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="programacionweb">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Programación Web</p>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a href="#" data-subject="disenioweb">
                             <div>
                                 <img src="images/test.jpg">
                             </div>
                             <p>Diseño Web</p>
-                        </div>
+                        </a>
                     </li>
                 </ul>
                 <nav class="text-center">
@@ -193,10 +196,17 @@
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 
-<!-- Init functions -->
-<script src="js/init.js" type="text/javascript"></script>
+<!-- Models & Controllers-->
+<script src="js/models/subjects.js"></script>
+<script src="js/models/professors.js"></script>
+<script src="js/controllers/subjects.js"></script>
+<script src="js/controllers/professors.js"></script>
 
 <script type="text/javascript">
+    var Models = window.cognitio = {
+            "professors":{}
+      };
+
     $(document).ready(function() {
         $(window).bind("load", function () {
             $("#status").fadeOut();
@@ -205,6 +215,17 @@
 
         $('#menu-content').load('includes/menu.html');
         $('#footer-content').load('includes/footer.html');
+
+
+        $('.catalog li a').click(function(e){
+            e.preventDefault();
+            _loadProfessors($(this));
+        })
+
+        function _loadProfessors(that) {
+          location.href='profesores.html?&subject=' + that.data('subject');
+        }
+
     });
 </script>
 </body>
