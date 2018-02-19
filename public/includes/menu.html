@@ -67,7 +67,13 @@
 <script>
     $(document).ready(function(){
         $('.form-search').click(function() {
-            location.href='profesores.html';
+            //location.href='profesores.html';
         });
+
+        var login = location.search.split('login=')[1]
+        if(login){
+            $('.menu-login').show();
+            $('.menu-nologin').hide();
+        }
     })
 </script>
