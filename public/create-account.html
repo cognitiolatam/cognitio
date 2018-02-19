@@ -87,7 +87,7 @@
                                 </fieldset>
                                 <div class="hidden label-error error-general" role="alert" style="margin-bottom: 40px;">Tus datos son incorrectos</div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-aprentio">Registrarse</button><!--onclick="_registerUser()-->
+                                    <button type="button" onclick="_registerUser()" class="btn btn-aprentio">Registrarse</button>
                                 </div>
                             </form>
                             <div class="btn-sociales">
@@ -126,7 +126,6 @@
 <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 <script type="text/javascript">
     $(document).ready(function() {
-
         $(window).bind("load", function () {
             $("#status").fadeOut();
             $("#preloader").delay(450).fadeOut("slow");
@@ -167,7 +166,7 @@
                 console.log(response);
                 statusChangeCallback(response);
             });
-        }
+        };
 
         function statusChangeCallback(response) {
             // Full documentation on FB.getLoginStatus().
@@ -178,98 +177,95 @@
             } else {
                 console.log("Not logged in into FB.");
             }
-        }
-
-        /*function onSignIn(googleUser) {
-          var profile = googleUser.getBasicProfile();
-          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-          console.log('Name: ' + profile.getName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        }*/
-
-        /*Validacion*/
-        var _validateForm = $(function () {
-            var error;
-            $("#name").removeClass('input-error');
-            $("#surname").removeClass('input-error');
-            $("#email").removeClass('input-error');
-            $("#password").removeClass('input-error');
-            $("#password2").removeClass('input-error');
-
-            $(".name-error").addClass('hidden');
-            $(".surname-error").addClass('hidden');
-            $(".email-error").addClass('hidden');
-            $(".pass-error").addClass('hidden');
-            $(".pass2-error").addClass('hidden');
-
-            var data = new Object();
-
-            data.name = $("#name").val();
-            data.surname = $("#surname").val();
-            data.email = $("#email").val();
-            data.pass = $("#password").val();
-            data.pass2 = $("#password2").val();
-            error = false;
-
-            if(data.name == ''){
-                $("#name").addClass("input-error");
-                $(".name-error").removeClass('hidden');
-                error = true;
-            }
-            if(data.surname == ''){
-                $("#surname").addClass("input-error");
-                $(".surname-error").removeClass('hidden');
-                error = true;
-            }
-            if(data.email == ''){
-                $("#email").addClass("input-error");
-                $(".email-error").removeClass('hidden');
-                error = true;
-            }
-            if(data.pass == ''){
-                $("#password").addClass("input-error");
-                $(".pass-error").removeClass('hidden');
-                error = true;
-            }
-            if(data.pass2 == ''){
-                $("#password2").addClass("input-error");
-                $(".pass2-error").removeClass('hidden');
-                error = true;
-            }
-            if(data.pass != data.pass2){
-                $("#password2").addClass("input-error");
-                $(".pass2-error").removeClass('hidden');
-                var error = true;
-            }
-            if(!error){
-                $('.error-general').removeClass('hidden');
-            }
-            return !error;
-        })
-
-        var _registerUser = function(){
-            if(_validateForm()) {
-                _createUser();
-                /*bootbox.alert({
-                    title: "&nbsp;",
-                    message: '<div style="position: fixed;background-color: rgba(0,0,0,.8);width: 100%;height: 100%;top:0">' +
-                            '<div class="alert alert-success" role="alert" style="padding:30px 15px;text-align:center;background-color:#eddbff;color: #a751fe;position: fixed;top:50%;right: 0;left:0;margin:0 auto;width: 500px;">Te has registrado con éxito!</div></div>',
-                    className: 'modal-aprentio'
-                });*/
-            }
         };
-
-        /*function success() {
-            $("#success").show(); 
-            setTimeout(function() {     
-               window.location = 'index.html'
-            },7000);
-        }*/
-
-
-
     });
+
+    /*function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }*/
+
+    /*Validacion*/
+    _validateForm = function () {
+        var error;
+        $("#name").removeClass('input-error');
+        $("#surname").removeClass('input-error');
+        $("#email").removeClass('input-error');
+        $("#password").removeClass('input-error');
+        $("#password2").removeClass('input-error');
+
+        $(".name-error").addClass('hidden');
+        $(".surname-error").addClass('hidden');
+        $(".email-error").addClass('hidden');
+        $(".pass-error").addClass('hidden');
+        $(".pass2-error").addClass('hidden');
+
+        var data = new Object();
+
+        data.name = $("#name").val();
+        data.surname = $("#surname").val();
+        data.email = $("#email").val();
+        data.pass = $("#password").val();
+        data.pass2 = $("#password2").val();
+        error = false;
+
+        if(data.name == ''){
+            $("#name").addClass("input-error");
+            $(".name-error").removeClass('hidden');
+            error = true;
+        }
+        if(data.surname == ''){
+            $("#surname").addClass("input-error");
+            $(".surname-error").removeClass('hidden');
+            error = true;
+        }
+        if(data.email == ''){
+            $("#email").addClass("input-error");
+            $(".email-error").removeClass('hidden');
+            error = true;
+        }
+        if(data.pass == ''){
+            $("#password").addClass("input-error");
+            $(".pass-error").removeClass('hidden');
+            error = true;
+        }
+        if(data.pass2 == ''){
+            $("#password2").addClass("input-error");
+            $(".pass2-error").removeClass('hidden');
+            error = true;
+        }
+        if(data.pass != data.pass2){
+            $("#password2").addClass("input-error");
+            $(".pass2-error").removeClass('hidden');
+            var error = true;
+        }
+        if(!error){
+            $('.error-general').removeClass('hidden');
+        }
+        return !error;
+    };
+
+    var _registerUser = function() {
+        if(_validateForm()) {
+            _createUser();
+            /*bootbox.alert({
+                title: "&nbsp;",
+                message: '<div style="position: fixed;background-color: rgba(0,0,0,.8);width: 100%;height: 100%;top:0">' +
+                        '<div class="alert alert-success" role="alert" style="padding:30px 15px;text-align:center;background-color:#eddbff;color: #a751fe;position: fixed;top:50%;right: 0;left:0;margin:0 auto;width: 500px;">Te has registrado con éxito!</div></div>',
+                className: 'modal-aprentio'
+            });*/
+        }
+    };
+
+    /*function success() {
+        $("#success").show();
+        setTimeout(function() {
+           window.location = 'index.html'
+        },7000);
+    }*/
 
 </script>
 </body>

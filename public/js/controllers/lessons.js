@@ -6,6 +6,11 @@ function _parseGetAllLessonsData(resp) {
         console.log(resp[i]);
         _drawLessonsOverview(resp[i]);
     }
+    if(resp.length === 0)
+        _drawEmptyLessons();
+}
+function _drawEmptyLessons() {
+    $("#professorsList>.grid").append($(document.createElement('div')).css({"color":"#555","font-size":"20px","font-weight":"600","margin":"80px"}).text("No tenés ningún anuncio vigente."));
 }
 
 function _drawLessonsOverview(lesson) {
